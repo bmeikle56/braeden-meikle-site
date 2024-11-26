@@ -1,13 +1,13 @@
 import './styles.css';
 import React, { Component } from "react";
-import { motion } from "motion/react"
+import { color, motion } from "motion/react"
 // import { delay } from "motion"
 
 function Body() {
   return (
     <body>
       <AnimatedSidebar/>
-      <Title/>      
+      <Title/>  
       <EditTracker/>
       <Canvas/>
       <VDivider/>
@@ -24,20 +24,42 @@ function AnimatedSidebar() {
   )
 }
 
-function TextStack() {
-  return (
-    <div>
-      <p className='side-bar-txt'>Bio</p>
-      <p className='side-bar-txt'>Thoughts</p>
-      <p className='side-bar-txt'>Poker</p>
-    </div>
-  )
+const sideBarBtnsConfig = [
+  {title: 'Bio', className: 'side-bar-btn'},
+  {title: 'Thoughts', className: 'side-bar-btn'},
+  {title: 'Poker', className: 'side-bar-btn'},
+]
+
+const sideBarBtns = sideBarBtnsConfig.map(btn => <button 
+  style={{
+    color: 'lightgray',
+    width: '80px',
+    height: '50px',
+    backgroundColor: 'transparent',
+    border: 'none'
+  }}>
+  {btn.title}
+</button>)
+
+const sidebarStyle = {
+  zIndex: '1',
+  position: 'absolute',
+  display:'flex'
+}
+
+const sideBarBtnStyle = {
+  display: 'flex',
+  color: 'gray',
+  flexDirection: 'column',
+  justifyContent: 'center', 
+  alignItems: 'center',
+  width: '120px'
 }
 
 function Sidebar() {
   return (
-    <div className='sidebar' >
-      <TextStack/>
+    <div style={sidebarStyle}>
+      <div style={sideBarBtnStyle}>{sideBarBtns}</div>
       <HDivider/>
     </div>
   )
@@ -46,18 +68,66 @@ function Sidebar() {
 function Title() { return <h1 className='title'>Braeden Meikle</h1> }
 
 const lastEditDate = 'Tuesday, November 26'
+const numHolesInOne = '1'
+const numRoyalFlushes = '--' // em dash?
+const favoriteProgrammingLanguage = 'Swift'
+const favoriteFunction = 'compactMap'
+const favoriteFunctionLink = 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
 
 function EditTracker() {
   return (
-    <div className='edit-tracker'>
-      <p className='last-seen'>Last seen:</p>
-      <p className='date'>{lastEditDate}</p>
+    <div style={{textAlign:'center', paddingTop:'20px', paddingBottom:'50px'}}>
+      <p className='tracker'>Last seen: {lastEditDate}</p>
     </div>
   )
 }
 
-function Canvas() { return <div className='canvas'></div> }
+function FavoriteProgrammingLanguage() {
+  return (
+    <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+      <pre className='tracker'>Favorite programming language:  </pre>
+      <p>{favoriteProgrammingLanguage}</p>
+    </div>
+  )
+}
 
+function FavoriteFunction() {
+  return (
+    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
+      <pre className='tracker'>Favorite function:  </pre>
+      <a href={favoriteFunctionLink}>{favoriteFunction}</a>
+    </div>
+  )
+}
+
+function RoyalFlushTracker() {
+  return (
+    <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+      <pre className='tracker'>Royal flushes:  </pre>
+      <p>{numRoyalFlushes}</p>
+    </div>
+  )
+}
+
+function HoleInOneTracker() {
+  return (
+    <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+      <pre className='tracker'>Hole-in-ones:  </pre>
+      <p>{numHolesInOne}</p>
+    </div>
+  )
+}
+
+function Canvas() { 
+  return (
+    <div className='canvas'>
+      <FavoriteProgrammingLanguage/>
+      <FavoriteFunction/>
+      <HoleInOneTracker/>
+      <RoyalFlushTracker/>
+    </div> 
+  )
+}
 function HDivider() { return <div className='side-bar-hdiv'></div> }
 function VDivider() { return <div className='footer-vdiv'></div> }
 
@@ -80,10 +150,6 @@ function Footer() {
 function App() {
   return <Body/>
 }
-
-// Royal Flushes: 0
-// Holes in one: 
-
 
 // Poker tracker with red/green color coding
 // D3 for the graph with animations as well maybe
