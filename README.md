@@ -1,3 +1,3 @@
 # Braeden Meikle Personal Website
 
-braedenmeikle.dev 
+[braedenmeikle.dev](http://braedenmeikle.dev/)
