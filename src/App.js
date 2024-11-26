@@ -1,7 +1,6 @@
 import './styles.css';
-import React, { Component } from "react";
-import { color, motion } from "motion/react"
-// import { delay } from "motion"
+import React from "react";
+import { motion } from "motion/react"
 
 function Body() {
   return (
@@ -34,7 +33,7 @@ const sideBarBtns = sideBarBtnsConfig.map(btn => <button
   style={{
     color: 'lightgray',
     width: '80px',
-    height: '50px',
+    height: '80px',
     backgroundColor: 'transparent',
     border: 'none'
   }}>
@@ -42,6 +41,8 @@ const sideBarBtns = sideBarBtnsConfig.map(btn => <button
 </button>)
 
 const sidebarStyle = {
+  backgroundColor:'black',
+  paddingTop:'25vh',
   zIndex: '1',
   position: 'absolute',
   display:'flex'
@@ -68,8 +69,6 @@ function Sidebar() {
 function Title() { return <h1 className='title'>Braeden Meikle</h1> }
 
 const lastEditDate = 'Tuesday, November 26'
-const numHolesInOne = '1'
-const numRoyalFlushes = '--' // em dash?
 const favoriteProgrammingLanguage = 'Swift'
 const favoriteFunction = 'compactMap'
 const favoriteFunctionLink = 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
@@ -86,7 +85,7 @@ function FavoriteProgrammingLanguage() {
   return (
     <div style={{display: 'flex', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Favorite programming language:  </pre>
-      <p>{favoriteProgrammingLanguage}</p>
+      <p style={{color:'white'}}>{favoriteProgrammingLanguage}</p>
     </div>
   )
 }
@@ -104,7 +103,7 @@ function RoyalFlushTracker() {
   return (
     <div style={{display: 'flex', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Royal flushes:  </pre>
-      <p>{numRoyalFlushes}</p>
+      <p style={{color:'white'}}>&mdash;</p>
     </div>
   )
 }
@@ -113,7 +112,7 @@ function HoleInOneTracker() {
   return (
     <div style={{display: 'flex', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Hole-in-ones:  </pre>
-      <p>{numHolesInOne}</p>
+      <p style={{color:'white'}}>&#9971;</p>
     </div>
   )
 }
@@ -128,6 +127,7 @@ function Canvas() {
     </div> 
   )
 }
+
 function HDivider() { return <div className='side-bar-hdiv'></div> }
 function VDivider() { return <div className='footer-vdiv'></div> }
 
