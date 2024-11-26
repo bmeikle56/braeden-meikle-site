@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles.css';
+
+function Background() {
+  return (
+    <body>
+      <Title/>
+      <Canvas/>
+    </body>
+  )
+}
+
+function Title() {
+  return (
+    <h1 className='title'>Braeden Meikle</h1>
+  )
+}
+
+function Canvas() {
+  return (
+    <div className='canvas'>
+
+    </div>
+  )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Background/>
+  )
 }
+
+// Royal Flushes: 0
+// Holes in one: 
+
+
+// Poker tracker with red/green color coding
+// D3 for the graph with animations as well maybe
 
 export default App;
