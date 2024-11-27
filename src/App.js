@@ -23,13 +23,44 @@ function AnimatedSidebar() {
   )
 }
 
-const sideBarBtnsConfig = [
-  {title: 'Bio', className: 'side-bar-btn'},
-  {title: 'Thoughts', className: 'side-bar-btn'},
-  {title: 'Poker', className: 'side-bar-btn'},
-]
+function capFirst(val) {
+  return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
 
-const sideBarBtns = sideBarBtnsConfig.map(btn => <button 
+const pages = ['bio', 'portfolio', 'thoughts', 'journies']
+
+// for bio, consider:
+/*
+- profile pic (circle)
+- tennis, golf, GT, Potomac, fortnite, poker, chess (favorite move f4) 
+*/
+
+// for portfolio, consider:
+/*
+- author of (Java game) -> here's the zip file
+- author of BCS app -> here's the app on the app/play store
+- contributed to [GEICO iOS app](link) and [Hiya iOS app](link)
+*/
+
+// for thoughts, consider:
+/*
+- why Swift is one of the best languages
+- the importance of a computer science/college degree
+- force-unwrapping is actually better than nil-coalescing?
+- software engineers should be aggressive & predictable, not passive & reactive
+- changing opinions over time is a sign of maturity
+*/
+
+// for poker/journies, consider
+/*
+// place results in CSV, then consume and transform data
+// Poker tracker with red/green color coding
+// D3 for the graph with animations as well
+*/
+
+// maybe a golf course rankings page as well?
+
+const sideBarBtns = pages.map(page => <button 
   style={{
     color: 'lightgray',
     width: '80px',
@@ -37,7 +68,7 @@ const sideBarBtns = sideBarBtnsConfig.map(btn => <button
     backgroundColor: 'transparent',
     border: 'none'
   }}>
-  {btn.title}
+  {capFirst(page)}
 </button>)
 
 const sidebarStyle = {
@@ -45,7 +76,7 @@ const sidebarStyle = {
   paddingTop:'25vh',
   zIndex: '1',
   position: 'absolute',
-  display:'flex'
+  display:'flex',
 }
 
 const sideBarBtnStyle = {
@@ -54,7 +85,7 @@ const sideBarBtnStyle = {
   flexDirection: 'column',
   justifyContent: 'center', 
   alignItems: 'center',
-  width: '120px'
+  width: '120px',
 }
 
 function Sidebar() {
@@ -94,7 +125,7 @@ function FavoriteFunction() {
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Favorite function:  </pre>
-      <a href={favoriteFunctionLink}>{favoriteFunction}</a>
+      <a href={favoriteFunctionLink} target='_blank'>{favoriteFunction}</a>
     </div>
   )
 }
@@ -150,8 +181,5 @@ function Footer() {
 function App() {
   return <Body/>
 }
-
-// Poker tracker with red/green color coding
-// D3 for the graph with animations as well maybe
 
 export default App;

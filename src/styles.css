@@ -43,8 +43,8 @@ body {
   border-radius: 40px;
   margin: auto;
   width: 400px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +55,6 @@ body {
   background-clip: content-box;
   background-color: lightgray;
   opacity: 10%;
-  height: 250px;
   width: 1.4px;
 }
 
