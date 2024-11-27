@@ -1,11 +1,20 @@
 import './styles.css';
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react"
+import { 
+  lastEditDate,
+  location,
+  favFunc,
+  favFuncLink,
+  favPLang,
+  favSongImgLink,
+  pages 
+} from './consts.js'
 
 function Body() {
   return (
     <body>
-      <AnimatedSidebar/>
+      <AnimatedSidebar pages={pages}/>
       <Title/>  
       <EditTracker/>
       <LocationTracker/>
@@ -16,10 +25,18 @@ function Body() {
   )
 }
 
-function AnimatedSidebar() {
+function FavoriteSong({ imgLink, song, alt, size}) {
+  return <div style={{textAlign:'center', paddingTop:'20px'}}>
+    <p className='tracker'>Favorite song: </p>
+    <img src={imgLink}> alt={alt} style={{width:size.width, heigth:size.height}}</img>
+    <p className='tracker'>{song}</p>
+  </div>
+}
+
+function AnimatedSidebar({ pages }) {
   return (
     <motion.div initial={{ x: -100 }} animate={{ x: 0 }}>
-      <Sidebar/>
+      <Sidebar pages={pages}/>
     </motion.div>
   )
 }
@@ -28,49 +45,13 @@ function capFirst(val) {
   return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
 
-const pages = ['bio', 'portfolio', 'thoughts', 'journies']
-
-// for bio, consider:
-/*
-- profile pic (circle)
-- tennis, golf, GT, Potomac, fortnite, poker, chess (favorite move f4) 
-*/
-
-// for portfolio, consider:
-/*
-- author of (Java game) -> here's the zip file
-- author of BCS app -> here's the app on the app/play store
-- contributed to [GEICO iOS app](link) and [Hiya iOS app](link)
-*/
-
-// for thoughts, consider:
-/*
-- why Swift is one of the best languages
-- the importance of a computer science/college degree
-- force-unwrapping is actually better than nil-coalescing?
-- software engineers should be aggressive & predictable, not passive & reactive
-- changing opinions over time is a sign of maturity
-*/
-
-// for poker/journies, consider
-/*
-// place results in CSV, then consume and transform data
-// Poker tracker with red/green color coding
-// D3 for the graph with animations as well
-*/
-
-// maybe a golf course rankings page as well?
-
-const sideBarBtns = pages.map(page => <button 
-  style={{
-    color: 'lightgray',
-    width: '80px',
-    height: '80px',
-    backgroundColor: 'transparent',
-    border: 'none'
-  }}>
-  {capFirst(page)}
-</button>)
+const sideBarBtnStyle = {
+  color: 'lightgray',
+  width: '80px',
+  height: '80px',
+  backgroundColor: 'transparent',
+  border: 'none'
+}
 
 const sidebarStyle = {
   backgroundColor:'black',
@@ -80,7 +61,7 @@ const sidebarStyle = {
   display:'flex',
 }
 
-const sideBarBtnStyle = {
+const sideBarBtnDivStyle = {
   display: 'flex',
   color: 'gray',
   flexDirection: 'column',
@@ -89,10 +70,13 @@ const sideBarBtnStyle = {
   width: '120px',
 }
 
-function Sidebar() {
+function Sidebar({ pages }) {
   return (
     <div style={sidebarStyle}>
-      <div style={sideBarBtnStyle}>{sideBarBtns}</div>
+      <div style={sideBarBtnDivStyle}>{pages.map(page => 
+        <button style={sideBarBtnStyle}>
+          {capFirst(page)}
+        </button>)}</div>
       <HDivider/>
     </div>
   )
@@ -100,11 +84,7 @@ function Sidebar() {
 
 function Title() { return <h1 className='title'>Braeden Meikle</h1> }
 
-const lastEditDate = 'Tuesday, November 26'
-const location = 'Atlanta, GA'
-const favoriteProgrammingLanguage = 'Swift'
-const favoriteFunction = 'compactMap'
-const favoriteFunctionLink = 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
+
 
 function EditTracker() {
   return (
@@ -126,7 +106,7 @@ function FavoriteProgrammingLanguage() {
   return (
     <div style={{display: 'flex', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Favorite programming language:  </pre>
-      <p style={{color:'white'}}>{favoriteProgrammingLanguage}</p>
+      <p style={{color:'white'}}>{favPLang}</p>
     </div>
   )
 }
@@ -135,7 +115,7 @@ function FavoriteFunction() {
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Favorite function:  </pre>
-      <a href={favoriteFunctionLink} target='_blank'>{favoriteFunction}</a>
+      <a href={favFuncLink} target='_blank'>{favFunc}</a>
     </div>
   )
 }
@@ -188,8 +168,12 @@ function Footer() {
   )
 }
 
-function App() {
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+  
   return <Body/>
 }
-
-export default App;
