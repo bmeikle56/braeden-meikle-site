@@ -8,6 +8,7 @@ function Body() {
       <AnimatedSidebar/>
       <Title/>  
       <EditTracker/>
+      <LocationTracker/>
       <Canvas/>
       <VDivider/>
       <Footer/>
@@ -100,14 +101,23 @@ function Sidebar() {
 function Title() { return <h1 className='title'>Braeden Meikle</h1> }
 
 const lastEditDate = 'Tuesday, November 26'
+const location = 'Atlanta, GA'
 const favoriteProgrammingLanguage = 'Swift'
 const favoriteFunction = 'compactMap'
 const favoriteFunctionLink = 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
 
 function EditTracker() {
   return (
-    <div style={{textAlign:'center', paddingTop:'20px', paddingBottom:'50px'}}>
+    <div style={{textAlign:'center', paddingTop:'20px'}}>
       <p className='tracker'>Last seen: {lastEditDate}</p>
+    </div>
+  )
+}
+
+function LocationTracker() {
+  return (
+    <div style={{textAlign:'center', paddingBottom:'50px'}}>
+      <p className='tracker'>&#128205; {location}</p>
     </div>
   )
 }
