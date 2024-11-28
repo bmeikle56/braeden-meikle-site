@@ -17,9 +17,18 @@ function Body() {
       <LocationTracker/>
       <Canvas/>
       <VDivider/>
-      <Footer/>
+      <Pfp/>
+      <VDivider/>
+      <Canvas/>
+      {/* <VDivider/>
+      <Footer/> */}
     </body>
   )
+}
+
+// We can center with <div style={{display:'flex', justifyContent:'center'}}></div>
+function Pfp() {
+  return <img src='https://i.postimg.cc/GhTKWxyY/IMG-6071.jpg' style={{width:'100px', height:'100px', objectFit:'cover', borderRadius:'50%'}} alt='Profile Picture'/>
 }
 
 function Title() { return <h1 className='title'>Braeden Meikle</h1> }
@@ -40,7 +49,7 @@ function LocationTracker() {
   )
 }
 
-function VDivider() { return <div className='footer-vdiv'></div> }
+function VDivider() { return <div className='vdiv'></div> }
 
 function Footer() {
   return (

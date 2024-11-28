@@ -58,21 +58,20 @@ body {
   width: 1.4px;
 }
 
-.footer-vdiv {
+.vdiv {
   background-clip: content-box;
-  padding-top: 150px;
-  background-color: lightgray;
-  opacity: 10%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: rgb(33, 33, 33);
   height: 1.4px;
 }
 
 .footer {
-  margin: auto;
   text-align: center;
 }
 
 .footer-txt {
-  padding-top: 30px;
+  /* padding-top: 30px; */
   padding-bottom: 30px;
   padding-left: 30px;
   padding-right: 30px;
