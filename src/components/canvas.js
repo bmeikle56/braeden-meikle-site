@@ -4,14 +4,41 @@ import {
     favSongMeta
 } from '../consts.js'
 import '../styles.css';
+import { motion } from 'motion/react'
 
 function FavoriteSong({ meta }) {
-    return <div style={{textAlign:'center', paddingTop:'20px'}}>
-      <p className='tracker'>Favorite song: </p>
+    return <div style={{textAlign:'center', display: 'flex', alignItems:'center'}}>
+      <pre className='tracker'>Favorite song: </pre>
       {/* some error here --> <img src={meta.imgLink}> alt={meta.alt} style={{width: meta.width, height: meta.height}}</img> */}
-      <p className='tracker'>{meta.song}</p>
+      <p className='tracker' style={{paddingRight:'5px', color:'white'}}>{meta.song}</p>
+      <BouncingLines/>
     </div>
   }
+
+function BouncingLines() {
+    const animProps = {
+        //y: [-5, 5, -5],
+        // height: [10, 20, 10],
+        height: ['50%', '100%', '50%'],
+        transition: {
+          duration: 0.6,
+          ease: 'easeInOut',
+          repeat: Infinity,
+        },
+      }
+    const barStyle = {
+        backgroundColor: 'white', 
+        width: '1.5px'
+    }
+
+    return (
+        <div style={{width: '12px', height: '16px', display: 'flex', justifyContent: 'space-between'}}>
+            {[...Array(3)].map(i => 
+            <motion.div style={barStyle} animate={animProps}/>
+            )}
+        </div>
+    )
+}
   
 function FavoriteProgrammingLanguage() {
     return (
