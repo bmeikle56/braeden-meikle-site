@@ -1,11 +1,13 @@
 import './styles.css';
 import React, { useState } from "react";
 import { 
+  bioMeta,
   lastEditDate,
   location,
   pages, 
 } from './consts.js'
 import { Canvas } from './components/canvas.js'
+import { Bio } from './components/bio.js'
 import { AnimatedSidebar } from './components/sidebar.js'
 
 function Body() {
@@ -17,18 +19,13 @@ function Body() {
       <LocationTracker/>
       <Canvas/>
       <VDivider/>
-      <Pfp/>
+      <Bio meta={bioMeta}/>
       <VDivider/>
       <Canvas/>
       {/* <VDivider/>
       <Footer/> */}
     </body>
   )
-}
-
-// We can center with <div style={{display:'flex', justifyContent:'center'}}></div>
-function Pfp() {
-  return <img src='https://i.postimg.cc/GhTKWxyY/IMG-6071.jpg' style={{width:'100px', height:'100px', objectFit:'cover', borderRadius:'50%'}} alt='Profile Picture'/>
 }
 
 function Title() { return <h1 className='title'>Braeden Meikle</h1> }
