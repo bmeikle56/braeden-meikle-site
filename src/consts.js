@@ -12,10 +12,9 @@ const favFuncMeta = {
 
 const favSongMeta = {
     song: 'Escape (Remix)',
-    imgLink: 'https://i.scdn.co/image/ab67616d0000b2734bd2c0432f8fb84e3d80db68',
-    alt: 'Escape album cover',
-    width: 5, 
-    height: 5
+    imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
+    alt: 'Escape (Remix) album cover',
+    size: {width: 25, height: 25},
 }
 
 export { 

@@ -8,8 +8,8 @@ import { motion } from 'motion/react'
 
 function FavoriteSong({ meta }) {
     return <div style={{textAlign:'center', display: 'flex', alignItems:'center'}}>
-      <pre className='tracker'>Favorite song: </pre>
-      {/* some error here --> <img src={meta.imgLink}> alt={meta.alt} style={{width: meta.width, height: meta.height}}</img> */}
+      <p className='tracker'>Favorite song:</p>
+      <img src={meta.imgLink} style={{paddingLeft:'8px', paddingRight:'8px', width: meta.size.width, height: meta.size.height}} alt={meta.alt}/>
       <p className='tracker' style={{paddingRight:'5px', color:'white'}}>{meta.song}</p>
       <BouncingLines/>
     </div>
