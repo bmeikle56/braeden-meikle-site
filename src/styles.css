@@ -124,6 +124,11 @@ a:link, a:visited  {
   font-family: andale mono, monospace;
   color: rgb(255, 0, 123);
   text-decoration: none;
-  /* display: inline; */
   vertical-align: middle;
+}
+
+/* Side bar text animation */
+.side-bar-btn:hover {
+  transition: all 0.5s ease;
+  font-size: medium;
 }

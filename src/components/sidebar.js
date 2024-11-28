@@ -1,3 +1,4 @@
+import { hover } from '@testing-library/user-event/dist/hover';
 import { motion } from 'motion/react'
 
 /* String util func to captilize first letter */
@@ -34,7 +35,7 @@ function Sidebar({ pages }) {
     return (
         <div style={sidebarStyle}>
         <div style={sideBarBtnDivStyle}>{pages.map(page => 
-            <button style={sideBarBtnStyle}>
+            <button className='side-bar-btn' style={sideBarBtnStyle}>
             {capFirst(page)}
             </button>)}</div>
         <div className='side-bar-hdiv'></div>
