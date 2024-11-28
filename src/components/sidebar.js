@@ -1,7 +1,6 @@
-// import { hover } from '@testing-library/user-event/dist/hover';
 import { motion } from 'motion/react'
 
-/* String util func to captilize first letter */
+/* Captilize first letter of the string */
 function capFirst(val) {
     return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
@@ -18,7 +17,7 @@ const sidebarStyle = {
     backgroundColor:'black',
     paddingTop:'25vh',
     zIndex: '1',
-    position: 'absolute',
+    position: 'fixed',
     display:'flex',
 }
 
