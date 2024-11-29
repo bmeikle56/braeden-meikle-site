@@ -28,26 +28,26 @@ function AppContributions() {
   const appEntryStyle = {
     display: 'flex', 
     alignItems: 'center',
-    //justifyContent: 'center',
-    paddingLeft: '150px',
-    paddingTop: '5px',
-    paddingBottom: '5px',
-    width: '50vw',
-    backgroundClip: 'content-box',
-    //backgroundColor: 'rgb(255,0,0)',
+    width: '36vw',
+    backgroundColor: 'rgb(17,17,17)', 
+    borderRadius:'20px', 
   }
 
   const contributions = [geicoMeta, hiyaMeta, siteMeta]
 
-  return (<div style={{display: 'grid', justifyContent: 'center'}}>
-    {contributions.map((meta) => <div style={appEntryStyle}>
-      <img alt={meta.alt} src={meta.img} style={{margin: '0 -12px 0 0', clipPath: meta.clip, borderRadius:'20px', width: meta.imgSq.width, height: meta.imgSq.height}}/>
-      <div style={{width: 8, height: 8, backgroundColor: 'white', borderRadius: '50%'}}></div>
-      <pre style={{margin: '0 0 0 19px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.prefix}</pre>
-      <a target='_blank' rel="noreferrer" className='app-store' href={meta.link} style={{paddingRight: 4}}>{meta.desc}</a>
-      <p style={{color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.users}</p>
-    </div>)}
-  </div>)
+  return (
+    <div style={{display: 'flex', justifyContent: 'center'}}>
+      <div style={{display: 'grid', gap:'15px', justifyContent: 'center', width: '70vh',backgroundClip: 'content-box'}}>
+        {contributions.map((meta) => <div style={appEntryStyle}>
+          <img alt={meta.alt} src={meta.img} style={{margin: '0 -12px 0 0', clipPath: meta.clip, borderRadius:'20px', width: meta.imgSq.width, height: meta.imgSq.height}}/>
+          <div style={{width: 8, height: 8, backgroundColor: 'white', borderRadius: '50%'}}></div>
+          <pre style={{margin: '0 0 0 19px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.prefix}</pre>
+          <a target='_blank' rel="noreferrer" className='app-store' href={meta.link} style={{paddingRight: 4}}>{meta.desc}</a>
+          <p style={{color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.users}</p>
+        </div>)}
+      </div>
+    </div>
+  )
 }
 
 function Portfolio() {
