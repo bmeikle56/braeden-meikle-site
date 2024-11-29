@@ -15,7 +15,7 @@ body {
 .title {
   width: 100vw;
   font-size: 45px;
-  padding-top: 50px;
+  padding-top: 10vh;
   padding-bottom: -10px;
   text-align: center;
   background: linear-gradient(to right, rgb(0, 132, 255), rgb(101, 255, 111));

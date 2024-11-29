@@ -1,6 +1,6 @@
 function Bio({ meta }) {
   return (
-    <div style={{paddingTop: '15px', display:'grid', placeItems: 'center'}}>
+    <div style={{paddingTop: '15vh', paddingBottom: '2vh', display:'grid', placeItems: 'center'}}>
       <Pfp meta={meta.pfpMeta}/>
       <div style={{paddingTop: '15px', width: '50vw'}}>
         <p style={{color:'white'}}>{meta.bio}</p>

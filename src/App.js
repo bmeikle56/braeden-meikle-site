@@ -1,5 +1,5 @@
 import './styles.css';
-import React, { useState } from "react";
+import React /*, { useState }*/ from "react";
 import { 
   bioMeta,
   lastEditDate,
@@ -15,13 +15,14 @@ function Body() {
   return (
     <body>
       <AnimatedSidebar pages={pages}/>
-      <Title/>  
-      <EditTracker/>
-      <LocationTracker/>
-      <Canvas/>
+      <div style={{height: '100vh'}}>
+        <Title/>  
+        <EditTracker/>
+        <LocationTracker/>
+        <Canvas/>
+      </div>
       <VDivider/>
       <Bio meta={bioMeta}/>
-      <VDivider/>
       <Portfolio/>
       <VDivider/>
       <Footer/>
@@ -33,7 +34,7 @@ function Title() { return <h1 className='title'>Braeden Meikle</h1> }
 
 function EditTracker() {
   return (
-    <div style={{textAlign:'center', paddingTop:'20px'}}>
+    <div style={{textAlign:'center', paddingTop:'1vh'}}>
       <p className='tracker'>Last seen: {lastEditDate}</p>
     </div>
   )
@@ -41,7 +42,7 @@ function EditTracker() {
 
 function LocationTracker() {
   return (
-    <div style={{textAlign:'center', paddingBottom:'50px'}}>
+    <div style={{textAlign:'center', paddingBottom:'10vh'}}>
       <p className='tracker'>&#128205; {location}</p>
     </div>
   )
@@ -66,11 +67,11 @@ function Footer() {
 }
 
 export default function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
-  function handleClick() {
-    setCount(count + 1);
-  }
+  // function handleClick() {
+  //   setCount(count + 1);
+  // }
   
   return <Body/>
 }

@@ -1,5 +1,4 @@
 import { 
-    favPLang,
     favFuncMeta,
     favSongMeta
 } from '../data/consts.js'
@@ -41,7 +40,7 @@ function FavoriteFunction({ meta }) {
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Favorite function:  </pre>
-      <a href={meta.link} target='_blank' class='func'>{meta.func}</a>
+      <a href={meta.link} rel="noreferrer" target='_blank' class='func'>{meta.func}</a>
     </div>
   )
 }
@@ -80,14 +79,12 @@ const canvasStyle = {
   
 function Canvas() { 
   return (
-    <div style={{paddingBottom: '30px'}}>
-      <div style={canvasStyle}>
-        <FavoriteSong meta={favSongMeta}/>
-        <FavoriteFunction meta={favFuncMeta}/>
-        <HoleInOneTracker/>
-        <RoyalFlushTracker/>
-      </div> 
-    </div>
+    <div style={canvasStyle}>
+      <FavoriteSong meta={favSongMeta}/>
+      <FavoriteFunction meta={favFuncMeta}/>
+      <HoleInOneTracker/>
+      <RoyalFlushTracker/>
+    </div> 
   )
 }
 

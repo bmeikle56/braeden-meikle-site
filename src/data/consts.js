@@ -22,7 +22,14 @@ const bioMeta = {
     sqSize: 100,
     alt: 'Profile Picture'
   },
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  bio: `
+    My name is Braeden Meikle. I'm from the Washington, DC perimeter, 
+    where I grew up playing tennis and golf. I went to The Potomac School
+    in McLean, Virginia, before attending Georgia Tech to study Computer Science.
+    In my free time, I enjoy reading, poker, coding, running, and keeping 
+    this site up. A fervent supporter of Washington pro sports, I closely
+    follow the Capitals, Wizards, and Commanders.
+  `
 }
 
 export { 
