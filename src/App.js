@@ -1,11 +1,9 @@
 import './styles.css'
 import React from 'react'
 import { 
-  lastEditDate,
-  location,
-  pages, 
+  pages
 } from './data/consts.js'
-import { Canvas } from './sections/fun.js'
+import { Fun } from './sections/fun.js'
 import { AnimatedSidebar } from './nav/sidebar.js'
 import { Portfolio } from './sections/portfolio.js'
 import { Thoughts } from './sections/thoughts.js'
@@ -16,10 +14,7 @@ function Body() {
     <body>
       <AnimatedSidebar pages={pages}/>
       <div id='fun' style={{height: '100vh'}}>
-        <Title/>  
-        <EditTracker/>
-        <LocationTracker/>
-        <Canvas/>
+        <Fun/>
       </div>
       <VDivider/>
       <div id='portfolio' style={{height: '100vh'}}>
@@ -35,24 +30,6 @@ function Body() {
       </div>
       <Footer/>
     </body>
-  )
-}
-
-function Title() { return <h1 className='title'>Braeden Meikle</h1> }
-
-function EditTracker() {
-  return (
-    <div style={{textAlign:'center', paddingTop:'1vh'}}>
-      <p className='tracker'>Last seen: {lastEditDate}</p>
-    </div>
-  )
-}
-
-function LocationTracker() {
-  return (
-    <div style={{textAlign:'center', paddingBottom:'10vh'}}>
-      <p className='tracker'>&#128205; {location}</p>
-    </div>
   )
 }
 

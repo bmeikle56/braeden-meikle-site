@@ -28,10 +28,13 @@ function AppContributions() {
   const appEntryStyle = {
     display: 'flex', 
     alignItems: 'center',
+    //justifyContent: 'center',
     paddingLeft: '150px',
     paddingTop: '5px',
     paddingBottom: '5px',
-    width: '50vw'
+    width: '50vw',
+    backgroundClip: 'content-box',
+    //backgroundColor: 'rgb(255,0,0)',
   }
 
   const contributions = [geicoMeta, hiyaMeta, siteMeta]

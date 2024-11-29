@@ -1,9 +1,29 @@
 import { 
-    favFuncMeta,
-    favSongMeta
+  lastEditDate,
+  location,
+  favFuncMeta,
+  favSongMeta
 } from '../data/consts.js'
 import '../styles.css';
 import { motion } from 'motion/react'
+
+function Title() { return <h1 className='title'>Braeden Meikle</h1> }
+
+function EditTracker() {
+  return (
+    <div style={{textAlign:'center', paddingTop:'1vh'}}>
+      <p className='tracker'>Last seen: {lastEditDate}</p>
+    </div>
+  )
+}
+
+function LocationTracker() {
+  return (
+    <div style={{textAlign:'center', paddingBottom:'10vh'}}>
+      <p className='tracker'>&#128205; {location}</p>
+    </div>
+  )
+}
 
 function FavoriteSong({ meta }) {
   function randHeight() {
@@ -88,16 +108,25 @@ const canvasStyle = {
   alignItems: 'center',
   boxShadow: '0px 0px 30px rgb(38, 38, 38)'
 }
+
+function Canvas() {
+  return <div style={canvasStyle}>
+    <FavoriteSong meta={favSongMeta}/>
+    <FavoriteFunction meta={favFuncMeta}/>
+    <HoleInOneTracker/>
+    <RoyalFlushTracker/>
+  </div> 
+}
   
-function Canvas() { 
+function Fun() { 
   return (
-    <div style={canvasStyle}>
-      <FavoriteSong meta={favSongMeta}/>
-      <FavoriteFunction meta={favFuncMeta}/>
-      <HoleInOneTracker/>
-      <RoyalFlushTracker/>
-    </div> 
+    <div>
+      <Title/>
+      <EditTracker/>
+      <LocationTracker/>
+      <Canvas/>
+    </div>
   )
 }
 
-export { Canvas }
+export { Fun }

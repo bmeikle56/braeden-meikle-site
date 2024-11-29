@@ -38,13 +38,6 @@ body {
   padding-bottom: 50px;
 }
 
-.side-bar-hdiv {
-  background-clip: content-box;
-  background-color: lightgray;
-  opacity: 10%;
-  width: 1.4px;
-}
-
 .vdiv {
   background-clip: content-box;
   padding-top: 20px;
@@ -58,7 +51,6 @@ body {
 }
 
 .footer-txt {
-  /* padding-top: 30px; */
   padding-bottom: 30px;
   padding-left: 30px;
   padding-right: 30px;
@@ -122,5 +114,5 @@ a.app-store:link, a.app-store:visited  {
 /* Side bar text animation */
 .side-bar-btn:hover {
   transition: all 0.5s ease;
-  font-size: medium;
+  font-size: 14.5px;
 }

@@ -35,13 +35,21 @@ function Sidebar({ pages }) {
     document.getElementById(page).scrollIntoView({ behavior: 'smooth' })
   }
 
+  const sideBarStyle = {
+    backgroundClip: 'content-box',
+    backgroundColor: 'lightgray',
+    width: '3px',
+    borderRadius: '40px',
+    boxShadow: '0px 0px 10px white'
+  }
+
   return (
     <div style={sidebarStyle}>
       <div style={sideBarBtnDivStyle}>{pages.map(page => 
         <button className='side-bar-btn' style={sideBarBtnStyle} onClick={() => scrollToSection(page)}>
           {capFirst(page)}
         </button>)}</div>
-      <div className='side-bar-hdiv'></div>
+      <div style={sideBarStyle}></div>
     </div>
   )
 }
