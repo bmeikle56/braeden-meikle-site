@@ -1,5 +1,5 @@
 import './styles.css';
-import React /*, { useState }*/ from "react";
+import React, { useRef } from "react";
 import { 
   bioMeta,
   lastEditDate,
@@ -11,23 +11,36 @@ import { Bio } from './components/bio.js'
 import { AnimatedSidebar } from './components/sidebar.js'
 import { Portfolio } from './components/portfolio.js';
 
-function Body() {
-  return (
-    <body>
-      <AnimatedSidebar pages={pages}/>
-      <div style={{height: '100vh'}}>
-        <Title/>  
-        <EditTracker/>
-        <LocationTracker/>
-        <Canvas/>
-      </div>
-      <VDivider/>
-      <Bio meta={bioMeta}/>
-      <Portfolio/>
-      <VDivider/>
-      <Footer/>
-    </body>
-  )
+class Body extends React.Component {
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef();
+  }
+
+  render() {
+    const handleScroll = () => {
+      this.ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    return (
+      <body>
+        <AnimatedSidebar pages={pages} scrollFunc={handleScroll}/>
+        <div ref={React.createRef()} style={{height: '100vh'}}>
+          <Title/>  
+          <EditTracker/>
+          <LocationTracker/>
+          <Canvas/>
+        </div>
+        <VDivider/>
+        <div ref={React.createRef()}>
+          <Bio meta={bioMeta}/>
+          <Portfolio/>
+        </div>
+        <VDivider/>
+        <Footer/>
+      </body>
+    )
+  }
 }
 
 function Title() { return <h1 className='title'>Braeden Meikle</h1> }

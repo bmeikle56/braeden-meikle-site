@@ -6,32 +6,44 @@ import '../styles.css';
 import { motion } from 'motion/react'
 
 function FavoriteSong({ meta }) {
+  function randHeight() {
+    const randFunc = () => Math.random() * 50 + 30
+    const first = randFunc()
+    return [`${first}%`, `${randFunc()}%`, `${first}%`]
+  }
+
+  const height = randHeight()
+
   return <div style={{textAlign:'center', display: 'flex', alignItems:'center'}}>
     <p className='tracker'>Favorite song:</p>
     <img src={meta.imgLink} style={{paddingLeft:'8px', paddingRight:'8px', width: meta.size.width, height: meta.size.height}} alt={meta.alt}/>
     <p className='tracker' style={{paddingRight:'5px', color:'white'}}>{meta.song}</p>
-    <BouncingLines/>
+    <div>
+      <div style={{scale: '-1'}}>
+        <BouncingLines height={height}/>
+      </div>
+      <BouncingLines height={height}/>
+    </div>
   </div>
 }
 
-function BouncingLines() {
-  const animProps = {
-    //y: [-5, 5, -5],
-    // height: [10, 20, 10],
-    height: ['50%', '100%', '50%'],
-    transition: {
-      duration: 0.6,
-      ease: 'easeInOut',
-      repeat: Infinity,
-    },
-  }
+function BouncingLines({ height }) {
   const barStyle = {
     backgroundColor: 'white', 
-    width: '1.5px'
+    width: '1.1px'
   }
+
   return (
-    <div style={{width: '12px', height: '16px', display: 'flex', justifyContent: 'space-between'}}>
-      {[...Array(3)].map(i => <motion.div style={barStyle} animate={animProps}/>)}
+    <div style={{width: '11px', height: '8px', display: 'flex', justifyContent: 'space-between'}}>
+      {[...Array(3)].map(i => <motion.div style={barStyle} animate={{
+        height: height,
+        transition: {
+          duration: 0.7,
+          ease: 'easeInOut',
+          repeat: Infinity,
+          repeatType: 'loop'
+        },
+      }}/>)}
     </div>
   )
 }
