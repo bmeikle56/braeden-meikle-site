@@ -1,6 +1,6 @@
 /* Constant file */
 
-const lastEditDate = 'Tuesday, November 26'
+const lastEditDate = 'Friday, November 29'
 const location = 'Atlanta, GA'
 const pages = ['bio', 'portfolio', 'thoughts', 'journies']
 

@@ -9,6 +9,7 @@ import {
 import { Canvas } from './components/canvas.js'
 import { Bio } from './components/bio.js'
 import { AnimatedSidebar } from './components/sidebar.js'
+import { Portfolio } from './components/portfolio.js';
 
 function Body() {
   return (
@@ -21,7 +22,7 @@ function Body() {
       <VDivider/>
       <Bio meta={bioMeta}/>
       <VDivider/>
-      <Canvas/>
+      <Portfolio/>
       <VDivider/>
       <Footer/>
     </body>
