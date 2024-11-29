@@ -1,46 +1,32 @@
-import './styles.css';
-import React, { useRef } from "react";
+import './styles.css'
+import React from 'react'
 import { 
-  bioMeta,
   lastEditDate,
   location,
   pages, 
 } from './data/consts.js'
-import { Canvas } from './components/canvas.js'
-import { Bio } from './components/bio.js'
-import { AnimatedSidebar } from './components/sidebar.js'
-import { Portfolio } from './components/portfolio.js';
+import { Canvas } from './sections/fun.js'
+import { AnimatedSidebar } from './nav/sidebar.js'
+import { Portfolio } from './sections/portfolio.js'
 
-class Body extends React.Component {
-  constructor(props) {
-    super(props);
-    this.ref = React.createRef();
-  }
-
-  render() {
-    const handleScroll = () => {
-      this.ref.current.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    return (
-      <body>
-        <AnimatedSidebar pages={pages} scrollFunc={handleScroll}/>
-        <div ref={React.createRef()} style={{height: '100vh'}}>
-          <Title/>  
-          <EditTracker/>
-          <LocationTracker/>
-          <Canvas/>
-        </div>
-        <VDivider/>
-        <div ref={React.createRef()}>
-          <Bio meta={bioMeta}/>
-          <Portfolio/>
-        </div>
-        <VDivider/>
-        <Footer/>
-      </body>
-    )
-  }
+function Body() {
+  return (
+    <body>
+      <AnimatedSidebar pages={pages}/>
+      <div id='fun' style={{height: '100vh'}}>
+        <Title/>  
+        <EditTracker/>
+        <LocationTracker/>
+        <Canvas/>
+      </div>
+      <VDivider/>
+      <div id='portfolio' style={{height: '100vh'}}>
+        <Portfolio/>
+      </div>
+      <VDivider/>
+      <Footer/>
+    </body>
+  )
 }
 
 function Title() { return <h1 className='title'>Braeden Meikle</h1> }
@@ -80,11 +66,5 @@ function Footer() {
 }
 
 export default function App() {
-  // const [count, setCount] = useState(0);
-
-  // function handleClick() {
-  //   setCount(count + 1);
-  // }
-  
   return <Body/>
 }

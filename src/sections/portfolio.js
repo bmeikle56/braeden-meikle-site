@@ -1,3 +1,5 @@
+import { bioMeta } from "../data/consts"
+
 const geicoMeta = {
   alt: 'GEICO iOS App icon',
   clip: 'inset(9.08px 32.3px 8.4px 32.4px round 8px)',
@@ -28,6 +30,25 @@ const siteMeta = {
   prefix: 'Owner of this site',
 }
 
+function Pfp({ meta }) {
+  return <img 
+    src={meta.imgLink}
+    style={{width: meta.sqSize, height: meta.sqSize, objectFit:'cover', borderRadius:'50%'}} 
+    alt={meta.alt}
+  />
+}
+
+function Bio({ meta }) {
+  return (
+    <div style={{paddingTop: '15vh', paddingBottom: '2vh', display:'grid', placeItems: 'center'}}>
+      <Pfp meta={meta.pfpMeta}/>
+      <div style={{paddingTop: '15px', width: '50vw'}}>
+        <p style={{color:'white'}}>{meta.bio}</p>
+      </div>
+    </div>
+  )
+}
+
 function AppContributions() {
   const appEntryStyle = {
     display: 'flex', 
@@ -40,7 +61,7 @@ function AppContributions() {
 
   const contributions = [geicoMeta, hiyaMeta, siteMeta]
 
-  return (<div style={{paddingBottom: '45vh', display: 'grid', justifyContent: 'center'}}>
+  return (<div style={{display: 'grid', justifyContent: 'center'}}>
     {contributions.map((meta) => <div style={appEntryStyle}>
       <img alt={meta.alt} src={meta.img} style={{margin: '0 -12px 0 0', clipPath: meta.clip, borderRadius:'20px', width: meta.imgSq.width, height: meta.imgSq.height}}/>
       <div style={{width: 8, height: 8, backgroundColor: 'white', borderRadius: '50%'}}></div>
@@ -54,6 +75,7 @@ function AppContributions() {
 function Portfolio() {
   return (
     <div>
+      <Bio meta={bioMeta}/>
       <AppContributions/>
     </div>
   )

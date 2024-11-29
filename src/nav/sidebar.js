@@ -30,22 +30,26 @@ const sideBarBtnDivStyle = {
     width: '120px',
 }
 
-function Sidebar({ pages, scrollFunc }) {
-    return (
-        <div style={sidebarStyle}>
-        <div style={sideBarBtnDivStyle}>{pages.map(page => 
-            <button className='side-bar-btn' style={sideBarBtnStyle} onClick={scrollFunc}>
-            {capFirst(page)}
-            </button>)}</div>
-        <div className='side-bar-hdiv'></div>
-        </div>
-    )
+function Sidebar({ pages }) {
+  function scrollToSection(page) {
+    document.getElementById(page).scrollIntoView({ behavior: 'smooth' })
+  }
+
+  return (
+    <div style={sidebarStyle}>
+    <div style={sideBarBtnDivStyle}>{pages.map(page => 
+      <button className='side-bar-btn' style={sideBarBtnStyle} onClick={() => scrollToSection(page)}>
+      {capFirst(page)}
+      </button>)}</div>
+    <div className='side-bar-hdiv'></div>
+    </div>
+  )
 }
 
-function AnimatedSidebar({ pages, scrollFunc }) {
+function AnimatedSidebar({ pages }) {
     return (
         <motion.div style={{position:'fixed'}} initial={{ x: -100 }} animate={{ x: 0 }}>
-            <Sidebar pages={pages} scrollFunc={scrollFunc}/>
+            <Sidebar pages={pages}/>
         </motion.div>
     )
 }
