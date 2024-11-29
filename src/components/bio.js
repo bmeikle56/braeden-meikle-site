@@ -2,7 +2,7 @@ function Bio({ meta }) {
   return (
     <div style={{display:'grid', placeItems: 'center'}}>
       <Pfp meta={meta.pfpMeta}/>
-      <div style={{width: '50vw'}}>
+      <div style={{paddingTop: '15px', width: '50vw'}}>
         <p style={{color:'white'}}>{meta.bio}</p>
       </div>
     </div>

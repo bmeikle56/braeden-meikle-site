@@ -37,15 +37,6 @@ function BouncingLines() {
   )
 }
   
-function FavoriteProgrammingLanguage() {
-  return (
-    <div style={{display: 'flex', justifyContent: 'flex-start'}}>
-      <pre className='tracker'>Favorite programming language:  </pre>
-      <p style={{color:'white'}}>{favPLang}</p>
-    </div>
-  )
-}
-  
 function FavoriteFunction({ meta }) {
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
@@ -75,9 +66,8 @@ function HoleInOneTracker() {
   
 function Canvas() { 
   return (
-    <div className='canvas'>
+    <div className='canvas' style={{}}>
       <FavoriteSong meta={favSongMeta}/>
-      <FavoriteProgrammingLanguage/>
       <FavoriteFunction meta={favFuncMeta}/>
       <HoleInOneTracker/>
       <RoyalFlushTracker/>

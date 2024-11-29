@@ -3,7 +3,6 @@
 const lastEditDate = 'Tuesday, November 26'
 const location = 'Atlanta, GA'
 const pages = ['bio', 'portfolio', 'thoughts', 'journies']
-const favPLang = 'Swift'
 
 const favFuncMeta = {
   func: 'compactMap',
@@ -31,7 +30,6 @@ export {
   lastEditDate,
   location,
   favFuncMeta,
-  favPLang,
   favSongMeta,
   pages,
 }
