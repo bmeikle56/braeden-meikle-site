@@ -8,6 +8,8 @@ import {
 import { Canvas } from './sections/fun.js'
 import { AnimatedSidebar } from './nav/sidebar.js'
 import { Portfolio } from './sections/portfolio.js'
+import { Thoughts } from './sections/thoughts.js'
+import { Journies } from './sections/journies.js'
 
 function Body() {
   return (
@@ -24,6 +26,13 @@ function Body() {
         <Portfolio/>
       </div>
       <VDivider/>
+      <div id='thoughts' style={{height: '100vh'}}>
+        <Thoughts/>
+      </div>
+      <VDivider/>
+      <div id='journies' style={{height: '100vh'}}>
+        <Journies/>
+      </div>
       <Footer/>
     </body>
   )

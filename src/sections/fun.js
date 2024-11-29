@@ -7,7 +7,7 @@ import { motion } from 'motion/react'
 
 function FavoriteSong({ meta }) {
   function randHeight() {
-    const randFunc = () => Math.random() * 50 + 30
+    const randFunc = () => Math.random() * 50 + 40
     const first = randFunc()
     return [`${first}%`, `${randFunc()}%`, `${first}%`]
   }
