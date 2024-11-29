@@ -5,7 +5,7 @@ import {
   lastEditDate,
   location,
   pages, 
-} from './consts.js'
+} from './data/consts.js'
 import { Canvas } from './components/canvas.js'
 import { Bio } from './components/bio.js'
 import { AnimatedSidebar } from './components/sidebar.js'
@@ -22,8 +22,8 @@ function Body() {
       <Bio meta={bioMeta}/>
       <VDivider/>
       <Canvas/>
-      {/* <VDivider/>
-      <Footer/> */}
+      <VDivider/>
+      <Footer/>
     </body>
   )
 }

@@ -2,7 +2,7 @@ import {
     favPLang,
     favFuncMeta,
     favSongMeta
-} from '../consts.js'
+} from '../data/consts.js'
 import '../styles.css';
 import { motion } from 'motion/react'
 
@@ -63,15 +63,31 @@ function HoleInOneTracker() {
     </div>
   )
 }
+
+const canvasStyle = {
+  backgroundColor: 'rgb(17, 17, 17)',
+  borderRadius: '40px',
+  margin: 'auto',
+  width: '400px',
+  paddingTop: '30px',
+  paddingBottom: '30px',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  boxShadow: '0px 0px 30px rgb(38, 38, 38)'
+}
   
 function Canvas() { 
   return (
-    <div className='canvas' style={{}}>
-      <FavoriteSong meta={favSongMeta}/>
-      <FavoriteFunction meta={favFuncMeta}/>
-      <HoleInOneTracker/>
-      <RoyalFlushTracker/>
-    </div> 
+    <div style={{paddingBottom: '30px'}}>
+      <div style={canvasStyle}>
+        <FavoriteSong meta={favSongMeta}/>
+        <FavoriteFunction meta={favFuncMeta}/>
+        <HoleInOneTracker/>
+        <RoyalFlushTracker/>
+      </div> 
+    </div>
   )
 }
 
