@@ -26,6 +26,15 @@ function LocationTracker() {
 }
 
 function FavoriteSong({ meta }) {
+  return <div style={{textAlign:'center', display: 'flex', alignItems:'center'}}>
+    <p className='tracker'>Favorite song:</p>
+    <img src={meta.imgLink} style={{paddingLeft:'8px', paddingRight:'8px', width: meta.size.width, height: meta.size.height}} alt={meta.alt}/>
+    <p className='tracker' style={{paddingRight:'5px', color:'white'}}>{meta.song}</p>
+    <BouncingLines/>
+  </div>
+}
+
+function BouncingLines() {
   function randHeight() {
     const randFunc = () => Math.random() * 50 + 40
     const first = randFunc()
@@ -34,28 +43,29 @@ function FavoriteSong({ meta }) {
 
   const height = randHeight()
 
-  return <div style={{textAlign:'center', display: 'flex', alignItems:'center'}}>
-    <p className='tracker'>Favorite song:</p>
-    <img src={meta.imgLink} style={{paddingLeft:'8px', paddingRight:'8px', width: meta.size.width, height: meta.size.height}} alt={meta.alt}/>
-    <p className='tracker' style={{paddingRight:'5px', color:'white'}}>{meta.song}</p>
-    <div>
-      <div style={{scale: '-1'}}>
-        <BouncingLines height={height}/>
-      </div>
-      <BouncingLines height={height}/>
+  return (
+    <div style={{display: 'flex', width: '10px', justifyContent:'space-between'}}>
+      {[...Array(3)].map(i => <div>
+        <div style={{scale: '-1 -1'}}>
+          <BouncingLine height={height}/>
+        </div>
+        <BouncingLine height={height}/>
+      </div>)}
     </div>
-  </div>
+  )
 }
 
-function BouncingLines({ height }) {
+function BouncingLine({ height }) {
   const barStyle = {
     backgroundColor: 'white', 
-    width: '1.1px'
+    width: '1px',
+    borderBottomRightRadius: '5px',
+    borderBottomLeftRadius: '5px',
   }
 
   return (
-    <div style={{width: '11px', height: '8px', display: 'flex', justifyContent: 'space-between'}}>
-      {[...Array(3)].map(i => <motion.div style={barStyle} animate={{
+    <div style={{height: '8px', display: 'flex', justifyContent: 'space-between'}}>
+      {<motion.div style={barStyle} animate={{
         height: height,
         transition: {
           duration: 0.7,
@@ -63,7 +73,7 @@ function BouncingLines({ height }) {
           repeat: Infinity,
           repeatType: 'loop'
         },
-      }}/>)}
+      }}/>}
     </div>
   )
 }
