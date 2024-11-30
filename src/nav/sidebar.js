@@ -56,7 +56,12 @@ function Sidebar({ pages }) {
 
 function AnimatedSidebar({ pages }) {
   return (
-    <motion.div style={{position:'fixed'}} initial={{ x: -100 }} animate={{ x: 0 }}>
+    <motion.div 
+    style={{position:'fixed'}} 
+    initial={{ x: -100 }} 
+    animate={{ x: 0 }}
+    transition={{ duration: 0.4, ease: 'easeInOut', delay: 0.3 }} 
+    >
       <Sidebar pages={pages}/>
     </motion.div>
   )

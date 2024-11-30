@@ -23,7 +23,7 @@ function Thoughts() {
   }
 
   return (
-    <div style={{display: 'grid', justifyContent: 'center'}}>
+    <div style={{gap: '10px', paddingTop: '80px', display: 'grid', justifyContent: 'center'}}>
       {thoughts.map((thought, index) => <div>
         <button className='drop-down' onClick={() => displayContent(index)}>
           <p>{thought.title}</p>

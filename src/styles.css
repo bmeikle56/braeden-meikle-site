@@ -111,6 +111,10 @@ a.app-store:link, a.app-store:visited  {
   text-decoration: none;
 }
 
+.side-bar-btn {
+  transition: all 0.5s ease;
+}
+
 .side-bar-btn:hover {
   transition: all 0.5s ease;
   font-size: 14.5px;
@@ -126,10 +130,12 @@ a.app-store:link, a.app-store:visited  {
   display: flex;
   overflow: hidden;
   align-items: center;
+  transition: all 0.5s ease;
 }
 
 .drop-down:hover {
   background-color: rgb(40,40,40);
+  transition: all 0.5s ease;
 }
 
 /* Adding the transition here allows for smooth rotations back and forth */

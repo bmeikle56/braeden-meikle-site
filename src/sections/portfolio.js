@@ -30,10 +30,10 @@ function AppContributions() {
     display: 'flex', 
     alignItems: 'center',
     width: '29.5vw',
-    height: '50px',
+    height: '60px',
     paddingLeft: '80px',
     backgroundColor: 'rgb(17,17,17)', 
-    borderRadius:'20px'
+    borderRadius:'15px'
   }
 
   const contributions = [geicoMeta, hiyaMeta, siteMeta]
@@ -51,7 +51,7 @@ function AppContributions() {
             <div style={{width: 8, height: 8, backgroundColor: 'white', borderRadius: '50%'}}></div>
             <pre style={{margin: '0 0 0 19px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.prefix}</pre>
             <a target='_blank' rel="noreferrer" className='app-store' href={meta.link} style={{paddingRight: 4}}>{meta.desc}</a>
-            <p style={{marginLeft: 'auto', paddingRight: '12px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.users}</p>
+            <p style={{marginLeft: 'auto', paddingRight: '15px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.users}</p>
           </motion.div>)}
       </div>
     </div>
