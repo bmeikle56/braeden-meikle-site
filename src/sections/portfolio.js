@@ -3,7 +3,8 @@ import {
   geicoMeta,
   hiyaMeta,
   siteMeta
-} from "../data/consts"
+} from '../data/consts'
+import { motion } from 'motion/react'
 
 function Pfp({ meta }) {
   return <img 
@@ -28,9 +29,11 @@ function AppContributions() {
   const appEntryStyle = {
     display: 'flex', 
     alignItems: 'center',
-    width: '36vw',
+    width: '29.5vw',
+    height: '50px',
+    paddingLeft: '80px',
     backgroundColor: 'rgb(17,17,17)', 
-    borderRadius:'20px', 
+    borderRadius:'20px'
   }
 
   const contributions = [geicoMeta, hiyaMeta, siteMeta]
@@ -38,13 +41,18 @@ function AppContributions() {
   return (
     <div style={{display: 'flex', justifyContent: 'center'}}>
       <div style={{display: 'grid', gap:'15px', justifyContent: 'center', width: '70vh',backgroundClip: 'content-box'}}>
-        {contributions.map((meta) => <div style={appEntryStyle}>
-          <img alt={meta.alt} src={meta.img} style={{margin: '0 -12px 0 0', clipPath: meta.clip, borderRadius:'20px', width: meta.imgSq.width, height: meta.imgSq.height}}/>
-          <div style={{width: 8, height: 8, backgroundColor: 'white', borderRadius: '50%'}}></div>
-          <pre style={{margin: '0 0 0 19px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.prefix}</pre>
-          <a target='_blank' rel="noreferrer" className='app-store' href={meta.link} style={{paddingRight: 4}}>{meta.desc}</a>
-          <p style={{color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.users}</p>
-        </div>)}
+        {contributions.map((meta, index) => 
+          <motion.div 
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          transition={{ duration: 0.8, ease: 'easeOut', delay: (index * 0.6) + 1 }} 
+          style={appEntryStyle}>
+            <img alt={meta.alt} src={meta.img} style={{zIndex: '1', paddingTop: meta.imgVOffset, position: 'absolute', margin: `0 0 0 ${-90+meta.imgHOffset}px`, clipPath: meta.clip, borderRadius:'20px', width: meta.imgRect.width, height: meta.imgRect.height}}/>
+            <div style={{width: 8, height: 8, backgroundColor: 'white', borderRadius: '50%'}}></div>
+            <pre style={{margin: '0 0 0 19px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.prefix}</pre>
+            <a target='_blank' rel="noreferrer" className='app-store' href={meta.link} style={{paddingRight: 4}}>{meta.desc}</a>
+            <p style={{marginLeft: 'auto', paddingRight: '12px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.users}</p>
+          </motion.div>)}
       </div>
     </div>
   )
@@ -53,7 +61,13 @@ function AppContributions() {
 function Portfolio() {
   return (
     <div>
-      <Bio meta={bioMeta}/>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+      >
+        <Bio meta={bioMeta}/>
+      </motion.div>
       <AppContributions/>
     </div>
   )

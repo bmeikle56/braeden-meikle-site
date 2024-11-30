@@ -37,10 +37,12 @@ const geicoMeta = {
   clip: 'inset(9.08px 32.3px 8.4px 32.4px round 8px)',
   desc: 'GEICO iOS app',
   img: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e6/5c/9a/e65c9a80-1eaa-606e-ca79-9a0921d0921f/AppIcon-1x_U007emarketing-0-7-0-85-220-0.png/1200x630wa.png',
-  imgSq: {width: 100, height: 50},
+  imgRect: {width: 100, height: 50},
+  imgHOffset: 0,
+  imgVOffset: '0px',
   link: 'https://apps.apple.com/us/app/geico-mobile-car-insurance/id331763096',
   prefix: 'Contributed to the ',
-  users: '(10M monthly users)'
+  users: '10M users/month'
 }
 
 const hiyaMeta = {
@@ -48,17 +50,21 @@ const hiyaMeta = {
   clip: 'inset(7.98px 32.5px 8.3px 32.5px round 8px)',
   desc: 'Hiya iOS app',
   img: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/40/68/8f/40688f33-758d-52d3-8285-03f632a7cd70/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/1200x600wa.png',
-  imgSq: {width: 100, height: 50},
+  imgRect: {width: 100, height: 50},
+  imgHOffset: 0,
+  imgVOffset: '0px',
   link: 'https://apps.apple.com/us/app/hiya-spam-blocker-caller-id/id986999874',
   prefix: 'Contributed to the ',
-  users: '(250K monthly users)'
+  users: '250K users/month'
 }
 
 const siteMeta = {
-  alt: '---',
-  clip: 'inset(7.98px 32.5px 8.3px 32.5px round 8px)',
-  img: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/40/68/8f/40688f33-758d-52d3-8285-03f632a7cd70/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/1200x600wa.png',
-  imgSq: {width: 100, height: 50},
+  alt: 'Website logo',
+  clip: 'inset(45.6px 42.5px 46px 35.5px round 8px)',
+  img: 'https://i.postimg.cc/50C1H771/logo.png',
+  imgRect: {width: 110, height: 110},
+  imgHOffset: -2.5,
+  imgVOffset: '14px',
   prefix: 'Owner of this site',
 }
 
