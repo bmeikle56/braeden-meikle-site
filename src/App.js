@@ -5,9 +5,11 @@ import {
 } from './data/consts.js'
 import { Fun } from './sections/fun.js'
 import { AnimatedSidebar } from './nav/sidebar.js'
+import { Footer } from './sections/footer.js'
 import { Portfolio } from './sections/portfolio.js'
 import { Thoughts } from './sections/thoughts.js'
 import { Journies } from './sections/journies.js'
+import { VDivider } from './sections/vdiv.js'
 
 function Body() {
   return (
@@ -30,24 +32,6 @@ function Body() {
       </div>
       <Footer/>
     </body>
-  )
-}
-
-function VDivider() { return <div className='vdiv'></div> }
-
-function Footer() {
-  return (
-    <div className='footer'>
-      <p className='footer-txt'>Created November 26, 2024</p>
-      <p className='footer-hdiv'>|</p>
-      <span className='footer-txt' id='phone'></span>
-      <p className='footer-hdiv'>|</p>
-      <span className='footer-txt' id='email'></span>
-      <p className='footer-hdiv'>|</p>
-      <span className='footer-txt' id='linkedin'></span>
-      <p className='footer-hdiv'>|</p>
-      <span className='footer-txt' id='github'></span>
-    </div>
   )
 }
 
