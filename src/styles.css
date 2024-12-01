@@ -121,7 +121,8 @@ a.app-store:link, a.app-store:visited  {
 }
 
 .drop-down {
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(15,15,15);
+  border-radius: 5px;
   color: white;
   padding: 10px 20px 10px 20px;
   width: 70vw;
