@@ -1,7 +1,8 @@
 import './styles.css'
 import React from 'react'
 import { 
-  pages
+  pages,
+  sessions
 } from './data/consts.js'
 import { Fun } from './sections/fun.js'
 import { AnimatedSidebar } from './nav/sidebar.js'
@@ -10,6 +11,8 @@ import { Portfolio } from './sections/portfolio.js'
 import { Thoughts } from './sections/thoughts.js'
 import { Journies } from './sections/journies.js'
 import { VDivider } from './sections/vdiv.js'
+
+console.log(sessions)
 
 function Body() {
   return (
@@ -27,8 +30,8 @@ function Body() {
         <Thoughts/>
       </div>
       <VDivider/>
-      <div id='journies' style={{height: '100vh'}}>
-        <Journies/>
+      <div id='journies' style={{height: '100vh', display: 'flex', justifyContent: 'center'}}>
+        <Journies sessions={sessions}/>
       </div>
       <Footer/>
     </body>

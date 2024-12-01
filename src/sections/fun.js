@@ -19,7 +19,7 @@ function EditTracker() {
 
 function LocationTracker() {
   return (
-    <div style={{textAlign:'center', paddingBottom:'2vh'}}>
+    <div style={{textAlign:'center', paddingBottom:'4vh'}}>
       <p className='tracker'>&#128205; {location}</p>
     </div>
   )

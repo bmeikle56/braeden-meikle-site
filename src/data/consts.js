@@ -1,6 +1,6 @@
 /* Constant file */
 
-const lastEditDate = 'Saturday, November 30'
+const lastEditDate = 'November 30'
 const location = 'Atlanta, GA'
 const pages = ['fun', 'portfolio', 'thoughts', 'journies']
 
@@ -68,6 +68,13 @@ const siteMeta = {
   prefix: 'Owner of this site',
 }
 
+const sessions = [
+  {result: 143, stakes: '$1/$3', loc: 'MGM', date: '11/22', dur: '2.5 hrs'},
+  {result: 31, stakes: '$1/$3', loc: 'MGM', date: '11/27', dur: '4 hrs'},
+  {result: -476, stakes: '$1/$3', loc: 'MGM', date: '11/29', dur: '5.5 hrs'},
+  {result: 0, stakes: '$1/$3', loc: 'MGM', date: '11/29', dur: '5.5 hrs'},
+]
+
 export { 
   bioMeta,
   lastEditDate,
@@ -77,5 +84,6 @@ export {
   hiyaMeta,
   geicoMeta,
   pages,
+  sessions,
   siteMeta
 }
