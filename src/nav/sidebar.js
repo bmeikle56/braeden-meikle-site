@@ -15,6 +15,7 @@ const sideBarBtnStyle = {
 
 const sidebarStyle = {
   backgroundColor:'black',
+  backgroundClip: 'content-box',
   paddingTop:'25vh',
   zIndex: '1',
   position: 'fixed',

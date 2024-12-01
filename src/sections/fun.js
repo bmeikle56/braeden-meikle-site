@@ -19,11 +19,18 @@ function EditTracker() {
 
 function LocationTracker() {
   return (
-    <div style={{textAlign:'center', paddingBottom:'10vh'}}>
+    <div style={{textAlign:'center', paddingBottom:'2vh'}}>
       <p className='tracker'>&#128205; {location}</p>
     </div>
   )
 }
+
+const activity = [
+  [0,0,1,0,1,0,1,0,1,0],
+  [1,0,0,0,0,0,0,1,0,1],
+  [0,0,0,1,1,1,0,0,0,0],
+  [0],
+]
 
 function FavoriteSong({ meta }) {
   return <div style={{textAlign:'center', display: 'flex', alignItems:'center'}}>
@@ -32,6 +39,39 @@ function FavoriteSong({ meta }) {
     <p className='tracker' style={{paddingRight:'5px', color:'white'}}>{meta.song}</p>
     <BouncingLines/>
   </div>
+}
+
+function ActivityTracker() {
+  return (
+    <div style={{display: 'grid', justifyContent: 'center', gap: '2px', paddingBottom:'8vh'}}>
+      {activity.map((row, i) =>
+        <div style={{display: 'flex', gap: '2px'}}>
+        {row.map((day, j) => 
+          <Activity day={day} index={(i+1) * (j+1)}/>
+        )}
+      </div>
+      )}
+    </div>
+  )
+}
+
+function Activity({ day, index }) {
+  const activityStyle = {
+    backgroundColor: day === 1 ? 'rgb(0,192,0)' : 'rgb(50,50,50)', 
+    width: '10px', 
+    height: '10px', 
+    borderRadius: '3px'
+  }
+
+  return <motion.div 
+    style={activityStyle}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ 
+      duration: 0.2, 
+      delay: (day * 2) + (0.06 * index)
+    }}
+  ></motion.div>
 }
 
 function BouncingLines() {
@@ -134,6 +174,7 @@ function Fun() {
       <Title/>
       <EditTracker/>
       <LocationTracker/>
+      <ActivityTracker/>
       <Canvas/>
     </div>
   )
