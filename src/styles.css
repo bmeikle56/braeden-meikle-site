@@ -113,6 +113,7 @@ a.app-store:link, a.app-store:visited  {
 
 .side-bar-btn {
   transition: all 0.5s ease;
+  font-size: 13px;
 }
 
 .side-bar-btn:hover {
