@@ -59,6 +59,7 @@ function Thoughts() {
           <span className='chevron' style={{marginLeft:'auto'}}>&rsaquo;</span>
         </button>
         <div class='panel'>
+          <p style={{color: 'white'}}>{thought.content}</p>
           {/* <p style={{color: 'white'}}>{thought.content}</p> */}
           {/* <SwiftArticle/> */}
         </div>

@@ -33,6 +33,7 @@ function Body() {
       <div id='journies' style={{height: '100vh', display: 'flex', justifyContent: 'center'}}>
         <Journies sessions={sessions}/>
       </div>
+      <VDivider/>
       <Footer/>
     </body>
   )

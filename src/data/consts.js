@@ -72,7 +72,6 @@ const sessions = [
   {result: 143, stakes: '$1/$3', loc: 'MGM', date: '11/22', dur: '2.5 hrs'},
   {result: 31, stakes: '$1/$3', loc: 'MGM', date: '11/27', dur: '4 hrs'},
   {result: -476, stakes: '$1/$3', loc: 'MGM', date: '11/29', dur: '5.5 hrs'},
-  {result: 0, stakes: '$1/$3', loc: 'MGM', date: '11/29', dur: '5.5 hrs'},
 ]
 
 export { 
