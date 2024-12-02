@@ -9,21 +9,21 @@ import { motion } from 'motion/react'
 
 function Title() { return <h1 className='title'>Braeden Meikle</h1> }
 
-function EditTracker() {
-  return (
-    <div style={{textAlign:'center', paddingTop:'1vh'}}>
-      <p className='tracker'>Last seen: {lastEditDate}</p>
-    </div>
-  )
-}
+// function EditTracker() {
+//   return (
+//     <div style={{textAlign:'center', paddingTop:'1vh'}}>
+//       <p className='tracker'>Last seen: {lastEditDate}</p>
+//     </div>
+//   )
+// }
 
-function LocationTracker() {
-  return (
-    <div style={{textAlign:'center', paddingBottom:'4vh'}}>
-      <p className='tracker'>&#128205; {location}</p>
-    </div>
-  )
-}
+// function LocationTracker() {
+//   return (
+//     <div style={{textAlign:'center', paddingBottom:'4vh'}}>
+//       <p className='tracker'>&#128205; {location}</p>
+//     </div>
+//   )
+// }
 
 const activity = [
   [0,0,1,0,1,0,1,0,1,0],
@@ -172,8 +172,8 @@ function Fun() {
   return (
     <div>
       <Title/>
-      <EditTracker/>
-      <LocationTracker/>
+      {/* <EditTracker/>
+      <LocationTracker/> */}
       <ActivityTracker/>
       <Canvas/>
     </div>

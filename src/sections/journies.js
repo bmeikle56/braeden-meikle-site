@@ -1,3 +1,5 @@
+import * as d3 from 'd3'
+
 
 function Journies({ sessions }) {
   return (
@@ -10,7 +12,6 @@ function Journies({ sessions }) {
 }
 
 function Session({ session }) {
-
   function textFor(result) {
     let color, prefix
     if (result === 0) {
@@ -33,6 +34,13 @@ function Session({ session }) {
     <p style={{color: 'rgb(40,40,40)'}}>&mdash;</p>
     <p style={{paddingLeft: '5px', color: 'rgb(190,190,190)'}}>{session.dur}</p>
   </div>)
+}
+
+const xAxis = d3.scaleLinear().domain([0, 100]).range([0, 500])
+const yAxis = d3.scaleLinear().domain([0, 100]).range([0, 500])
+
+function Plot() {
+  
 }
 
 export { Journies }

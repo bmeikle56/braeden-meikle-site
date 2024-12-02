@@ -30,6 +30,16 @@ const thoughts = [
   }
 ]
 
+// function SwiftArticle() {
+//   return (
+//     <div>
+//       <p>Force unwrapping an optional is better than null coalescing where the later is app-breaking.
+//         If 
+//       </p>
+//     </div>
+//   )
+// }
+
 function Thoughts() {
   const contentMaxHeight = '500px'
 
@@ -49,7 +59,8 @@ function Thoughts() {
           <span className='chevron' style={{marginLeft:'auto'}}>&rsaquo;</span>
         </button>
         <div class='panel'>
-          <p style={{color: 'white'}}>{thought.content}</p>
+          {/* <p style={{color: 'white'}}>{thought.content}</p> */}
+          {/* <SwiftArticle/> */}
         </div>
       </div>)}
     </div>
