@@ -8,7 +8,7 @@ import { Fun } from './sections/fun.js'
 import { AnimatedSidebar } from './nav/sidebar.js'
 import { Footer } from './sections/footer.js'
 import { Portfolio } from './sections/portfolio.js'
-import { Thoughts } from './sections/thoughts.js'
+import { Articles } from './sections/articles.js'
 import { Journies } from './sections/journies.js'
 import { VDivider } from './sections/vdiv.js'
 
@@ -26,8 +26,8 @@ function Body() {
         <Portfolio/>
       </div>
       <VDivider/>
-      <div id='thoughts' style={{height: '100vh'}}>
-        <Thoughts/>
+      <div id='articles' style={{height: '100vh'}}>
+        <Articles/>
       </div>
       <VDivider/>
       <div id='journies' style={{height: '100vh', display: 'flex', justifyContent: 'center'}}>

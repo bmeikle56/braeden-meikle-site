@@ -2,7 +2,7 @@
 
 const lastEditDate = 'November 30'
 const location = 'Atlanta, GA'
-const pages = ['fun', 'portfolio', 'thoughts', 'journies']
+const pages = ['fun', 'portfolio', 'articles', 'journies']
 
 const favFuncMeta = {
   func: 'compactMap',
@@ -41,8 +41,7 @@ const geicoMeta = {
   imgHOffset: 0,
   imgVOffset: '0px',
   link: 'https://apps.apple.com/us/app/geico-mobile-car-insurance/id331763096',
-  prefix: 'Contributed to the ',
-  users: '10M users/month'
+  suffix: 'contributor',
 }
 
 const hiyaMeta = {
@@ -54,18 +53,18 @@ const hiyaMeta = {
   imgHOffset: 0,
   imgVOffset: '0px',
   link: 'https://apps.apple.com/us/app/hiya-spam-blocker-caller-id/id986999874',
-  prefix: 'Contributed to the ',
-  users: '250K users/month'
+  suffix: 'contributor',
 }
 
 const siteMeta = {
   alt: 'Website logo',
   clip: 'inset(45.6px 42.5px 46px 35.5px round 8px)',
+  desc: 'braedenmeikle.dev',
   img: 'https://i.postimg.cc/50C1H771/logo.png',
   imgRect: {width: 110, height: 110},
   imgHOffset: -2.5,
   imgVOffset: '14px',
-  prefix: 'Owner of this site',
+  suffix: 'site owner',
 }
 
 const sessions = [

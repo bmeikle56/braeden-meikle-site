@@ -29,7 +29,7 @@ function AppContributions() {
   const appEntryStyle = {
     display: 'flex', 
     alignItems: 'center',
-    width: '29.5vw',
+    width: '18vw',
     height: '60px',
     paddingLeft: '80px',
     backgroundColor: 'rgb(17,17,17)', 
@@ -50,8 +50,12 @@ function AppContributions() {
             <img alt={meta.alt} src={meta.img} style={{zIndex: '1', paddingTop: meta.imgVOffset, position: 'absolute', margin: `0 0 0 ${-90+meta.imgHOffset}px`, clipPath: meta.clip, borderRadius:'20px', width: meta.imgRect.width, height: meta.imgRect.height}}/>
             <div style={{width: 8, height: 8, backgroundColor: 'white', borderRadius: '50%'}}></div>
             <pre style={{margin: '0 0 0 19px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.prefix}</pre>
-            <a target='_blank' rel="noreferrer" className='app-store' href={meta.link} style={{paddingRight: 4}}>{meta.desc}</a>
-            <p style={{marginLeft: 'auto', paddingRight: '15px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.users}</p>
+            {meta.link == null ? 
+              <p style={{color: 'rgb(83,195,189)', paddingRight: 4}}>{meta.desc}</p> :
+              <a target='_blank' rel="noreferrer" className='app-store' href={meta.link} style={{paddingRight: 4}}>{meta.desc}</a>
+            }
+            <div style={{flexGrow:'1', paddingTop: '4px', backgroundClip: 'content-box', backgroundColor: 'rgb(40,40,40)', height: '1.4px', width:'5px'}}></div>
+            <p style={{marginLeft: 'auto', paddingLeft: '5px', paddingRight: '18px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.suffix}</p>
           </motion.div>)}
       </div>
     </div>
