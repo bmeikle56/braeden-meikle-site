@@ -10,7 +10,7 @@ function Title() { return <h1 className='title'>Braeden Meikle</h1> }
 
 /* Edits/day for the month of December */
 const activity = [
-  [1,1,0,0,0,0,0,0,0,0],
+  [1,1,1,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
   [0]
@@ -20,7 +20,7 @@ function FavoriteSong({ meta }) {
   return <div style={{textAlign:'center', display: 'flex', alignItems:'center'}}>
     <p className='tracker'>Favorite song:</p>
     <img src={meta.imgLink} style={{paddingLeft:'8px', paddingRight:'8px', width: meta.size.width, height: meta.size.height}} alt={meta.alt}/>
-    <p className='tracker' style={{paddingRight:'5px', color:'white'}}>{meta.song}</p>
+    <p className='tracker' style={{paddingRight:'5px', color:'gray'}}>{meta.song}</p>
     <BouncingLines/>
   </div>
 }
@@ -87,10 +87,12 @@ function BouncingLines() {
   )
 }
 
+/* I really like this purple color -> rgb(180,0,180) */
+
 function BouncingLine({ height, dur }) {
   const barStyle = {
     width: '1px',
-    backgroundColor: 'rgb(180,0,180)'
+    backgroundColor: 'gray'
 
     /* Would like but causes image rasterization issues when animated... */
     // borderBottomRightRadius: '1px',
@@ -111,6 +113,65 @@ function BouncingLine({ height, dur }) {
     </div>
   )
 }
+
+function MetaAnim() {
+  const boundaries = [
+    {
+      position: 'absolute',
+      zIndex: '3',
+      margin: `${Math.floor((Math.random() * 500) - 50)}px 0 0 ${Math.floor((Math.random() * 110) - 50)}px`
+    },
+    {
+      position: 'absolute',
+      zIndex: '2',
+      marginLeft:'auto',
+      margin: `${Math.floor((Math.random() * 500) - 50)}px 0 0 ${Math.floor((Math.random() * 10) + 55)}vw`
+    }
+  ]
+  const delays = [8,16]
+
+  return boundaries.map((boundary, i) => <MetaAnimFact delay={delays[i]} style={boundary}/>)
+}
+
+function MetaAnimFact({ delay, style }) {
+  const meta = () => {
+    const metacol = [
+      {
+        meta: {
+          actor: 'Braeden',
+          act: 'using',
+          obj: 'iPhone'
+        }
+      },
+      {
+        meta: {
+          lang: 'Swift',
+          com: 'is lit',
+        }
+      },
+    ]
+    return metacol[Math.floor(Math.random() * 2)]
+  }
+  return (
+    <div style={style}>
+      <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: [0,0.9,0] }}
+      transition={{ 
+        repeatType: 'reverse',
+        repeat: Infinity,
+        delay: delay,
+        duration: 6,
+        repeatDelay: 16
+      }}
+      >
+        <pre className='meta-anim'>
+          {JSON.stringify(meta(), null, 2)}
+        </pre>
+      </motion.div>
+    </div>
+  )
+}
   
 function FavoriteFunction({ meta }) {
   return (
@@ -125,7 +186,7 @@ function RoyalFlushTracker() {
   return (
     <div style={{display: 'flex', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Royal flushes:  </pre>
-      <p style={{color:'white'}}>&mdash;</p>
+      <p style={{color:'gray'}}>&mdash;</p>
     </div>
   )
 }
@@ -139,20 +200,6 @@ function HoleInOneTracker() {
   )
 }
 
-// const canvasStyle = {
-//   backgroundColor: 'rgb(17, 17, 17)',
-//   borderRadius: '40px',
-//   margin: 'auto',
-//   width: '400px',
-//   paddingTop: '30px',
-//   paddingBottom: '30px',
-//   display: 'flex',
-//   flexDirection: 'column',
-//   justifyContent: 'center',
-//   alignItems: 'center',
-//   boxShadow: '0px 0px 30px rgb(38, 38, 38)'
-// }
-
 function Canvas() {
   return <div className='canvas'>
     <FavoriteSong meta={favSongMeta}/>
@@ -163,10 +210,23 @@ function Canvas() {
 }
   
 function Fun() { 
+  const metaAnimStyle = {
+    display: 'inline-block', 
+    marginLeft:'200px', 
+    padding:'9px 8px 9px 14px', 
+    position: 'absolute', 
+    zIndex: '2', 
+    justifyContent:'center', 
+    fontSize:'12px',
+  }
+
   return (
     <div>
       <Title/>
-      <LocationTracker/>
+      {/* <LocationTracker/> */}
+      <div style={metaAnimStyle}>
+        <MetaAnim/>
+      </div>
       <ActivityTracker/>
       <Canvas/>
     </div>

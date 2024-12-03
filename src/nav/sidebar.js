@@ -67,4 +67,4 @@ function AnimatedSidebar({ pages }) {
   )
 }
 
-export { AnimatedSidebar }
+export { AnimatedSidebar, capFirst }

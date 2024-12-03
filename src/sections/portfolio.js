@@ -5,6 +5,7 @@ import {
   siteMeta
 } from '../data/consts'
 import { motion } from 'motion/react'
+import { capFirst } from '../nav/sidebar'
 
 function Pfp({ meta }) {
   return <img 
@@ -25,12 +26,78 @@ function Bio({ meta }) {
   )
 }
 
+/*
+Gradient list V Divider
+Transitions from black to gray towards the center of the line, then
+transitions to black as it reaches the other end (bell curve but for grayness)
+*/
+function ListVDiv() {
+  return <div className='list-vdiv'/>
+}
+
+function ListTitle({ title }) {
+  return <p style={{textAlign:'center', color: 'rgb(160,160,160)'}}>{title}</p>
+}
+
+function Interests() {
+  const interests = ['running', 'poker', 'coding', 'tennis']
+  const imgSq = '23px'
+
+  return (
+    <div style={{width: '200px', display: 'grid', justifyContent: 'center'}}>
+      <ListTitle title={'Interests'}/>
+      <ListVDiv/>
+      {interests.map((interest, i) =>
+        <motion.div
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        transition={{ duration: 0.8, ease: 'easeOut', delay: (i * 0.6) + 1 }} 
+        style={{display: 'flex', alignItems:'center'}}
+        >
+          <img alt={`${capFirst(interest)} icon`} src={`./${interest}.png`} style={{width: imgSq, height: imgSq}}/>
+          <p style={{color: 'white', paddingLeft: '5px'}}>{capFirst(interest)}</p>
+        </motion.div>
+      )}
+    </div>
+  )
+}
+
+function Teams() {
+  const teams = [
+    {team: 'Commanders', imgSize: {width: '23px', height: '23px'}},
+    {team: 'Capitals', imgSize: {width: '35px', height: '35px'}},
+    {team: 'Yellowjackets', imgSize: {width: '43px', height: '23px'}},
+    {team: 'Wizards', imgSize: {width: '28px', height: '28px'}}
+  ]
+  const imgSize = '23px'
+
+  return (
+    <div style={{width: '200px', display: 'grid', justifyContent: 'center'}}>
+      <ListTitle title={'Teams'}/>
+      <ListVDiv/>
+      {teams.map((meta, i) =>
+        <motion.div
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        transition={{ duration: 0.8, ease: 'easeOut', delay: (i * 0.6) + 1 }} 
+        style={{display: 'flex', alignItems:'center'}}
+        >
+          <img alt={`${capFirst(meta.team)} icon`} src={`./${meta.team}.png`} style={{width: meta.imgSize.width, height: imgSize.height}}/>
+          <p style={{color: 'white', paddingLeft: '5px'}}>{capFirst(meta.team)}</p>
+        </motion.div>
+      )}
+    </div>
+  )
+}
+
 function AppContributions() {
   const contributions = [geicoMeta, hiyaMeta, siteMeta]
 
   return (
     <div style={{display: 'flex', justifyContent: 'center'}}>
       <div style={{display: 'grid', gap:'15px', justifyContent: 'center', width: '70vh', backgroundClip: 'content-box'}}>
+        <ListTitle title={'Applications'}/>
+        <ListVDiv/>
         {contributions.map((meta, index) => 
           <motion.div 
           initial={{ opacity: 0 }} 
@@ -44,8 +111,6 @@ function AppContributions() {
               <p style={{color: 'rgb(83,195,189)', paddingRight: 4}}>{meta.desc}</p> :
               <a target='_blank' rel='noreferrer' className='app-store' href={meta.link} style={{paddingRight: 4}}>{meta.desc}</a>
             }
-            {/* <div style={{flexGrow:'1', paddingTop: '4px', backgroundClip: 'content-box', backgroundColor: 'rgb(40,40,40)', height: '1.4px', width:'5px'}}></div> */}
-            {/* <p style={{marginLeft: 'auto', paddingLeft: '5px', paddingRight: '18px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.suffix}</p> */}
           </motion.div>)}
       </div>
     </div>
@@ -62,7 +127,11 @@ function Portfolio() {
       >
         <Bio meta={bioMeta}/>
       </motion.div>
-      <AppContributions/>
+      <div style={{display:'flex', justifyContent:'center'}}>
+        <AppContributions/>
+        <Interests/>
+        <Teams/>
+      </div>
     </div>
   )
 }

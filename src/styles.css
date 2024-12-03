@@ -33,7 +33,7 @@ body {
   width: 100vw;
   font-size: 45px;
   padding-top: 5vh;
-  padding-bottom: -10px;
+  padding-bottom: 5vh;
   text-align: center;
   background: linear-gradient(to right, rgb(0, 132, 255), rgb(101, 255, 111));
   background-clip: text;
@@ -56,10 +56,7 @@ body {
 }
 
 .vdiv {
-  background-clip: content-box;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: rgb(33, 33, 33);
+  background: linear-gradient(to right, black, rgb(50,50,50), black);
   height: 1.4px;
 }
 
@@ -154,4 +151,15 @@ a.article:link, a.article:visited  {
 .panel.drop {
   overflow: hidden;
   transition: max-height 0.5s ease;
+}
+
+.list-vdiv {
+  background-clip: content-box;
+  height: 1.4px;
+  background: linear-gradient(to right, rgb(10,10,10), rgb(50,50,50), rgb(10,10,10));
+}
+
+.meta-anim {
+  color: rgb(160,160,160);
+  text-shadow: 0px 0px 15px rgb(46, 190, 238), 0px 0px 12px rgb(46, 190, 238), 0px 0px 15px rgb(46, 190, 238);
 }

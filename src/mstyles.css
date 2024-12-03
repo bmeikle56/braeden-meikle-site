@@ -29,4 +29,8 @@
   .canvas {
     width: 280px;
   }
+
+  .meta-anim {
+    opacity: 0;
+  }
 }
