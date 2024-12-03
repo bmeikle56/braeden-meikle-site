@@ -67,32 +67,34 @@ function Activity({ day, index }) {
 }
 
 function BouncingLines() {
-  function randHeight() {
-    const randFunc = () => Math.random() * 50 + 40
-    const first = randFunc()
-    return [`${first}%`, `${randFunc()}%`, `${first}%`]
-  }
+  const heights = [
+    [`${50}%`, `${80}%`, `${50}%`], 
+    [`${54}%`, `${90}%`, `${54}%`], 
+    [`${43}%`, `${82}%`, `${43}%`]
+  ]
 
-  const height = randHeight()
+  const durs = [0.5, 0.7, 0.9]
 
   return (
     <div style={{display: 'flex', width: '10px', justifyContent:'space-between'}}>
-      {[...Array(3)].map(i => <div>
+      {[...Array(3)].map((_, i) => <div>
         <div style={{scale: '-1 -1'}}>
-          <BouncingLine height={height}/>
+          <BouncingLine height={heights[i]} dur={durs[i]}/>
         </div>
-        <BouncingLine height={height}/>
+        <BouncingLine height={heights[i]} dur={durs[i]}/>
       </div>)}
     </div>
   )
 }
 
-function BouncingLine({ height }) {
+function BouncingLine({ height, dur }) {
   const barStyle = {
-    backgroundColor: 'white', 
     width: '1px',
-    borderBottomRightRadius: '5px',
-    borderBottomLeftRadius: '5px',
+    backgroundColor: 'rgb(180,0,180)'
+
+    /* Would like but causes image rasterization issues when animated... */
+    // borderBottomRightRadius: '1px',
+    // borderBottomLeftRadius: '1px',
   }
 
   return (
@@ -100,7 +102,7 @@ function BouncingLine({ height }) {
       {<motion.div style={barStyle} animate={{
         height: height,
         transition: {
-          duration: 0.7,
+          duration: dur,
           ease: 'easeInOut',
           repeat: Infinity,
           repeatType: 'loop'

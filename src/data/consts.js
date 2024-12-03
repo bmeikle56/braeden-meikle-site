@@ -2,7 +2,7 @@
 
 const lastEditDate = 'November 30'
 const location = 'Atlanta, GA'
-const pages = ['fun', 'portfolio', 'articles', 'journies']
+const pages = ['fun', 'portfolio', 'articles'] // , 'journies'
 
 const favFuncMeta = {
   func: 'compactMap',

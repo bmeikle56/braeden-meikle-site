@@ -1,4 +1,5 @@
 import './styles.css'
+import './mstyles.css'
 import React from 'react'
 import { 
   pages,
@@ -18,21 +19,21 @@ function Body() {
   return (
     <body>
       <AnimatedSidebar pages={pages}/>
-      <div id='fun' style={{height: '100vh'}}>
+      <div id='fun' className='section'>
         <Fun/>
       </div>
       <VDivider/>
-      <div id='portfolio' style={{height: '100vh'}}>
+      <div id='portfolio' className='section'>
         <Portfolio/>
       </div>
       <VDivider/>
-      <div id='articles' style={{height: '100vh'}}>
+      <div id='articles' className='section'>
         <Articles/>
       </div>
-      <VDivider/>
+      {/* <VDivider/>
       <div id='journies' style={{height: '100vh', display: 'flex', justifyContent: 'center'}}>
         <Journies sessions={sessions}/>
-      </div>
+      </div> */}
       <VDivider/>
       <Footer/>
     </body>

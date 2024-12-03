@@ -1,0 +1,23 @@
+@media screen and (max-width: 800px) {
+  .section {
+    height: 110vh;
+  }
+
+  .side-bar-btn {
+    transition: all 0.5s ease;
+    font-size: 12px;
+  }
+
+  .side-bar-btn-div {
+    width: 65px;
+  }
+  
+  .side-bar-btn:hover {
+    transition: all 0.5s ease;
+    font-size: 13px;
+  }
+
+  .bio {
+    width: 300px;
+  }
+}

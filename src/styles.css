@@ -12,10 +12,14 @@ body {
   display: none;
 }
 
+.section {
+  height: 100vh;
+}
+
 .title {
   width: 100vw;
   font-size: 45px;
-  padding-top: 10vh;
+  padding-top: 5vh;
   padding-bottom: -10px;
   text-align: center;
   background: linear-gradient(to right, rgb(0, 132, 255), rgb(101, 255, 111));
@@ -150,6 +154,10 @@ a.article:link, a.article:visited  {
   overflow: hidden;
   transform: rotate(90deg);
   transition: transform 0.3s ease;
+}
+
+.bio {
+  width: 50vw;
 }
 
 .panel {

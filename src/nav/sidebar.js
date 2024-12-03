@@ -28,7 +28,6 @@ const sideBarBtnDivStyle = {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  width: '120px'
 }
 
 function Sidebar({ pages }) {
@@ -46,7 +45,7 @@ function Sidebar({ pages }) {
 
   return (
     <div style={sidebarStyle}>
-      <div style={sideBarBtnDivStyle}>{pages.map(page => 
+      <div className='side-bar-btn-div' style={sideBarBtnDivStyle}>{pages.map(page => 
         <button className='side-bar-btn' style={sideBarBtnStyle} onClick={() => scrollToSection(page)}>
           {capFirst(page)}
         </button>)}</div>
