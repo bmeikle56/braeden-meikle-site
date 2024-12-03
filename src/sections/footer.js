@@ -18,7 +18,7 @@ function Footer() {
         return <div style={{display: 'flex', alignItems:'center'}}>
           <i className={footerDiv.icon} style={iconStyle}></i>
           {footerDiv.link ? 
-            <a rel='noreferrer' target='_blank' href={footerDiv.link} style={{textDecoration:'none'}}><p className='footer-txt' style={{paddingLeft:'3px'}}>{footerDiv.txt}</p></a>
+            <a rel='noreferrer' target='_blank' href={footerDiv.link} style={{textDecoration:'none'}}><p className='footer-txt' style={{paddingLeft:'4px'}}>{footerDiv.txt}</p></a>
             : <p className='footer-txt'>{footerDiv.txt}</p>}
         </div>
       })}

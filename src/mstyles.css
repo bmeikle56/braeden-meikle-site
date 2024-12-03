@@ -4,7 +4,6 @@
   }
 
   .side-bar-btn {
-    transition: all 0.5s ease;
     font-size: 12px;
   }
 
@@ -13,7 +12,6 @@
   }
   
   .side-bar-btn:hover {
-    transition: all 0.5s ease;
     font-size: 13px;
   }
 
