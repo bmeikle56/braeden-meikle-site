@@ -116,7 +116,7 @@ function FavoriteFunction({ meta }) {
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Favorite function:  </pre>
-      <a href={meta.link} rel="noreferrer" target='_blank' class='func'>{meta.func}</a>
+      <a href={meta.link} rel='noreferrer' target='_blank' class='func'>{meta.func}</a>
     </div>
   )
 }

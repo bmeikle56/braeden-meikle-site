@@ -1,15 +1,27 @@
+const footerDivs = [
+  {txt: 'Created November 26, 2024'},
+  // {txt: '(703) 999-1175', icon: 'fa fa-phone'},
+  {txt: 'Email', link: 'mailto:braedenmeikle@gmail.com', icon: 'fa fa-envelope'},
+  {txt: 'LinkedIn', link: 'https://www.linkedin.com/in/bmeikle3/', icon: 'fa fa-linkedin-square'},
+  {txt: 'GitHub', link: 'https://github.com/bmeikle56', icon: 'fa fa-github'},
+]
+
+const iconStyle = {
+  fontSize: '12px',
+  color: 'gray'
+}
+
 function Footer() {
   return (
     <div className='footer'>
-      <p className='footer-txt'>Created November 26, 2024</p>
-      <p className='footer-hdiv'>|</p>
-      <span className='footer-txt' id='phone'></span>
-      <p className='footer-hdiv'>|</p>
-      <span className='footer-txt' id='email'></span>
-      <p className='footer-hdiv'>|</p>
-      <span className='footer-txt' id='linkedin'></span>
-      <p className='footer-hdiv'>|</p>
-      <span className='footer-txt' id='github'></span>
+      {footerDivs.map((footerDiv, i) => {
+        return <div style={{display: 'flex', alignItems:'center'}}>
+          <i className={footerDiv.icon} style={iconStyle}></i>
+          {footerDiv.link ? 
+            <a rel='noreferrer' target='_blank' href={footerDiv.link} style={{textDecoration:'none'}}><p className='footer-txt' style={{paddingLeft:'3px'}}>{footerDiv.txt}</p></a>
+            : <p className='footer-txt'>{footerDiv.txt}</p>}
+        </div>
+      })}
     </div>
   )
 }

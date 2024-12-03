@@ -1,5 +1,3 @@
-import '../mstyles.css'
-import '../styles.css'
 import { 
   bioMeta,
   geicoMeta,
@@ -18,7 +16,7 @@ function Pfp({ meta }) {
 
 function Bio({ meta }) {
   return (
-    <div style={{paddingTop: '15vh', paddingBottom: '2vh', display:'grid', placeItems: 'center'}}>
+    <div style={{paddingTop: '5vh', paddingBottom: '2vh', display:'grid', placeItems: 'center'}}>
       <Pfp meta={meta.pfpMeta}/>
       <div className='bio'>
         <p style={{color:'white'}}>{meta.bio}</p>
@@ -54,7 +52,7 @@ function AppContributions() {
             <pre style={{margin: '0 0 0 15px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.prefix}</pre>
             {meta.link == null ? 
               <p style={{color: 'rgb(83,195,189)', paddingRight: 4}}>{meta.desc}</p> :
-              <a target='_blank' rel="noreferrer" className='app-store' href={meta.link} style={{paddingRight: 4}}>{meta.desc}</a>
+              <a target='_blank' rel='noreferrer' className='app-store' href={meta.link} style={{paddingRight: 4}}>{meta.desc}</a>
             }
             <div style={{flexGrow:'1', paddingTop: '4px', backgroundClip: 'content-box', backgroundColor: 'rgb(40,40,40)', height: '1.4px', width:'5px'}}></div>
             <p style={{marginLeft: 'auto', paddingLeft: '5px', paddingRight: '18px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.suffix}</p>

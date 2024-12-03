@@ -10,7 +10,7 @@ import { AnimatedSidebar } from './nav/sidebar.js'
 import { Footer } from './sections/footer.js'
 import { Portfolio } from './sections/portfolio.js'
 import { Articles } from './sections/articles.js'
-import { Journies } from './sections/journies.js'
+// import { Journies } from './sections/journies.js'
 import { VDivider } from './sections/vdiv.js'
 
 console.log(sessions)
@@ -35,7 +35,9 @@ function Body() {
         <Journies sessions={sessions}/>
       </div> */}
       <VDivider/>
-      <Footer/>
+      <div style={{display:'flex', justifyContent:'center'}}>
+        <Footer/>
+      </div>
     </body>
   )
 }

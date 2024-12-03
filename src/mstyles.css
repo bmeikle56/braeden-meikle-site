@@ -20,4 +20,11 @@
   .bio {
     width: 300px;
   }
+
+  .footer {
+    display: flex;
+    width: 75vw;
+    justify-content: space-between;
+    padding: 0 0 0 0;
+  }
 }
