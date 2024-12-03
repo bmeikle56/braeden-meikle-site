@@ -10,7 +10,7 @@ const favFuncMeta = {
 }
 
 const favSongMeta = {
-  song: 'Escape (Remix)',
+  song: 'Escape',
   imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
   alt: 'Escape (Remix) album cover',
   size: {width: 25, height: 25},

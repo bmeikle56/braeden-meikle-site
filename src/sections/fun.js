@@ -76,7 +76,7 @@ function BouncingLines() {
   const durs = [0.5, 0.7, 0.9]
 
   return (
-    <div style={{display: 'flex', width: '10px', justifyContent:'space-between'}}>
+    <div style={{display: 'flex', width: '10px', paddingTop:'4px', justifyContent:'space-between'}}>
       {[...Array(3)].map((_, i) => <div>
         <div style={{scale: '-1 -1'}}>
           <BouncingLine height={heights[i]} dur={durs[i]}/>
@@ -115,7 +115,7 @@ function BouncingLine({ height, dur }) {
 function FavoriteFunction({ meta }) {
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
-      <pre className='tracker'>Favorite function:  </pre>
+      <pre className='tracker'>Favorite function: </pre>
       <a href={meta.link} rel='noreferrer' target='_blank' class='func'>{meta.func}</a>
     </div>
   )
@@ -139,22 +139,22 @@ function HoleInOneTracker() {
   )
 }
 
-const canvasStyle = {
-  backgroundColor: 'rgb(17, 17, 17)',
-  borderRadius: '40px',
-  margin: 'auto',
-  width: '400px',
-  paddingTop: '30px',
-  paddingBottom: '30px',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  boxShadow: '0px 0px 30px rgb(38, 38, 38)'
-}
+// const canvasStyle = {
+//   backgroundColor: 'rgb(17, 17, 17)',
+//   borderRadius: '40px',
+//   margin: 'auto',
+//   width: '400px',
+//   paddingTop: '30px',
+//   paddingBottom: '30px',
+//   display: 'flex',
+//   flexDirection: 'column',
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   boxShadow: '0px 0px 30px rgb(38, 38, 38)'
+// }
 
 function Canvas() {
-  return <div style={canvasStyle}>
+  return <div className='canvas'>
     <FavoriteSong meta={favSongMeta}/>
     <FavoriteFunction meta={favFuncMeta}/>
     <HoleInOneTracker/>
