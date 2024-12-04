@@ -33,4 +33,12 @@
   .meta-anim {
     opacity: 0;
   }
+
+  .portfolio {
+    display: grid;
+  }
+
+  #portfolio {
+    height: 165vh;
+  }
 }
