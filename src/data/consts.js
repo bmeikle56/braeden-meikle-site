@@ -1,3 +1,4 @@
+
 /* Constant file */
 
 const lastEditDate = 'November 30'
