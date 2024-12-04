@@ -1,3 +1,5 @@
+import './articles.css';
+
 const articles = [
   {
     title: 'Swift is the best programming language',
@@ -101,14 +103,22 @@ function Articles() {
     const panels = document.getElementsByClassName('panel')
     panels[index].style.maxHeight = panels[index].style.maxHeight === contentMaxHeight ? '0px' : contentMaxHeight
     panels[index].classList.toggle('drop')
+
+    // hide new badge once article is clicked for the first time
+    const newBadges = document.getElementsByClassName('new-badge')
+    newBadges[index].classList.toggle('fade')
+    newBadges[index].style.opacity = 0
   }
 
   return (
     <div style={{gap: '10px', paddingTop: '80px', display: 'grid', justifyContent: 'center'}}>
       {articles.map((article, index) => <div>
         <button className='drop-down' onClick={() => displayContent(index)}>
-          <p>{article.title}</p>
-          <span className='chevron' style={{marginLeft:'auto'}}>&rsaquo;</span>
+          <p style={{color: 'gray'}}>{article.title}</p>
+          <div style={{marginLeft: 'auto', display: 'flex', gap: '12px', alignItems: 'center'}}>
+            <p className='new-badge' style={{color: 'rgb(0,255,0)', fontSize:'10px'}}>New</p>
+            <span className='chevron' style={{margin:'-2px 0 0 0'}}>&rsaquo;</span>
+          </div>
         </button>
         <div class='panel'>
           {<article.content/>}

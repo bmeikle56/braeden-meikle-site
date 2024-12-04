@@ -1,0 +1,61 @@
+
+/* Desktop style sheets */
+
+a.func:link, a.func:visited  {
+  font-family: andale mono, monospace;
+  color: rgb(255, 0, 123);
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.canvas {
+  background-color: rgb(17, 17, 17);
+  border-radius: 40px;
+  margin: auto;
+  width: 400px;
+  padding: 30px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 30px rgb(38, 38, 38);
+}
+
+.meta-anim {
+  color: rgb(160,160,160);
+  text-shadow: 0px 0px 15px rgb(46, 190, 238), 0px 0px 12px rgb(46, 190, 238), 0px 0px 15px rgb(46, 190, 238);
+}
+
+.title {
+  width: 100vw;
+  font-size: 45px;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  text-align: center;
+  background: linear-gradient(to right, rgb(0, 132, 255), rgb(101, 255, 111));
+  background-clip: text;
+  text-shadow: rgb(138, 138, 138) 0px 0px 25px;
+  color: transparent;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.tracker {
+  color: gray;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Mobile style sheets */
+
+@media screen and (max-width: 800px) {
+  .canvas {
+    width: 280px;
+  }
+
+  #fun {
+    height: 85vh;
+  }
+
+  .meta-anim {
+    opacity: 0;
+  }
+}

@@ -1,6 +1,7 @@
+import './footer.css';
+
 const footerDivs = [
   {txt: 'Created November 26, 2024'},
-  // {txt: '(703) 999-1175', icon: 'fa fa-phone'},
   {txt: 'Email', link: 'mailto:braedenmeikle@gmail.com', icon: 'fa fa-envelope'},
   {txt: 'LinkedIn', link: 'https://www.linkedin.com/in/bmeikle3/', icon: 'fa fa-linkedin-square'},
   {txt: 'GitHub', link: 'https://github.com/bmeikle56', icon: 'fa fa-github'},

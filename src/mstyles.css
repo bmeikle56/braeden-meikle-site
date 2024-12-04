@@ -2,43 +2,4 @@
   .section {
     height: 110vh;
   }
-
-  .side-bar-btn {
-    font-size: 12px;
-  }
-
-  .side-bar-btn-div {
-    width: 65px;
-  }
-  
-  .side-bar-btn:hover {
-    font-size: 13px;
-  }
-
-  .bio {
-    width: 270px;
-  }
-
-  .footer {
-    display: flex;
-    width: 90vw;
-    justify-content: space-between;
-    padding: 0 0 0 0;
-  }
-
-  .canvas {
-    width: 280px;
-  }
-
-  .meta-anim {
-    opacity: 0;
-  }
-
-  .portfolio {
-    display: grid;
-  }
-
-  #portfolio {
-    height: 165vh;
-  }
 }

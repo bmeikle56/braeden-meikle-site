@@ -3,9 +3,10 @@ import {
   geicoMeta,
   hiyaMeta,
   siteMeta
-} from '../data/consts'
+} from '../../data/consts'
+import './portfolio.css';
 import { motion } from 'motion/react'
-import { capFirst } from '../nav/sidebar'
+import { capFirst } from '../../nav/sidebar'
 
 function Pfp({ meta }) {
   return <img 

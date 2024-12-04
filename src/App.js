@@ -5,11 +5,11 @@ import {
   pages,
   sessions
 } from './data/consts.js'
-import { Fun } from './sections/fun.js'
+import { Fun } from './sections/fun/fun.js'
 import { AnimatedSidebar } from './nav/sidebar.js'
-import { Footer } from './sections/footer.js'
-import { Portfolio } from './sections/portfolio.js'
-import { Articles } from './sections/articles.js'
+import { Footer } from './sections/footer/footer.js'
+import { Portfolio } from './sections/portfolio/portfolio.js'
+import { Articles } from './sections/articles/articles.js'
 // import { Journies } from './sections/journies.js'
 import { VDivider } from './sections/vdiv.js'
 

@@ -2,8 +2,8 @@ import {
   location,
   favFuncMeta,
   favSongMeta
-} from '../data/consts.js'
-import '../styles.css';
+} from '../../data/consts.js'
+import './fun.css';
 import { motion } from 'motion/react'
 
 function Title() { return <h1 className='title'>Braeden Meikle</h1> }
