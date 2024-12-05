@@ -159,7 +159,7 @@ function MetaAnimFact({ delay, style }) {
         repeat: Infinity,
         delay: delay,
         duration: 6,
-        repeatDelay: 16
+        repeatDelay: 20
       }}
       >
         <pre className='meta-anim'>
@@ -205,6 +205,30 @@ function Canvas() {
     <RoyalFlushTracker/>
   </div> 
 }
+
+function BinarySnake() {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: [0,0.9,0] }}
+      style={{
+        color:'white',
+        zIndex: 2,
+        margin: `${Math.floor((Math.random() * 100) + 450)}px 0px 0px ${Math.floor((Math.random() * 450) + 500)}px`,
+        position: 'absolute'
+      }}
+      transition={{
+        repeatType: 'reverse',
+        repeat: Infinity,
+        delay: 18,
+        duration: 3,
+        repeatDelay: 40
+      }}
+    >
+      <pre className='meta-anim'>{[...Array(8)].map(_ => Math.round(Math.random()))}</pre>
+    </motion.div>
+  )
+}
   
 function Fun() { 
   const metaAnimStyle = {
@@ -224,6 +248,7 @@ function Fun() {
       <div style={metaAnimStyle}>
         <MetaAnim/>
       </div>
+      <BinarySnake/>
       <ActivityTracker/>
       <Canvas/>
     </div>
