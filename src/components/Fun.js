@@ -78,16 +78,10 @@ function BouncingLines() {
   )
 }
 
-/* I really like this purple color -> rgb(180,0,180) */
-
 function BouncingLine({ height, dur }) {
   const barStyle = {
     width: '1px',
     backgroundColor: 'gray'
-
-    /* Would like but causes image rasterization issues when animated... */
-    // borderBottomRightRadius: '1px',
-    // borderBottomLeftRadius: '1px',
   }
 
   return (

@@ -285,7 +285,15 @@
           }
 
           #portfolio {
-            height: 224vh;
+            height: 262vh;
+          }
+
+          .poker-graph {
+            opacity: 0 !important;
+          }
+
+          .poker-journey {
+            display: grid !important;
           }
         }
 

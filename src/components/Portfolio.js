@@ -7,6 +7,8 @@ import {
 } from '../data/consts'
 import { motion } from 'motion/react'
 import { capFirst } from './Sidebar'
+import * as d3 from 'd3'
+import useD3 from 'hook-use-d3'
 
 function Pfp({ meta }) {
   return <img 
@@ -147,6 +149,146 @@ function Teams() {
   )
 }
 
+function PokerJourney() { 
+  const d3ref = useD3((svg) => {
+    const xScale = d3.scaleLinear()
+        .domain([0, 100]) // measure past 100 days
+        .range([0, 400])
+
+    const yScale = d3.scaleLinear()
+        .domain([500, -500]) // measure net changes +-500
+        .range([0, 300])
+
+    // add x-axis
+    svg.append('g')
+        .attr('transform', `translate(30,${200})`)
+        .style('color', 'rgb(40,40,40)')
+        .call(d3.axisBottom(xScale).tickSize(0).tickFormat(''))
+
+    // Add y-axis
+    svg.append('g')
+        .attr('transform', `translate(${30},50)`)
+        .style('color', 'rgb(40,40,40)')
+        .call(d3.axisLeft(yScale).tickSize(0).tickFormat(''))
+
+    /* Position to represent result of session */
+    function Plot({ sessions }) {
+      for (let i in [...Array(sessions.length)]) {
+        if (Number(i) === sessions.length-1) { break }
+
+        const origin = {x: 230, y: 50}
+
+        /* both are 0      --> white */
+        /* one +, one -    --> split */
+        /* both +          --> green */
+        /* both +          --> red */
+
+        let color
+
+        let p1 = {x: xScale(Number(sessions[Number(i)].daysAgo)) + origin.x, y: yScale(Number(sessions[Number(i)].result)) + origin.y}
+        let p2 = {x: xScale(Number(sessions[Number(i)+1].daysAgo)) + origin.x, y: yScale(Number(sessions[Number(i)+1].result)) + origin.y}
+
+        if (Number(sessions[Number(i)].result === 0)
+            && Number(sessions[Number(i)+1].result === 0)) {
+          color = 'gray' // 'white'
+          Draw({ p1, p2, color })
+        } else if (Number(sessions[Number(i)].result) > 0 && Number(sessions[Number(i)+1].result) > 0) {
+          color = 'gray' // 'green'
+          Draw({ p1, p2, color })
+        } else if (Number(sessions[Number(i)].result) < 0 && Number(sessions[Number(i)+1].result) < 0) {
+          color = 'gray' // 'red'
+          Draw({ p1, p2, color })
+        } else {
+          // split... TODO
+          color = 'gray'
+          Draw({ p1, p2, color })
+        }
+
+        function Draw({ p1, p2, color }) {          
+          const line = d3.line()
+            .x(d => d.x)
+            .y(d => d.y)
+          
+          svg.append('path')
+            .datum([p1, p2])
+            .attr('d', line)
+            .attr('stroke', color)
+            .attr('fill', 'none')
+            .attr('stroke-width', 2)
+        }
+      }
+    }
+    Plot({ sessions: sessions })
+  }, [])
+
+  return (
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{
+      delay: 7.5
+    }}
+    className='poker-graph'
+    >
+      <svg ref={d3ref} style={{ color:'white', height: 460, width: 460 }}></svg>
+    </motion.div>
+  )
+}
+
+function PokerSessions({ sessions }) {
+  return (
+    <div style={{paddingTop: '10vh', backgroundClip: 'content-box', paddingRight: '100px', height: '20vh'}}>
+      {sessions.map((session, i) =>
+      <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        delay: 4.5 + (0.25*i)
+      }}
+      >
+        <Session session={session}/>
+      </motion.div>
+      )}
+    </div>
+  )
+}
+
+function Session({ session }) {
+  function textFor(result) {
+    let color, prefix
+    if (result === 0) {
+      color = 'rgb(190,190,190)'
+      prefix = '  '
+    } else {
+      color = result > 0 ? 'rgb(0,192,0)' : 'rgb(192,0,0)'
+      prefix = result > 0 ? '+ ' : '- '
+    }
+
+    return <p style={{width: '60px', color: color}}>{prefix}${result < 0 ? String(result).slice(1) : result}</p>
+  }
+
+  return (<div style={{height: '26px', paddingLeft: '20px', display: 'flex', gap: '8px'}}>
+    {textFor(session.result)}
+    <p style={{color: 'rgb(40,40,40)'}}>&mdash;</p>
+    <p style={{width: '120px', textAlign: 'center', color: 'rgb(190,190,190)'}}>{session.stakes} @ {session.loc}</p>
+    <p style={{color: 'rgb(40,40,40)'}}>&mdash;</p>
+    <p style={{width: '50px', textAlign: 'center', color: 'rgb(190,190,190)'}}>{session.date}</p>
+    <p style={{width: '15px', marginLeft: '35px', color: 'rgb(40,40,40)'}}>&mdash;</p>
+    <p style={{paddingLeft: '5px', color: 'rgb(190,190,190)'}}>{session.dur}</p>
+  </div>)
+}
+
+const sessions = [
+  {result: 143, stakes: '$1/$3', loc: 'MGM', date: '2024/11/22', daysAgo: -15, dur: '2.5 hrs'},
+  {result: 31, stakes: '$1/$3', loc: 'MGM', date: '2024/11/27', daysAgo: -10, dur: '4 hrs'},
+  {result: -476, stakes: '$1/$3', loc: 'MGM', date: '2024/11/29', daysAgo: -5, dur: '5.5 hrs'},
+
+  {result: -56, stakes: '$1/$3', loc: 'MGM', date: '2024/12/01', daysAgo: 0, dur: '5 hrs'},
+  {result: 346, stakes: '$1/$3', loc: 'MGM', date: '2024/12/02', daysAgo: 5, dur: '6.5 hrs'},
+  {result: 53, stakes: '$1/$3', loc: 'MGM', date: '2024/12/04', daysAgo: 10, dur: '3 hrs'},
+  {result: 206, stakes: '$1/$3', loc: 'MGM', date: '2024/12/05', daysAgo: 15,  dur: '4.5 hrs'},
+]
+
 function Portfolio() {
   return (
     <div>
@@ -156,6 +298,10 @@ function Portfolio() {
         <Interests/>
         <Teams/>
         <Goals/>
+      </div>
+      <div className='poker-journey' style={{display:'flex', justifyContent:'center'}}>
+        <PokerSessions sessions={sessions}/>
+        <PokerJourney sessions={sessions}/>
       </div>
     </div>
   )
