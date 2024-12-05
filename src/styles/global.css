@@ -153,13 +153,12 @@
           }
 
           .drop-down {
-            margin-left: -80px;
+            margin-left: -110px;
             font-size: 13px;
             width: 350px;
           }
 
           .byte {
-            /* display: flex; */
             flex-grow: 1;
           }
         }

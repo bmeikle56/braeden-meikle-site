@@ -9,7 +9,7 @@ function Title() { return <h1 className='title'>Braeden Meikle</h1> }
 
 /* Edits/day for the month of December */
 const activity = [
-  [1,1,1,1,0,0,0,0,0,0],
+  [1,1,1,1,1,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
   [0]
