@@ -125,35 +125,23 @@
 
         @media screen and (max-width: 800px) {
           #articles {
-            /* height: 470vh !important; */
             max-height: fit-content !important;
             padding-bottom: 50px;
           }
 
           .byte-div {
-            /* padding: auto; */
-            /* grid-template-columns: none; */
-            /* position: absolute;
-            z-index: 2;*/
             display: flex !important;
-            /* grid-auto-rows: min-content; */
             flex-direction: column !important;
             margin-right: 100px !important;
-            /* width: 50vw !important; */
-            /* justify-content: center; */
-            /* grid-template-columns: repeat(1, 2fr) !important; */
-            /* display: block !important;
-            width: 250px !important;
-            height: 250px !important; */
           }
 
           .panel {
-            margin-left: -80px;
+            margin-left: -125px;
             width: 350px;
           }
 
           .drop-down {
-            margin-left: -110px;
+            margin-left: -125px;
             font-size: 13px;
             width: 350px;
           }

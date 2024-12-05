@@ -3,7 +3,7 @@ import { markRead } from '../api.js'
 
 const articles = [
   {
-    title: 'Swift = best programming language',
+    title: 'Swift is the best',
     content: SwiftByte
   },
   {
@@ -11,7 +11,7 @@ const articles = [
     content: NilByte
   },
   {
-    title: `How I'd describe programming`,
+    title: `Fun simplification of programming`,
     content: ProgrammingByte
   },
   {
@@ -22,7 +22,65 @@ const articles = [
     title: `The right way to ask questions`,
     content: QuestionByte
   },
+  {
+    title: `Artificial Intelligence come up`,
+    content: AIByte
+  },
+
+  {
+    title: `Consumer tendency`,
+    content: ConsumerByte
+  },
 ]
+
+function ConsumerByte() {
+  return (
+    <div>
+    <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: 'gray'}}>
+    Consumers always want the simplest access to the services and applications they 
+    consume — why interact with something if you don’t have to? This seems intuitive, 
+    because it is.
+    In my life — possibly due to my fixation on iPhones — notifications and widgets 
+    are the best avenues for metadata. The mobile phone is highly accessible and you 
+    read notifications and tap widgets before you unlock your phone. I see both tools 
+    as ways for consumers to engage with applications but “do less”. The cheapest way 
+    to get the most information.
+    I like to think of this as the limit of tolerated consumer work tends toward zero 
+    as time progresses. Naturally, companies develop faster, simpler processes over 
+    time due to innovation from competitors and changing markets. If you as a consumer 
+    are able to send a text message to your friend from your mind, why would you then 
+    want to open your phone, tap a messaging app, type a message, fix typos, and tap 
+    send?
+    I wonder what the next breakthrough will be?
+    </p>
+  </div>
+  )
+}
+
+function AIByte() {
+  return (
+    <div>
+    <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: 'gray'}}>
+    As we close out 2024, I’d never expected to be this in awe of AI. Originally 
+    annoyed with companies’ inundation of the word ‘AI’. Over the past year, I’ve 
+    matured and embraced the SWE lifestyle and through this transformation, AI’s 
+    appeal has captured me and I’m more fascinated than ever. Maybe I’ve subconsciously 
+    become what I consume, and aggressive marketing has achieved its goal of winning 
+    over its toughest customer.
+
+    I took my first AI class in my Fall 2022 semester, mostly unenthused. My thoughts in 
+    class then were (and sometimes still are!) more concerned with coding elegance than 
+    what was presented in front of me.
+    Sometimes I can’t help but wonder, will companies disparage my software repertoire? 
+    Do I need to switch careers? How can I catch up to others? How did I get so far 
+    behind? Over time, these passive thoughts slowly corrode my confidence.
+
+    I’m ready to go into 2025 with a fresh mindset, a stronger appetite for learning than 
+    ever, and we’ll see what happens? 
+    </p>
+  </div>
+  )
+}
 
 function QuestionByte() {
   return (
