@@ -243,6 +243,7 @@
         .portfolio {
           display: flex;
           justify-content: center;
+          gap: 15px;
         }
 
         /* Mobile style sheets */

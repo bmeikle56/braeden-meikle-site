@@ -19,19 +19,24 @@ function Pfp({ meta }) {
 function Bio({ meta }) {
   return (
     <div style={{paddingTop: '5vh', paddingBottom: '2vh', display:'grid', placeItems: 'center'}}>
-      <Pfp meta={meta.pfpMeta}/>
-      <div className='bio'>
+      <motion.div
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      transition={{ duration: 0.8, ease: 'easeOut', delay: 1 }} 
+      >
+        <Pfp meta={meta.pfpMeta}/>
+      </motion.div>
+      <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      transition={{ duration: 0.8, ease: 'easeOut', delay: 1.5 }} 
+      className='bio'>
         <p style={{color:'white'}}>{meta.bio}</p>
-      </div>
+      </motion.div>
     </div>
   )
 }
 
-/*
-Gradient list V Divider
-Transitions from black to gray towards the center of the line, then
-transitions to black as it reaches the other end (bell curve but for grayness)
-*/
 function ListVDiv() {
   return <div className='list-vdiv'/>
 }
@@ -40,28 +45,53 @@ function ListTitle({ title }) {
   return <p style={{textAlign:'center', color: 'gray'}}>{title}</p>
 }
 
+function Applications() {
+  const contributions = [geicoMeta, hiyaMeta, siteMeta]
+
+  return (
+    <motion.div 
+    initial={{ opacity: 0 }} 
+    animate={{ opacity: 1 }} 
+    transition={{ duration: 0.8, ease: 'easeOut', delay: 2 }} 
+    style={{backgroundColor: 'rgb(10,10,10)', padding: '10px 25px 10px 25px', borderRadius: '20px', width: '200px', display: 'grid', justifyContent: 'center'}}>
+      <div style={{display:'inline-block'}}>
+        <ListTitle title={'Applications'}/>
+        <ListVDiv/>
+      </div>
+      {contributions.map((meta, index) => 
+        <div className='app-entry'>
+          <img alt={meta.alt} src={meta.img} style={{paddingTop: meta.imgVOffset, position: 'absolute', margin: `0 0 0 ${-85+meta.imgHOffset}px`, clipPath: meta.clip, borderRadius:'20px', width: meta.imgRect.width, height: meta.imgRect.height}}/>
+          <pre style={{margin: '0 0 0 -5px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.prefix}</pre>
+          <p style={{color: 'gray', paddingRight: 15}}>{meta.desc}</p>
+          {meta.link != null ? 
+            <a target='_blank' rel='noreferrer' className='app-store' href={meta.link} style={{marginLeft:'auto', paddingRight: 14}}>&rArr;</a> : <div></div>
+          }
+        </div>)}
+    </motion.div>
+  )
+}
+
 function Interests() {
   const interests = ['running', 'poker', 'coding', 'tennis']
   const imgSq = '23px'
 
   return (
-    <div style={{width: '200px', display: 'grid', justifyContent: 'center'}}>
+    <motion.div 
+    initial={{ opacity: 0 }} 
+    animate={{ opacity: 1 }} 
+    transition={{ duration: 0.8, ease: 'easeOut', delay: 2.5 }} 
+    style={{backgroundColor: 'rgb(10,10,10)', padding: '10px 25px 10px 25px', borderRadius: '20px', width: '200px', display: 'grid', justifyContent: 'center'}}>
       <div style={{display:'inline-block'}}>
         <ListTitle title={'Interests'}/>
         <ListVDiv/>
       </div>
       {interests.map((interest, i) =>
-        <motion.div
-        initial={{ opacity: 0 }} 
-        animate={{ opacity: 1 }} 
-        transition={{ duration: 0.8, ease: 'easeOut', delay: (i * 0.6) + 1 }} 
-        style={{display: 'flex', alignItems:'center'}}
-        >
+        <div style={{display: 'flex', alignItems:'center'}}>
           <img alt={`${capFirst(interest)} icon`} src={`./img/${interest}.png`} style={{width: imgSq, height: imgSq}}/>
           <p style={{color: 'gray', paddingLeft: '7px'}}>{capFirst(interest)}</p>
-        </motion.div>
+        </div>
       )}
-    </div>
+    </motion.div>
   )
 }
 
@@ -75,62 +105,29 @@ function Teams() {
   const imgSize = '23px'
 
   return (
-    <div style={{width: '200px', display: 'grid', justifyContent: 'center'}}>
+    <motion.div 
+    initial={{ opacity: 0 }} 
+    animate={{ opacity: 1 }} 
+    transition={{ duration: 0.8, ease: 'easeOut', delay: 3 }} 
+    style={{backgroundColor: 'rgb(10,10,10)', padding: '10px 25px 10px 25px', borderRadius: '20px', width: '200px', display: 'grid', justifyContent: 'center'}}>
       <div style={{display:'inline-block'}}>
         <ListTitle title={'Teams'}/>
         <ListVDiv/>
       </div>
       {teams.map((meta, i) =>
-        <motion.div
-        initial={{ opacity: 0 }} 
-        animate={{ opacity: 1 }} 
-        transition={{ duration: 0.8, ease: 'easeOut', delay: (i * 0.6) + 1 }} 
-        style={{display: 'flex', alignItems:'center'}}
-        >
+        <div style={{display: 'flex', alignItems:'center'}}>
           <img alt={`${capFirst(meta.team)} icon`} src={`./img/${meta.team}.png`} style={{margin: `0 0 0 -${meta.leftAlign}`, width: meta.imgSize.width, height: imgSize.height}}/>
           <p style={{color: 'gray', paddingLeft: `${meta.imgPad}`}}>{capFirst(meta.team)}</p>
-        </motion.div>
+        </div>
       )}
-    </div>
-  )
-}
-
-function Applications() { //rgb(83,195,189)
-  const contributions = [geicoMeta, hiyaMeta, siteMeta]
-
-  return (
-    <div style={{width: '200px', display: 'grid', justifyContent: 'center'}}>
-      <div style={{display:'inline-block'}}>
-        <ListTitle title={'Applications'}/>
-        <ListVDiv/>
-      </div>
-      {contributions.map((meta, index) => 
-        <motion.div 
-        initial={{ opacity: 0 }} 
-        animate={{ opacity: 1 }} 
-        transition={{ duration: 0.8, ease: 'easeOut', delay: (index * 0.6) + 1 }} 
-        className='app-entry'>
-          <img alt={meta.alt} src={meta.img} style={{paddingTop: meta.imgVOffset, position: 'absolute', margin: `0 0 0 ${-85+meta.imgHOffset}px`, clipPath: meta.clip, borderRadius:'20px', width: meta.imgRect.width, height: meta.imgRect.height}}/>
-          <pre style={{margin: '0 0 0 -5px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.prefix}</pre>
-          <p style={{color: 'gray', paddingRight: 15}}>{meta.desc}</p>
-          {meta.link != null ? 
-            <a target='_blank' rel='noreferrer' className='app-store' href={meta.link} style={{marginLeft:'auto', paddingRight: 14}}>&rArr;</a> : <div></div>
-          }
-        </motion.div>)}
-    </div>
+    </motion.div>
   )
 }
 
 function Portfolio() {
   return (
     <div>
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-      >
-        <Bio meta={bioMeta}/>
-      </motion.div>
+      <Bio meta={bioMeta}/>
       <div className='portfolio'>
         <Applications/>
         <Interests/>
