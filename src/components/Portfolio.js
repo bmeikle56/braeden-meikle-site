@@ -31,7 +31,7 @@ function Bio({ meta }) {
       animate={{ opacity: 1 }} 
       transition={{ duration: 0.8, ease: 'easeOut', delay: 1.5 }} 
       className='bio'>
-        <p style={{color:'white'}}>{meta.bio}</p>
+        <p style={{color:'gray'}}>{meta.bio}</p>
       </motion.div>
     </div>
   )
@@ -43,6 +43,29 @@ function ListVDiv() {
 
 function ListTitle({ title }) {
   return <p style={{textAlign:'center', color: 'gray'}}>{title}</p>
+}
+
+function Goals() {
+  const goals = ['full stack dev', 'better teacher', 'scale', 'fun']
+
+  return (
+    <motion.div 
+    initial={{ opacity: 0 }} 
+    animate={{ opacity: 1 }} 
+    transition={{ duration: 0.8, ease: 'easeOut', delay: 3.5 }} 
+    style={{backgroundColor: 'rgb(10,10,10)', padding: '10px 25px 10px 25px', borderRadius: '20px', width: '200px', display: 'grid', justifyContent: 'center'}}>
+      <div style={{display:'inline-block'}}>
+        <ListTitle title={'Goals'}/>
+        <ListVDiv/>
+      </div>
+      {goals.map(goal =>
+        <div style={{display: 'flex', alignItems:'center'}}>
+          <p style={{color: 'gray'}}>&rArr;</p>
+          <p style={{color: 'gray', paddingLeft: '7px'}}>{capFirst(goal)}</p>
+        </div>
+      )}
+    </motion.div>
+  )
 }
 
 function Applications() {
@@ -58,7 +81,7 @@ function Applications() {
         <ListTitle title={'Applications'}/>
         <ListVDiv/>
       </div>
-      {contributions.map((meta, index) => 
+      {contributions.map(meta => 
         <div className='app-entry'>
           <img alt={meta.alt} src={meta.img} style={{paddingTop: meta.imgVOffset, position: 'absolute', margin: `0 0 0 ${-85+meta.imgHOffset}px`, clipPath: meta.clip, borderRadius:'20px', width: meta.imgRect.width, height: meta.imgRect.height}}/>
           <pre style={{margin: '0 0 0 -5px', color: 'white', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.prefix}</pre>
@@ -132,6 +155,7 @@ function Portfolio() {
         <Applications/>
         <Interests/>
         <Teams/>
+        <Goals/>
       </div>
     </div>
   )
