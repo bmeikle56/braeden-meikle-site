@@ -18,7 +18,25 @@ const articles = [
     title: `My philosophy`,
     content: PhilosophyByte
   },
+  {
+    title: `The right way to ask questions`,
+    content: QuestionByte
+  },
 ]
+
+function QuestionByte() {
+  return (
+    <div>
+    <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: 'gray'}}>
+      People tend to categorize questions into binary qualities of either 'good' or 'bad'. 
+      The secret to more strongly reinforcing knowledge is asking 'bad' questions that strike
+      at the core of your learning and knowledge. Challenging a widely-accepted concept or
+      practice online or to a peer sometimes leads to a seemingly obvious conclusion that
+      the current idea isn't best. 
+    </p>
+  </div>
+  )
+}
 
 function PhilosophyByte() {
   return (
@@ -101,7 +119,7 @@ function SwiftByte() {
         is just infinitely more intuitive/readable than if statements
         <BBr/>
         <BLi txt={'elegant optional handling'}/>
-        <InCcode code={`prof.tas?.map { $0.account?.desposit(earnings) }`}/>
+        <InCcode code={`prof.tas?.map { $0.acc?.desposit(5) } `}/>
         just look how elegant that is
         <BBr/>
         <BLi txt={'multi-paradigm nature'}/>
@@ -178,8 +196,8 @@ function Articles() {
   }
 
   return (
-    <div style={{padding:'50px 0 0 150px', width: '70vw', gap: '10px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)'}}>
-      {articles.map((article, index) => <div style={{}}>
+    <div className='byte-div' style={{padding:'50px 0 0 150px', width: '70vw', gap: '10px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)'}}>
+      {articles.map((article, index) => <div className='byte'>
         <button className='drop-down' onClick={() => displayContent(index)}>
         <p style={{
           color: 'rgb(160,160,160)',

@@ -31,10 +31,6 @@
           overflow-y: scroll;
         }
 
-        .section {
-          height: 100vh;
-        }
-
         .vdiv {
           background: linear-gradient(to right, black, rgb(50,50,50), black);
           height: 1.4px;
@@ -43,9 +39,7 @@
         /* Mobile style sheets */
 
         @media screen and (max-width: 800px) {
-          .section {
-            height: 110vh;
-          }
+
         }
 
 /* Articles */
@@ -53,6 +47,8 @@
         /* Desktop style sheets */
 
         #articles {
+          padding-bottom: 80px;
+          max-height: fit-content !important;
           height: 170vh !important;
         }
 
@@ -128,7 +124,44 @@
         /* Mobile style sheets */
 
         @media screen and (max-width: 800px) {
+          #articles {
+            /* height: 470vh !important; */
+            max-height: fit-content !important;
+            padding-bottom: 50px;
+          }
 
+          .byte-div {
+            /* padding: auto; */
+            /* grid-template-columns: none; */
+            /* position: absolute;
+            z-index: 2;*/
+            display: flex !important;
+            /* grid-auto-rows: min-content; */
+            flex-direction: column !important;
+            margin-right: 100px !important;
+            /* width: 50vw !important; */
+            /* justify-content: center; */
+            /* grid-template-columns: repeat(1, 2fr) !important; */
+            /* display: block !important;
+            width: 250px !important;
+            height: 250px !important; */
+          }
+
+          .panel {
+            margin-left: -80px;
+            width: 350px;
+          }
+
+          .drop-down {
+            margin-left: -80px;
+            font-size: 13px;
+            width: 350px;
+          }
+
+          .byte {
+            /* display: flex; */
+            flex-grow: 1;
+          }
         }
 
 /* Footer */
@@ -181,6 +214,10 @@
           justify-content: center;
           align-items: center;
           box-shadow: 0px 0px 30px rgb(38, 38, 38);
+        }
+
+        #fun {
+          height: 100vh;
         }
 
         .meta-anim {
@@ -261,7 +298,7 @@
           }
 
           #portfolio {
-            height: 165vh;
+            height: 180vh;
           }
         }
 
@@ -282,6 +319,9 @@
         /* Mobile style sheets */
 
         @media screen and (max-width: 800px) {
+          .sidebar-div {
+            opacity: 0;
+          }
           .side-bar-btn {
             font-size: 12px;
           }

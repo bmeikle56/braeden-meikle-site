@@ -17,15 +17,15 @@ function Body() {
   return (
     <body>
       <AnimatedSidebar pages={pages}/>
-      <div id='fun' className='section'>
+      <div id='fun'>
         <Fun/>
       </div>
       <VDivider/>
-      <div id='portfolio' className='section'>
+      <div id='portfolio'>
         <Portfolio/>
       </div>
       <VDivider/>
-      <div id='articles' className='section' style={{height:'150vh'}}>
+      <div id='articles'>
         <Articles/>
       </div>
       {/* <VDivider/>

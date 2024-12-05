@@ -45,7 +45,7 @@ function Sidebar({ pages }) {
   }
 
   return (
-    <div style={sidebarStyle}>
+    <div className='sidebar-div' style={sidebarStyle}>
       <div className='side-bar-btn-div' style={sideBarBtnDivStyle}>{pages.map(page => 
         <button className='side-bar-btn' style={sideBarBtnStyle} onClick={() => scrollToSection(page)}>
           {capFirst(page)}
