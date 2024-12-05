@@ -25,7 +25,7 @@ function Body() {
         <Portfolio/>
       </div>
       <VDivider/>
-      <div id='articles' className='section'>
+      <div id='articles' className='section' style={{height:'150vh'}}>
         <Articles/>
       </div>
       {/* <VDivider/>
