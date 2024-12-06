@@ -1,21 +1,45 @@
 
-const BASE_URL = 'http://localhost:8000' //`${process.env.SERVER_BASE_URL}`
+const user = Math.floor(Math.random()*2) === 1 ? 'user7' : 'user2'
+const BASE_URL =  `https://braeden-meikle-site-backend.onrender.com` //`${process.env.REACT_APP_SERVER_BASE_URL}${service}?user=${user}`
 
-async function getUnread() {
-  const baseURL = `${BASE_URL}/getUnread`
-  const user = 'user2'
-  const url =  `${baseURL}?user=${user}`
-
-  const body = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache'
-      } 
-  }
-
-  fetch(url, body).then(res => res.json()).then(d => { return d })
+const body = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache'
+    } 
 }
+
+function getUnread(setData, setLoading, now) {
+  const service = '/getUnread'
+  fetch(`${BASE_URL}${service}?user=${user}`, body).then(res => res.json()).then(d => { 
+    /* We want the screen to animate for minimum 2 seconds */
+    if (Date.now() < now + 2000) {
+      setTimeout(() => {
+        setData(d)
+        setLoading(false)
+      }, 2000 - (Date.now() - now))
+    } else {
+      setData(d)
+      setLoading(false)
+    }
+  })
+}
+
+// function read(setData, setLoading) {
+//   const service = '/read'
+//   fetch(`${BASE_URL}${service}?user=${user}`, body).then(res => res.json()).then(d => { 
+//     setData(d)
+//     setLoading(false)
+//   })
+// }
+
+
+
+
+
+
+
 
 async function markRead(index) {
   const baseURL = `${BASE_URL}/read`
