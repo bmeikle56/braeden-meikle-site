@@ -39,7 +39,9 @@
         /* Mobile style sheets */
 
         @media screen and (max-width: 800px) {
-
+          #loading {
+            opacity: 1;
+          }
         }
 
 /* Articles */
