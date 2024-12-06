@@ -20,10 +20,9 @@ function Body() {
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
-    const baseURL = `${process.env.REACT_APP_SERVER_BASE_URL}/getUnread`
     const user = Math.floor(Math.random()*2) === 1 ? 'user7' : 'user2'
     const service = '/getUnread'
-    const url =  `${baseURL}${service}?user=${user}`
+    const url =  `${process.env.REACT_APP_SERVER_BASE_URL}${service}?user=${user}`
 
     const body = {
         method: 'GET',
