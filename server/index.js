@@ -22,23 +22,52 @@ server.listen(process.env.PORT, () => {
 /*   0 = read   |   1 = unread   */
 
 let db = {
-  'user2': {
-    unreadList: [0,1,0,0,0,1,1]
-  },
-  'user7': {
-    unreadList: [1,1,1,1,1,1,1]
+  'braeden': {
+    unreadList: [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
   }
 }
 
+/*****     Public APIs     *****/
+
+/*
+ getUnread
+
+ @response int array
+  - the read/unread statuses of bytes
+  - each element is either 1 (unread) or 0 (read)
+
+ @query user 
+  - string
+
+ */
+
 server.get('/getUnread', (req, res) => {
-  const user = req.query.user // ?user='user2'
-  // console.log(req.ip)
-  res.json(db[user])
+  res.json(db[req.query.user])
 })
 
+/*
+ read
+
+ @response mark all newly read bytes as read
+
+ @query user 
+  - string 
+ @query read 
+  - int array of read statuses
+
+ */
+
 server.post('/read', (req, res) => {
-  const user = req.query.user // ?user='user2'
-  const index = req.query.read // ?read=1 --> mark read article at index 1
-  db[user].articles[index] = 0
+  db[req.query.user].unreadList = req.query.read
   res.status(STATUS_CODE_NO_CONTENT).send()
 })
+
+/*****                     *****/

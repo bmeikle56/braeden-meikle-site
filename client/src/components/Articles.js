@@ -1,5 +1,5 @@
 
-// import { markRead } from '../api.js'
+import { markRead } from '../api.js'
 
 const articles = [
   {
@@ -249,8 +249,7 @@ function Articles({ unreadList }) {
     const newBadges = document.getElementsByClassName('new-badge')
     newBadges[index].classList.toggle('fade')
     newBadges[index].style.opacity = 0
-    console.log('before')
-    // markRead(index)
+    markRead(index)
   }
 
   return (

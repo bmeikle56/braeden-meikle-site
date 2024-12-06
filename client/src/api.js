@@ -1,5 +1,5 @@
 
-const user = Math.floor(Math.random()*2) === 1 ? 'user7' : 'user2'
+const user = 'braeden'
 const BASE_URL =  `https://braeden-meikle-site-backend.onrender.com` //`${process.env.REACT_APP_SERVER_BASE_URL}${service}?user=${user}`
 
 const body = {
@@ -10,10 +10,17 @@ const body = {
     } 
 }
 
+let newBytesRead
+
+/*****     Public APIs     *****/
+
+/*   Get list of byte read/unread statuses   */
 function getUnread(setData, setLoading, now) {
   const service = '/getUnread'
   fetch(`${BASE_URL}${service}?user=${user}`, body).then(res => res.json()).then(d => { 
-    /* We want the screen to animate for minimum 2 seconds */
+    newBytesRead = d.unreadList
+
+    /*   We want the screen to animate for minimum 2 seconds   */
     if (Date.now() < now + 2000) {
       setTimeout(() => {
         setData(d)
@@ -26,46 +33,19 @@ function getUnread(setData, setLoading, now) {
   })
 }
 
-// function read(setData, setLoading) {
-//   const service = '/read'
-//   fetch(`${BASE_URL}${service}?user=${user}`, body).then(res => res.json()).then(d => { 
-//     setData(d)
-//     setLoading(false)
-//   })
-// }
-
-
-
-
-
-
-
-
-async function markRead(index) {
-  const baseURL = `${BASE_URL}/read`
-  const user = 'user2'
-  const url = `${baseURL}?user=${user}?read=${index}`
-
-  const body = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'text/json'
-      } 
-  }
-
-  console.log('constructed req')
-
-  try {
-    const response = await fetch(url, body)
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`)
-    }
-    console.log('res received')
-    console.log(response.json)
-    return response
-  } catch (error) {
-    console.log(error.message)
-  }
+/*   Mark a byte newly read  */
+function markRead(index) {
+  newBytesRead[index] = 0
+  console.log(newBytesRead)
 }
+
+/*****                     *****/
+
+/*  Before the user leaves, dump and mark all bytes read   */
+window.addEventListener('beforeunload', _ => {
+  console.log(newBytesRead)
+  const service = '/read'
+  fetch(`${BASE_URL}${service}?read=${user}`, body)
+})
 
 export { getUnread, markRead }

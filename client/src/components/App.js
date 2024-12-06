@@ -15,12 +15,13 @@ import { getUnread } from '../api.js'
 import { motion } from 'motion/react'
 
 function Body() {
-  /* Data fetched from backend that will be passed to component before render */
+  /*   Data fetched from backend that will be passed to component before render   */
   const [data, setData] = useState(null)
 
-  /* We init our app to loading state */
+  /*   We init our app to loading state   */
   const [isLoading, setLoading] = useState(true)
 
+  /*  Load data from server while providing an animation   */
   useEffect(() => {
     getUnread(setData, setLoading, Date.now())
   }, [])
