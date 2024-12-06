@@ -122,10 +122,10 @@ function Interests() {
 
 function Teams() {
   const teams = [
-    {team: 'Commanders', imgSize: {width: '23px', height: '23px'}, leftAlign: '', imgPad: '8px'},
-    {team: 'Capitals', imgSize: {width: '35px', height: '35px'}, leftAlign: '7px', imgPad: '3px'},
-    {team: 'Yellowjackets', imgSize: {width: '45px', height: '30px'}, leftAlign: '12px', imgPad: '0px'},
-    {team: 'Wizards', imgSize: {width: '28px', height: '28px'}, leftAlign: '5px', imgPad: '8px'}
+    {team: 'commanders', imgSize: {width: '23px', height: '23px'}, leftAlign: '', imgPad: '8px'},
+    {team: 'capitals', imgSize: {width: '35px', height: '35px'}, leftAlign: '7px', imgPad: '3px'},
+    {team: 'yellowjackets', imgSize: {width: '45px', height: '30px'}, leftAlign: '12px', imgPad: '0px'},
+    {team: 'wizards', imgSize: {width: '28px', height: '28px'}, leftAlign: '5px', imgPad: '8px'}
   ]
   const imgSize = '23px'
 
