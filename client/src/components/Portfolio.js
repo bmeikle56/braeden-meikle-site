@@ -150,7 +150,12 @@ function Teams() {
 }
 
 function PokerJourney() { 
+  let runningTotal = 0
+  let didUseD3 = false
+
   const d3ref = useD3((svg) => {
+    if (didUseD3) { return }
+    didUseD3 = true
     const xScale = d3.scaleLinear()
         .domain([0, 100]) // measure past 100 days
         .range([0, 400])
@@ -173,6 +178,7 @@ function PokerJourney() {
 
     /* Position to represent result of session */
     function Plot({ sessions }) {
+      sessions.unshift({result: 0, stakes: '', loc: '', date: '', daysAgo: -20, dur: ''})
       for (let i in [...Array(sessions.length)]) {
         if (Number(i) === sessions.length-1) { break }
 
@@ -185,8 +191,9 @@ function PokerJourney() {
 
         let color
 
-        let p1 = {x: xScale(Number(sessions[Number(i)].daysAgo)) + origin.x, y: yScale(Number(sessions[Number(i)].result)) + origin.y}
-        let p2 = {x: xScale(Number(sessions[Number(i)+1].daysAgo)) + origin.x, y: yScale(Number(sessions[Number(i)+1].result)) + origin.y}
+        let p1 = {x: xScale(Number(sessions[Number(i)].daysAgo)) + origin.x, y: yScale(runningTotal) + origin.y}
+        runningTotal += Number(sessions[Number(i)+1].result)
+        let p2 = {x: xScale(Number(sessions[Number(i)+1].daysAgo)) + origin.x, y: yScale(runningTotal) + origin.y}
 
         if (Number(sessions[Number(i)].result === 0)
             && Number(sessions[Number(i)+1].result === 0)) {
@@ -204,7 +211,8 @@ function PokerJourney() {
           Draw({ p1, p2, color })
         }
 
-        function Draw({ p1, p2, color }) {          
+        function Draw({ p1, p2, color }) {    
+          console.log('draw')      
           const line = d3.line()
             .x(d => d.x)
             .y(d => d.y)
@@ -282,11 +290,7 @@ const sessions = [
   {result: 143, stakes: '$1/$3', loc: 'MGM', date: '2024/11/22', daysAgo: -15, dur: '2.5 hrs'},
   {result: 31, stakes: '$1/$3', loc: 'MGM', date: '2024/11/27', daysAgo: -10, dur: '4 hrs'},
   {result: -476, stakes: '$1/$3', loc: 'MGM', date: '2024/11/29', daysAgo: -5, dur: '5.5 hrs'},
-
-  {result: -56, stakes: '$1/$3', loc: 'MGM', date: '2024/12/01', daysAgo: 0, dur: '5 hrs'},
-  {result: 346, stakes: '$1/$3', loc: 'MGM', date: '2024/12/02', daysAgo: 5, dur: '6.5 hrs'},
-  {result: 53, stakes: '$1/$3', loc: 'MGM', date: '2024/12/04', daysAgo: 10, dur: '3 hrs'},
-  {result: 206, stakes: '$1/$3', loc: 'MGM', date: '2024/12/05', daysAgo: 15,  dur: '4.5 hrs'},
+  {result: 125, stakes: '$0.25/$0.5', loc: 'PokerBros', date: '2024/12/06', daysAgo: 0, dur: '1.5 hrs'},
 ]
 
 function Portfolio() {

@@ -16,19 +16,19 @@ import { motion } from 'motion/react'
 
 function Body() {
   /*   Data fetched from backend that will be passed to component before render   */
-  const [data, setData] = useState(null)
+  // const [data, setData] = useState(null)
 
-  /*   We init our app to loading state   */
-  const [isLoading, setLoading] = useState(true)
+  // /*   We init our app to loading state   */
+  // const [isLoading, setLoading] = useState(true)
 
-  /*  Load data from server while providing an animation   */
-  useEffect(() => {
-    getUnread(setData, setLoading, Date.now())
-  }, [])
+  // /*  Load data from server while providing an animation   */
+  // useEffect(() => {
+  //   getUnread(setData, setLoading, Date.now())
+  // }, [])
 
-  if (isLoading) {
-    return <Loading/>
-  }
+  // if (isLoading) {
+  //   return <Loading/>
+  // }
 
   return (
     <body>
@@ -49,7 +49,7 @@ function Body() {
         </div>
         <VDivider/>
         <div id='articles'>
-          <Articles unreadList={data.unreadList}/>
+          <Articles unreadList={[1,1,1,1,1,1,1]}/>
         </div>
         <VDivider/>
         <div style={{display:'flex', justifyContent:'center'}}>
