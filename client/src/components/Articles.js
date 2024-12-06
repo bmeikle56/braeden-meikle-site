@@ -231,7 +231,7 @@ function NilByte() {
   )
 }
 
-function Articles() {
+function Articles({ unreadList }) {
   
   const contentMaxHeight = '800px'
 
@@ -250,7 +250,7 @@ function Articles() {
     newBadges[index].classList.toggle('fade')
     newBadges[index].style.opacity = 0
     console.log('before')
-    markRead(index)
+    // markRead(index)
   }
 
   return (
@@ -264,7 +264,7 @@ function Articles() {
           }}>byte</p>
           <p style={{color: 'gray'}}>{article.title}</p>
           <div style={{marginLeft: 'auto', display: 'flex', gap: '12px', alignItems: 'center'}}>
-            <p className='new-badge' style={{color: 'rgb(0,255,0)', fontSize:'10px'}}>New</p>
+            <p className='new-badge' style={{opacity: unreadList[index] === 0 ? 0 : 1, color: 'rgb(0,255,0)', fontSize:'10px'}}>New</p>
             <span className='chevron' style={{margin:'-2px 0 0 0'}}>&rsaquo;</span>
           </div>
         </button>
