@@ -1,9 +1,5 @@
 
-const SERVER = ''
-const SCHEME = 'http://'
-const PORT = 5000
-
-const BASE_URL = `${SCHEME}${SERVER}:${PORT}`
+const BASE_URL = `${process.env.SERVER_BASE_URL}`
 
 async function getUnread() {
   const baseURL = `${BASE_URL}/getUnread`
