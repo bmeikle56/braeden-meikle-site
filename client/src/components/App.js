@@ -6,11 +6,11 @@ import {
 } from '../data/consts.js'
 import { Fun } from './Fun.js'
 import { AnimatedSidebar } from './Sidebar.js'
-import { Footer } from './Footer.js'
-import { Portfolio } from './Portfolio.js'
 import { Articles } from './Articles.js'
+import { Footer } from './Footer.js'
+import { Loading } from './Loading.js'
+import { Portfolio } from './Portfolio.js'
 import { VDivider } from './Vdiv.js'
-import { getUnread } from '../api.js' 
 
 function Body() {
   /* Data fetched from backend that will be passed to component before render */
@@ -40,7 +40,7 @@ function Body() {
   }, [])
 
   if (isLoading) {
-    return <div style={{color: 'white'}}>...Loading</div>
+    return <Loading/>
   }
 
   return (
