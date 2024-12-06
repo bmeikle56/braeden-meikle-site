@@ -112,7 +112,7 @@ function Interests() {
       </div>
       {interests.map((interest, i) =>
         <div style={{display: 'flex', alignItems:'center'}}>
-          <img alt={`${capFirst(interest)} icon`} src={`./img/${interest}.png`} style={{width: imgSq, height: imgSq}}/>
+          <img alt={`${capFirst(interest)} icon`} src={`${process.env.PUBLIC_URL}/img/${interest}.png`} style={{width: imgSq, height: imgSq}}/>
           <p style={{color: 'gray', paddingLeft: '7px'}}>{capFirst(interest)}</p>
         </div>
       )}
@@ -141,7 +141,7 @@ function Teams() {
       </div>
       {teams.map((meta, i) =>
         <div style={{display: 'flex', alignItems:'center'}}>
-          <img alt={`${capFirst(meta.team)} icon`} src={`./img/${meta.team}.png`} style={{margin: `0 0 0 -${meta.leftAlign}`, width: meta.imgSize.width, height: imgSize.height}}/>
+          <img alt={`${capFirst(meta.team)} icon`} src={`${process.env.PUBLIC_URL}/img/${meta.team}.png`} style={{margin: `0 0 0 -${meta.leftAlign}`, width: meta.imgSize.width, height: imgSize.height}}/>
           <p style={{color: 'gray', paddingLeft: `${meta.imgPad}`}}>{capFirst(meta.team)}</p>
         </div>
       )}
