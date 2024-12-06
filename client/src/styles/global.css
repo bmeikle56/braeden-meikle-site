@@ -292,7 +292,7 @@
           }
 
           .poker-journey {
-            display: grid !important;
+            opacity: 0 !important;
           }
         }
 
