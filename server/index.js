@@ -5,18 +5,10 @@ const server = express()
 server.use(json())
 server.set('trust proxy', true)
 
-/* Local hosting only */
-const PORT = 8000
-
-/* Production */
-// const PORT = process.env.PORT || 3000 // we default to 3000 if not specified
-
 const STATUS_CODE_NO_CONTENT = 204
 
-/*   Send request from iPhone: http://[mac-ip-addr]:8000/getUnread?user=user2   */
-
-server.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+server.listen(process.env.PORT, () => {
+  console.log(`Server listening on port ${process.env.PORT}`);
 })
 
 /*   0 = read   |   1 = unread   */
