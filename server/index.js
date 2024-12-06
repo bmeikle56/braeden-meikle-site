@@ -3,6 +3,7 @@ import express, { json } from 'express'
 const server = express()
 // const https = require('https')
 import cors from 'cors'
+import db from './db.js'
 //server.use(json())
 server.set('trust proxy', true)
 
@@ -20,20 +21,6 @@ server.listen(process.env.PORT, () => {
 })
 
 /*   0 = read   |   1 = unread   */
-
-let db = {
-  'braeden': {
-    unreadList: [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ]
-  }
-}
 
 /*****     Public APIs     *****/
 
@@ -65,8 +52,12 @@ server.get('/getUnread', (req, res) => {
 
  */
 
-server.post('/read', (req, res) => {
-  db[req.query.user].unreadList = req.query.read
+
+
+server.post('/read', async (req, res) => {
+  const unreadList = req.query.read
+  // const query = db.query('SELECT * from users')
+  await db.query('SELECT * from users')
   res.status(STATUS_CODE_NO_CONTENT).send()
 })
 

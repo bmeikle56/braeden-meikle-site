@@ -6,7 +6,7 @@ import {
 } from '../data/consts.js'
 import { Fun } from './Fun.js'
 import { AnimatedSidebar } from './Sidebar.js'
-import { Articles } from './Articles.js'
+import { Bytes } from './Bytes.js'
 import { Footer } from './Footer.js'
 import { Loading } from './Loading.js'
 import { Portfolio } from './Portfolio.js'
@@ -16,19 +16,19 @@ import { motion } from 'motion/react'
 
 function Body() {
   /*   Data fetched from backend that will be passed to component before render   */
-  // const [data, setData] = useState(null)
+  const [data, setData] = useState(null)
 
-  // /*   We init our app to loading state   */
-  // const [isLoading, setLoading] = useState(true)
+  /*   We init our app to loading state   */
+  const [isLoading, setLoading] = useState(true)
 
-  // /*  Load data from server while providing an animation   */
-  // useEffect(() => {
-  //   getUnread(setData, setLoading, Date.now())
-  // }, [])
+  /*  Load data from server while providing an animation   */
+  useEffect(() => {
+    getUnread(setData, setLoading, Date.now())
+  }, [])
 
-  // if (isLoading) {
-  //   return <Loading/>
-  // }
+  if (isLoading) {
+    return <Loading/>
+  }
 
   return (
     <body>
@@ -48,8 +48,8 @@ function Body() {
           <Portfolio/>
         </div>
         <VDivider/>
-        <div id='articles'>
-          <Articles unreadList={[1,1,1,1,1,1,1]}/>
+        <div id='bytes'>
+          <Bytes unreadList={data.unreadList}/>
         </div>
         <VDivider/>
         <div style={{display:'flex', justifyContent:'center'}}>
