@@ -284,7 +284,8 @@
           }
 
           #portfolio {
-            height: 262vh;
+            max-height: fit-content !important;
+            padding-bottom: 50px;
           }
 
           .poker-graph {
