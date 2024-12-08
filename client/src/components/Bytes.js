@@ -1,5 +1,5 @@
 
-import { markRead } from '../api.js'
+// import { markRead } from '../api.js'
 
 const bytes = [
   {
@@ -265,7 +265,7 @@ function Bytes({ unreadList }) {
     const newBadges = document.getElementsByClassName('new-badge')
     newBadges[index].classList.toggle('fade')
     newBadges[index].style.opacity = 0
-    markRead(index)
+    // markRead(index) // when the backend becomes responsive, we can turn this back on
   }
 
   return (

@@ -1,6 +1,6 @@
 
 const user = 'braeden'
-const BASE_URL =  `https://braeden-meikle-site-backend.onrender.com` //`${process.env.REACT_APP_SERVER_BASE_URL}${service}?user=${user}`
+const BASE_URL = `${process.env.REACT_APP_SERVER_BASE_URL}`
 
 const body = {
     method: 'GET',
@@ -16,11 +16,19 @@ let newBytesRead
 
 /*   Get list of byte read/unread statuses   */
 function getUnread(setData, setLoading, now) {
+
+  /*   Server is too slow, so we mock the HTTP request   */
+  setTimeout(() => {
+    setData({'unreadList': [1,1,1,1,1,1,1]})
+    setLoading(false)
+  }, 2000)
+
+  /*
   const service = '/getUnread'
   fetch(`${BASE_URL}${service}?user=${user}`, body).then(res => res.json()).then(d => { 
     newBytesRead = d.unreadList
 
-    /*   We want the screen to animate for minimum 2 seconds   */
+    // We want the screen to animate for minimum 2 seconds
     if (Date.now() < now + 2000) {
       setTimeout(() => {
         setData(d)
@@ -31,6 +39,7 @@ function getUnread(setData, setLoading, now) {
       setLoading(false)
     }
   })
+  */
 }
 
 /*   Mark a byte newly read  */

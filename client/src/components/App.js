@@ -11,7 +11,7 @@ import { Footer } from './Footer.js'
 import { Loading } from './Loading.js'
 import { Portfolio } from './Portfolio.js'
 import { VDivider } from './Vdiv.js'
-import { getUnread } from '../api.js'
+import { getUnread } from '../api.js' // turned off for now...
 import { motion } from 'motion/react'
 
 function Body() {
@@ -21,7 +21,7 @@ function Body() {
   /*   We init our app to loading state   */
   const [isLoading, setLoading] = useState(true)
 
-  /*  Load data from server while providing an animation   */
+  /*  (Fake) load data from server while providing an animation   */
   useEffect(() => {
     getUnread(setData, setLoading, Date.now())
   }, [])

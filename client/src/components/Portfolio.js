@@ -178,7 +178,7 @@ function PokerJourney() {
 
     /* Position to represent result of session */
     function Plot({ sessions }) {
-      sessions.unshift({result: 0, stakes: '', loc: '', date: '', daysAgo: -20, dur: ''})
+      sessions.unshift({result: 0, stakes: '', loc: '', date: '', daysAgo: -25, dur: ''})
       for (let i in [...Array(sessions.length)]) {
         if (Number(i) === sessions.length-1) { break }
 
@@ -275,22 +275,23 @@ function Session({ session }) {
     return <p style={{width: '60px', color: color}}>{prefix}${result < 0 ? String(result).slice(1) : result}</p>
   }
 
-  return (<div style={{height: '26px', paddingLeft: '20px', display: 'flex', gap: '8px'}}>
+  return (<div style={{textAlign:'center', height: '26px', paddingLeft: '20px', display: 'flex', gap: '8px'}}>
     {textFor(session.result)}
     <p style={{color: 'rgb(40,40,40)'}}>&mdash;</p>
-    <p style={{width: '120px', textAlign: 'center', color: 'rgb(190,190,190)'}}>{session.stakes} @ {session.loc}</p>
+    <p style={{width: '190px', color: 'rgb(190,190,190)'}}>{session.stakes} @ {session.loc}</p>
     <p style={{color: 'rgb(40,40,40)'}}>&mdash;</p>
-    <p style={{width: '50px', textAlign: 'center', color: 'rgb(190,190,190)'}}>{session.date}</p>
-    <p style={{width: '15px', marginLeft: '35px', color: 'rgb(40,40,40)'}}>&mdash;</p>
+    <p style={{width: '50px', color: 'rgb(190,190,190)'}}>{session.date}</p>
+    <p style={{width: '15px', marginLeft: '20px', color: 'rgb(40,40,40)'}}>&mdash;</p>
     <p style={{paddingLeft: '5px', color: 'rgb(190,190,190)'}}>{session.dur}</p>
   </div>)
 }
 
 const sessions = [
-  {result: 143, stakes: '$1/$3', loc: 'MGM', date: '2024/11/22', daysAgo: -15, dur: '2.5 hrs'},
-  {result: 31, stakes: '$1/$3', loc: 'MGM', date: '2024/11/27', daysAgo: -10, dur: '4 hrs'},
-  {result: -476, stakes: '$1/$3', loc: 'MGM', date: '2024/11/29', daysAgo: -5, dur: '5.5 hrs'},
-  {result: 125, stakes: '$0.25/$0.5', loc: 'PokerBros', date: '2024/12/06', daysAgo: 0, dur: '1.5 hrs'},
+  {result: 143, stakes: '$1/$3', loc: 'MGM', date: '11/22/24', daysAgo: -20, dur: '2.5 hrs'},
+  {result: 31, stakes: '$1/$3', loc: 'MGM', date: '11/27/24', daysAgo: -15, dur: '4 hrs'},
+  {result: -476, stakes: '$1/$3', loc: 'MGM', date: '11/29/24', daysAgo: -10, dur: '5.5 hrs'},
+  {result: 125, stakes: '$0.25/$0.5', loc: 'PokerBros', date: '12/06/24', daysAgo: -5, dur: '1.5 hrs'},
+  {result: 65, stakes: '$0.25/$0.5', loc: 'PokerBros', date: '12/07/24', daysAgo: 0, dur: '5 hrs'},
 ]
 
 function Portfolio() {

@@ -9,7 +9,7 @@ function Title() { return <h1 className='title'>Braeden Meikle</h1> }
 
 /* Edits/day for the month of December */
 const activity = [
-  [1,1,1,1,1,1,0,0,0,0],
+  [1,1,1,1,1,1,0,1,0,0],
   [0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
   [0]
@@ -238,7 +238,6 @@ function Fun() {
   return (
     <div>
       <Title/>
-      {/* <LocationTracker/> */}
       <div style={metaAnimStyle}>
         <MetaAnim/>
       </div>
