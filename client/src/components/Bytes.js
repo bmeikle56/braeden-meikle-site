@@ -1,5 +1,6 @@
 
 // import { markRead } from '../api.js'
+import { txtCol } from '../styles/colors'
 
 const bytes = [
   {
@@ -26,17 +27,57 @@ const bytes = [
     title: `Artificial Intelligence come up`,
     content: AIByte
   },
-
   {
     title: `Consumer tendency`,
     content: ConsumerByte
   },
+  {
+    title: `Agile reimagined`,
+    content: AgileByte
+  },
 ]
+
+function AgileByte() {
+  return (
+    <div>
+      <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: txtCol}}>
+        <BLi txt={'Remove standups'}/>
+        A brief meeting where a team meets and everyone says they are doing what
+        they're doing. How does that help anyone? It doesn't and it's disruptive - 
+        causing engineers to pause work to attend the meeting. Standups are a gimmick 
+        in industry that exists solely because the status quo persists until someone 
+        challenges it. A better replacement is more effective communication, and meetings 
+        only when necessary. If you have a question or blocker, just go message or meeting
+        with the person you need to talk to. If that happens to be your manager or
+        teammate, then why does everyone else need to be on the call? Using standups
+        to keep the team aligned? Then drop asynchronous updates in a channel and expect
+        your team to read them!
+        <BLi txt={'Eliminate sprints'}/>
+        How does a sprint benefit the software development process? Each task is of 
+        different length, some are easy, others hard (we can categorize a task with a 
+        'point' value). It's hard for me to find an argument for sprints that makes sense.
+        Software should not be thought of as a sprint, because it's a marathon. Sprints
+        are about delivering half-baked software at a pace that suits the business
+        and product owners, but not the customers. 
+        <BBr/><BBr/><BBr/><BBr/>
+        Standups and sprints are sensible ideas, but not in practice. If a company wants
+        to deliver meaningful customer experiences and keep employees happy, they 
+        would be prudent to get rid of these counterintuitive policies.
+        <BBr/><BBr/><BBr/><BBr/>
+        The core pillars of Agile are still important and always will be. Yes, individuals
+        are more important than processes. Yes, customers collaboration is important. Yes,
+        working software is more important than documents and diagrams. And yes, a dynamic
+        plan expecting and responding to change is necessary. Why can't we follow these
+        and strip away the extra scaffolding?
+      </p>
+    </div>
+  )
+}
 
 function ConsumerByte() {
   return (
     <div>
-    <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: 'gray'}}>
+    <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: txtCol}}>
     Consumers always want the simplest access to the services and applications they 
     consume — why interact with something if you don’t have to? This seems intuitive, 
     because it is.
@@ -65,7 +106,7 @@ function ConsumerByte() {
 function AIByte() {
   return (
     <div>
-    <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: 'gray'}}>
+    <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: txtCol}}>
     As 2024 comes to a close, I’d never expected to be this in awe of AI. Artificial
     Intelligence has enjoyed exponential popularity as the technology continues to 
     get stronger. OpenAI's introduction of ChatGPT had a profound impact on every
@@ -101,7 +142,7 @@ function AIByte() {
 function QuestionByte() {
   return (
     <div>
-    <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: 'gray'}}>
+    <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: txtCol}}>
       People tend to categorize questions into binary qualities of either 'good' or 'bad'. 
       The secret to more strongly reinforcing knowledge is asking 'bad' questions that strike
       at the core of your learning and knowledge. Challenging a widely-accepted concept or
@@ -115,7 +156,7 @@ function QuestionByte() {
 function PhilosophyByte() {
   return (
     <div>
-    <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: 'gray'}}>
+    <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: txtCol}}>
     <BLi txt={`Easy To Change (ETC)`}/>
       A core concept of software is software
       rot (aka technical debt) tends toward infinity. Fundamentally, if a program 
@@ -140,7 +181,7 @@ function PhilosophyByte() {
 function ProgrammingByte() {
   return (
     <div>
-      <p style={{lineHeight: 1.3, textWrap: 'wrap', color: 'gray'}}>
+      <p style={{lineHeight: 1.3, textWrap: 'wrap', color: txtCol}}>
         <div style={{display:'flex', justifyContent:'center'}}><InCcode code={`0010`}/></div>
         <BBr/><BBr/>
         {`\n`}Programming begins where electricity is categorized to two buckets, 
@@ -180,7 +221,7 @@ function BLi({ txt }) { return <p style={{lineHeight:'0.5', fontWeight:'bold'}}>
 function SwiftByte() {
   return (
     <div>
-      <p style={{lineHeight: 1.3, textWrap: 'wrap', color: 'gray'}}>
+      <p style={{lineHeight: 1.3, textWrap: 'wrap', color: txtCol}}>
         Features I like:
         <BBr/>
         <BLi txt={'default functions'}/>
@@ -216,7 +257,7 @@ function SwiftByte() {
 function NilByte() {
   return (
     <div>
-      <p style={{lineHeight: 1.3, textWrap: 'wrap', color: 'gray'}}>
+      <p style={{lineHeight: 1.3, textWrap: 'wrap', color: txtCol}}>
         Force unwrapping an optional (<InCcode code={` ! `}/>) is better than 
         null coalescing (<InCcode code={` ?? `}/>) where the latter is app-breaking. 
         Some shallow online digging may lead you to&nbsp;
@@ -277,7 +318,7 @@ function Bytes({ unreadList }) {
           textShadow: '0px 0px 10px rgb(46, 190, 238), 0px 0px 10px rgb(46, 190, 238), 0px 0px 10px rgb(46, 190, 238)',
           paddingRight: '15px'
           }}>byte</p>
-          <p style={{color: 'gray'}}>{byte.title}</p>
+          <p style={{color: txtCol}}>{byte.title}</p>
           <div style={{marginLeft: 'auto', display: 'flex', gap: '12px', alignItems: 'center'}}>
             <p className='new-badge' style={{opacity: unreadList[index] === 0 ? 0 : 1, color: 'rgb(0,255,0)', fontSize:'10px'}}>New</p>
             <span className='chevron' style={{margin:'-2px 0 0 0'}}>&rsaquo;</span>
