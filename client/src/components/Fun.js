@@ -1,30 +1,19 @@
 
-import { 
-  favFuncMeta,
-  favSongMeta
-} from '../data/consts.js'
 import { motion } from 'motion/react'
+import { txtCol } from '../styles/colors.js'
 
 function Title() { return <h1 className='title'>Braeden Meikle</h1> }
-
-/* Edits/day for the month of December */
-const activity = [
-  [1,1,1,1,1,1,0,1,0,0],
-  [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0],
-  [0]
-]
 
 function FavoriteSong({ meta }) {
   return <div style={{textAlign:'center', display: 'flex', alignItems:'center'}}>
     <p className='tracker'>Favorite song:</p>
     <img src={meta.imgLink} style={{paddingLeft:'8px', paddingRight:'8px', width: meta.size.width, height: meta.size.height}} alt={meta.alt}/>
-    <p className='tracker' style={{paddingRight:'5px', color:'gray'}}>{meta.song}</p>
+    <p className='tracker' style={{paddingRight:'5px', color: txtCol}}>{meta.song}</p>
     <BouncingLines/>
   </div>
 }
 
-function ActivityTracker() {
+function ActivityTracker({ activity }) {
   return (
     <div style={{display: 'grid', justifyContent: 'center', gap: '2px', paddingBottom:'8vh'}}>
       {activity.map((row, i) =>
@@ -81,7 +70,7 @@ function BouncingLines() {
 function BouncingLine({ height, dur }) {
   const barStyle = {
     width: '1px',
-    backgroundColor: 'gray'
+    backgroundColor: txtCol
   }
 
   return (
@@ -99,7 +88,7 @@ function BouncingLine({ height, dur }) {
   )
 }
 
-function MetaAnim() {
+function MetaAnim({ meta }) {
   const boundaries = [
     {
       position: 'absolute',
@@ -115,34 +104,14 @@ function MetaAnim() {
   ]
   const delays = [8,16]
 
-  return boundaries.map((boundary, i) => <MetaAnimFact delay={delays[i]} style={boundary}/>)
+  return boundaries.map((boundary, i) => <MetaAnimFact 
+    meta={meta[Math.round(Math.random() * 3)]} 
+    delay={delays[i]} 
+    style={boundary}/>
+  )
 }
 
-function MetaAnimFact({ delay, style }) {
-  const meta = () => {
-    const metacol = [
-      {
-        meta: {
-          actor: 'Braeden',
-          act: 'using',
-          obj: 'iPhone'
-        }
-      },
-      {
-        meta: {
-          lang: 'Swift',
-          com: 'is lit',
-        }
-      },
-      {
-        meta: {
-          out: 1,
-          err: 'SIGABRT',
-        }
-      }
-    ]
-    return metacol[Math.floor(Math.random() * 2)]
-  }
+function MetaAnimFact({ meta, delay, style }) {
   return (
     <div style={style}>
       <motion.div
@@ -157,7 +126,7 @@ function MetaAnimFact({ delay, style }) {
       }}
       >
         <pre className='meta-anim'>
-          {JSON.stringify(meta(), null, 2)}
+          {JSON.stringify(meta, null, 2)}
         </pre>
       </motion.div>
     </div>
@@ -177,7 +146,7 @@ function RoyalFlushTracker() {
   return (
     <div style={{display: 'flex', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Royal flushes:  </pre>
-      <p style={{color:'gray'}}>&mdash;</p>
+      <p style={{color: txtCol}}>&mdash;</p>
     </div>
   )
 }
@@ -186,15 +155,15 @@ function HoleInOneTracker() {
   return (
     <div style={{display: 'flex', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Hole-in-ones:  </pre>
-      <p style={{color:'white'}}>&#9971;</p>
+      <p>&#9971;</p>
     </div>
   )
 }
 
-function Canvas() {
+function Canvas({ meta }) {
   return <div className='canvas'>
-    <FavoriteSong meta={favSongMeta}/>
-    <FavoriteFunction meta={favFuncMeta}/>
+    <FavoriteSong meta={meta.favSongMeta}/>
+    <FavoriteFunction meta={meta.favFuncMeta}/>
     <HoleInOneTracker/>
     <RoyalFlushTracker/>
   </div> 
@@ -206,7 +175,7 @@ function BinarySnake() {
       initial={{ opacity: 0 }}
       animate={{ opacity: [0,0.9,0] }}
       style={{
-        color:'white',
+        color: 'white',
         zIndex: 2,
         margin: `${Math.floor((Math.random() * 100) + 450)}px 0px 0px ${Math.floor((Math.random() * 450) + 500)}px`,
         position: 'absolute'
@@ -224,7 +193,7 @@ function BinarySnake() {
   )
 }
   
-function Fun() { 
+function Fun({ meta }) { 
   const metaAnimStyle = {
     display: 'inline-block', 
     marginLeft:'200px', 
@@ -239,11 +208,11 @@ function Fun() {
     <div>
       <Title/>
       <div style={metaAnimStyle}>
-        <MetaAnim/>
+        <MetaAnim meta={meta.animMeta}/>
       </div>
       <BinarySnake/>
-      <ActivityTracker/>
-      <Canvas/>
+      <ActivityTracker activity={meta.activity}/>
+      <Canvas meta={meta}/>
     </div>
   )
 }

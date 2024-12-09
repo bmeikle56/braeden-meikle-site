@@ -1,5 +1,6 @@
 
 import { motion } from 'motion/react'
+import { txtCol, specialColor } from '../styles/colors'
 
 /* Captilize first letter of the string */
 function capFirst(val) {
@@ -7,7 +8,7 @@ function capFirst(val) {
 }
 
 const sideBarBtnStyle = {
-  color: 'lightgray',
+  color: txtCol,
   width: '80px',
   height: '80px',
   backgroundColor: 'transparent',
@@ -25,7 +26,6 @@ const sidebarStyle = {
 
 const sideBarBtnDivStyle = {
   display: 'flex',
-  color: 'gray',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
@@ -38,7 +38,7 @@ function Sidebar({ pages }) {
 
   const sideBarStyle = {
     backgroundClip: 'content-box',
-    backgroundColor: 'lightgray',
+    backgroundColor: specialColor,
     width: '3px',
     borderRadius: '40px',
     boxShadow: '0px 0px 10px white'

@@ -2,8 +2,10 @@
 import '../styles/global.css'
 import React, { useState, useEffect } from 'react'
 import { 
+  funMeta,
   pages,
-} from '../data/consts.js'
+  portfolioMeta
+} from '../data/data.js'
 import { Fun } from './Fun.js'
 import { AnimatedSidebar } from './Sidebar.js'
 import { Bytes } from './Bytes.js'
@@ -41,11 +43,11 @@ function Body() {
       >
         <AnimatedSidebar pages={pages}/>
         <div id='fun'>
-          <Fun/>
+          <Fun meta={funMeta}/>
         </div>
         <VDivider/>
         <div id='portfolio'>
-          <Portfolio/>
+          <Portfolio meta={portfolioMeta}/>
         </div>
         <VDivider/>
         <div id='bytes'>

@@ -1,4 +1,6 @@
 
+import { txtCol } from "../styles/colors"
+
 const footerDivs = [
   {txt: 'Created November 26, 2024'},
   {txt: 'Email', link: 'mailto:braedenmeikle@gmail.com', icon: 'fa fa-envelope'},
@@ -8,7 +10,7 @@ const footerDivs = [
 
 const iconStyle = {
   fontSize: '12px',
-  color: 'gray'
+  color: txtCol
 }
 
 function Footer() {
