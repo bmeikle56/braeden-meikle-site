@@ -59,10 +59,17 @@ function AgileByte() {
         Software should not be thought of as a sprint, because it's a marathon. Sprints
         are about delivering half-baked software at a pace that suits the business
         and product owners, but not the customers. 
+        <BLi txt={'Ticket rework'}/>
+        I think the ticket system needs a rework. Why should tickets be classified by size
+        as epics, features, and user stories. Forcing certain tasks of different or 
+        unknown difficulties/lengths into predefined constraints is wrong. What if, like
+        the composition pattern, each ticket is a 'task', and each 'task' has 0 or more 
+        children. This would more effectively align engineers with upper management goals.
+        Another point of note - task points are subjective and meaningless, let's remove those.
         <BBr/><BBr/><BBr/><BBr/>
-        Standups and sprints are sensible ideas, but not in practice. If a company wants
-        to deliver meaningful customer experiences and keep employees happy, they 
-        would be prudent to get rid of these counterintuitive policies.
+        The current agile concepts - sprints, standups, and construction of tasks - are
+        both archaic and only practice in concept. The software industry moves fast, so why 
+        was Agile left behind? Let's change that.
         <BBr/><BBr/><BBr/><BBr/>
         The core pillars of Agile are still important and always will be. Yes, individuals
         are more important than processes. Yes, customers collaboration is important. Yes,
