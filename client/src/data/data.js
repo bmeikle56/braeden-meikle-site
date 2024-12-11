@@ -7,7 +7,7 @@ const pages = ['fun', 'portfolio', 'bytes']
 const funMeta = {
   activity: [
     [1,1,1,1,1,1,0,1,1,0],
-    [0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0]
   ],
@@ -86,10 +86,12 @@ const portfolioMeta = {
     {result: 143, stakes: '$1/$3', loc: 'MGM', date: '11/22/24', dur: '2.5 hrs'},
     {result: 31, stakes: '$1/$3', loc: 'MGM', date: '11/27/24', dur: '4 hrs'},
     {result: -476, stakes: '$1/$3', loc: 'MGM', date: '11/29/24', dur: '5.5 hrs'},
-    {result: 125, stakes: '$0.25/$0.5', loc: 'PokerBros', date: '12/06/24', dur: '1.5 hrs'},
-    {result: 65, stakes: '$0.25/$0.5', loc: 'PokerBros', date: '12/07/24', dur: '5 hrs'},
-    {result: 225, stakes: 'tourney', loc: 'PokerBros', date: '12/08/24', dur: '2 hrs'},
-    {result: 31, stakes: '$0.25/$0.5', loc: 'PokerBros', date: '12/09/24', dur: '2.5 hrs'},
+    {result: 125, stakes: '$0.25/$0.5', loc: 'online', date: '12/06/24', dur: '1.5 hrs'},
+    {result: 65, stakes: '$0.25/$0.5', loc: 'online', date: '12/07/24', dur: '5 hrs'},
+    {result: 225, stakes: 'tourney', loc: 'online', date: '12/08/24', dur: '2 hrs'},
+    {result: 31, stakes: '$0.25/$0.5', loc: 'online', date: '12/09/24', dur: '2.5 hrs'},
+    {result: 44, stakes: '$0.25/$0.5', loc: 'online', date: '12/10/24', dur: '4 hrs'},
+    {result: 324, stakes: '$0.25/$0.5', loc: 'online', date: '12/11/24', dur: '4 hrs'},
   ],
   siteMeta: {
     alt: 'Website logo',
