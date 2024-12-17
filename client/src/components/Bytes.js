@@ -1,5 +1,4 @@
 
-// import { markRead } from '../api.js'
 import { txtCol } from '../styles/colors'
 
 const bytes = [
@@ -35,7 +34,61 @@ const bytes = [
     title: `Agile reimagined`,
     content: AgileByte
   },
+  {
+    title: `Software lifecycle`,
+    content: ChangeByte
+  },
+  {
+    title: `Testing the right way`,
+    content: TestByte
+  },
 ]
+
+function TestByte() {
+  return (
+    <div>
+      <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: txtCol}}>
+      In the test cases, no servers should ever be hit - services should always 
+      be mocked. The simple fragility of a server is enough defense: if a server 
+      is down, the code fails, but that doesn’t make sense. The tests become reduced 
+      to micro shrodinger’s cats. I propose that there be an environment where test 
+      servers are hit for about 2 weeks before code hits production. This way, we pass 
+      the initial tests in the codebase where services were mocked, and now we are 
+      actually hitting test-designated servers. This most closely simulates 
+      production - the only difference being the exact set of computers sending responses. 
+      </p>
+    </div>
+  )
+}
+
+function ChangeByte() {
+  return (
+    <div>
+      <p style={{lineHeight: 1.3, whiteSpace:'pre-wrap', textWrap: 'wrap', color: txtCol}}>
+        The phrase 'it's too go to be true' is commonly used to dissuade consumers
+        from falling for a scam. In software, the adage has the opposite meaning of 
+        encouragement and excitement: if something's 'too good to be true', a better
+        design's been conceived and improvements can be made.
+        <BBr/><BBr/><BBr/><BBr/>
+        Engineers often build code on top of legacy systems and adopt current,
+        ubiquitous industry practices and models in hopes of developing a system for 
+        their company. But the thought process quickly becomes, how to adopt a structure 
+        to solve a problem? Instead, the correct approach is how to solve a problem? 
+        A matured thought process is likely to conclude that the best solution is 
+        something askew to industry standards.
+        <BBr/><BBr/><BBr/><BBr/>
+        To defend my postulate, industry standards are always evolving. If nobody 
+        poses the question of change, nothing changes. The industry is filled with 
+        hungry, bright minds who always find ways to improve existing technologies and 
+        practices. Yes, not all changes turn out to be positive.
+        <BBr/><BBr/><BBr/><BBr/>
+        Change is a tool for people seeking to improve their lives. Change and 
+        complacency are orthogonal. Nobody is fully complacent with everything in 
+        their lives, so naturally, change will never cease to exist.
+      </p>
+    </div>
+  )
+}
 
 function AgileByte() {
   return (
