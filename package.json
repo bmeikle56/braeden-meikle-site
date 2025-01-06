@@ -1,0 +1,31 @@
+{
+  "name": "braeden-meikle-site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^7.9.0",
+    "hook-use-d3": "^1.0.1",
+    "motion": "^11.16.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^4.2.4"
+  },
+  "scripts": {
+    "dev": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
