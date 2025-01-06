@@ -348,7 +348,7 @@ function NilByte() {
   )
 }
 
-function Bytes({ unreadList }) {
+function Bytes() {
   
   const contentMaxHeight = '1000px'
 
@@ -366,12 +366,11 @@ function Bytes({ unreadList }) {
     const newBadges = document.getElementsByClassName('new-badge')
     newBadges[index].classList.toggle('fade')
     newBadges[index].style.opacity = 0
-    // markRead(index) // when the backend becomes responsive, we can turn this back on
   }
 
   return (
     <div className='byte-div' style={{padding:'50px 0 0 150px', width: '70vw', gap: '10px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)'}}>
-      {bytes.map((byte, index) => <div className='byte'>
+      {bytes.map((byte, index) => <div key={index} className='byte'>
         <button className='drop-down' onClick={() => displayContent(index)}>
         <p style={{
           color: 'rgb(160,160,160)',
@@ -380,11 +379,11 @@ function Bytes({ unreadList }) {
           }}>byte</p>
           <p style={{color: txtCol}}>{byte.title}</p>
           <div style={{marginLeft: 'auto', display: 'flex', gap: '12px', alignItems: 'center'}}>
-            <p className='new-badge' style={{opacity: unreadList[index] === 0 ? 0 : 1, color: 'rgb(0,255,0)', fontSize:'10px'}}>New</p>
+            {/* <p className='new-badge' style={{opacity: unreadList[index] === 0 ? 0 : 1, color: 'rgb(0,255,0)', fontSize:'10px'}}>New</p> */}
             <span className='chevron' style={{margin:'-2px 0 0 0'}}>&rsaquo;</span>
           </div>
         </button>
-        <div class='panel'>
+        <div className='panel'>
           {<byte.content/>}
         </div>
       </div>)}

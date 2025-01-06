@@ -272,6 +272,8 @@
           display: flex;
           justify-content: center;
           gap: 15px;
+          padding-top: 50px;
+          padding-bottom: 170px;
         }
 
         /* Mobile style sheets */

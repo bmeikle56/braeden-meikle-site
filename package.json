@@ -14,7 +14,8 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "clean": "rm -rf build && rm -rf node_modules && yarn install && yarn build"
   },
   "browserslist": {
     "production": [

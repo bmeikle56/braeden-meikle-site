@@ -55,8 +55,8 @@ function Goals() {
         <ListTitle title={'Goals'}/>
         <ListVDiv/>
       </div>
-      {goals.map(goal =>
-        <div style={{display: 'flex', alignItems:'center'}}>
+      {goals.map((goal, i) =>
+        <div key={i} style={{display: 'flex', alignItems:'center'}}>
           <p style={{color: txtCol}}>&rArr;</p>
           <p style={{color: txtCol, paddingLeft: '7px'}}>{capFirst(goal)}</p>
         </div>
@@ -78,8 +78,8 @@ function Applications({ geicoMeta, hiyaMeta, siteMeta }) {
         <ListTitle title={'Applications'}/>
         <ListVDiv/>
       </div>
-      {contributions.map(meta => 
-        <div className='app-entry'>
+      {contributions.map((meta, i) => 
+        <div key={i} className='app-entry'>
           <img alt={meta.alt} src={meta.img} style={{paddingTop: meta.imgVOffset, position: 'absolute', margin: `0 0 0 ${-85+meta.imgHOffset}px`, clipPath: meta.clip, borderRadius:'20px', width: meta.imgRect.width, height: meta.imgRect.height}}/>
           <pre style={{margin: '0 0 0 -5px', color: txtCol, fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif'}}>{meta.prefix}</pre>
           <p style={{color: txtCol, paddingRight: 15}}>{meta.desc}</p>
@@ -106,7 +106,7 @@ function Interests() {
         <ListVDiv/>
       </div>
       {interests.map((interest, i) =>
-        <div style={{display: 'flex', alignItems:'center'}}>
+        <div key={i} style={{display: 'flex', alignItems:'center'}}>
           <img alt={`${capFirst(interest)} icon`} src={`${process.env.PUBLIC_URL}/img/${interest}.png`} style={{width: imgSq, height: imgSq}}/>
           <p style={{color: txtCol, paddingLeft: '7px'}}>{capFirst(interest)}</p>
         </div>
@@ -135,7 +135,7 @@ function Teams() {
         <ListVDiv/>
       </div>
       {teams.map((meta, i) =>
-        <div style={{display: 'flex', alignItems:'center'}}>
+        <div key={i} style={{display: 'flex', alignItems:'center'}}>
           <img alt={`${capFirst(meta.team)} icon`} src={`${process.env.PUBLIC_URL}/img/${meta.team}.png`} style={{margin: `0 0 0 -${meta.leftAlign}`, width: meta.imgSize.width, height: imgSize.height}}/>
           <p style={{color: txtCol, paddingLeft: `${meta.imgPad}`}}>{capFirst(meta.team)}</p>
         </div>
@@ -277,10 +277,10 @@ function Portfolio({ meta }) {
         <Teams/>
         <Goals/>
       </div>
-      <div className='poker-journey' style={{display:'flex', justifyContent:'center'}}>
+      {/* <div className='poker-journey' style={{display:'flex', justifyContent:'center'}}>
         <PokerSessions sessions={meta.sessions}/>
         <PokerJourney sessions={meta.sessions}/>
-      </div>
+      </div> */}
     </div>
   )
 }

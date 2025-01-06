@@ -13,19 +13,16 @@ import { Footer } from './Footer.js'
 import { Loading } from './Loading.js'
 import { Portfolio } from './Portfolio.js'
 import { VDivider } from './Vdiv.js'
-import { getUnread } from '../api.js' // turned off for now...
 import { motion } from 'motion/react'
 
 function Body() {
-  /*   Data fetched from backend that will be passed to component before render   */
-  const [data, setData] = useState(null)
 
-  /*   We init our app to loading state   */
+  /// We init our app to loading state
   const [isLoading, setLoading] = useState(true)
 
-  /*  (Fake) load data from server while providing an animation   */
+  /// Loading animation for 2 seconds
   useEffect(() => {
-    getUnread(setData, setLoading, Date.now())
+    setTimeout(() => setLoading(false), 2000)
   }, [])
 
   if (isLoading) {
@@ -51,7 +48,7 @@ function Body() {
         </div>
         <VDivider/>
         <div id='bytes'>
-          <Bytes unreadList={data.unreadList}/>
+          <Bytes/>
         </div>
         <VDivider/>
         <div style={{display:'flex', justifyContent:'center'}}>

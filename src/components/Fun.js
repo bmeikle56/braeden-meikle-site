@@ -17,9 +17,9 @@ function ActivityTracker({ activity }) {
   return (
     <div style={{display: 'grid', justifyContent: 'center', gap: '2px', paddingBottom:'8vh'}}>
       {activity.map((row, i) =>
-        <div style={{display: 'flex', gap: '2px'}}>
+        <div key={i} style={{display: 'flex', gap: '2px'}}>
         {row.map((day, j) => 
-          <Activity day={day} index={(i+1) * (j+1)}/>
+          <Activity key={j} day={day} index={(i+1) * (j+1)}/>
         )}
       </div>
       )}
@@ -57,7 +57,7 @@ function BouncingLines() {
 
   return (
     <div style={{display: 'flex', width: '10px', paddingTop:'4px', justifyContent:'space-between'}}>
-      {[...Array(3)].map((_, i) => <div>
+      {[...Array(3)].map((_, i) => <div key={i}>
         <div style={{scale: '-1 -1'}}>
           <BouncingLine height={heights[i]} dur={durs[i]}/>
         </div>
@@ -137,7 +137,7 @@ function FavoriteFunction({ meta }) {
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
       <pre className='tracker'>Favorite function: </pre>
-      <a href={meta.link} rel='noreferrer' target='_blank' class='func'>{meta.func}</a>
+      <a href={meta.link} rel='noreferrer' target='_blank' className='func'>{meta.func}</a>
     </div>
   )
 }
