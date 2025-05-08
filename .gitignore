@@ -1,2 +1,1 @@
-# Ignores all files related to hosting
-host/
+node_modules/
