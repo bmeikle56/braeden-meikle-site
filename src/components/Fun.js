@@ -142,30 +142,21 @@ function FavoriteFunction({ meta }) {
   )
 }
   
-function RoyalFlushTracker() {
+function FavoritePokerHand() {
   return (
-    <div style={{display: 'flex', justifyContent: 'flex-start'}}>
-      <pre className='tracker'>Royal flushes:  </pre>
-      <p style={{color: txtCol}}>&mdash;</p>
+    <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>
+      <pre className='tracker'>Favorite poker hand:  </pre>
+      <img alt='Jack of Diamonds' src={`${process.env.PUBLIC_URL}/img/jack-of-diamonds.png`} style={{width: 35, height: 35}}/>
+      <img alt='Deuce of Diamonds' src={`${process.env.PUBLIC_URL}/img/two-of-diamonds.png`} style={{width: 35, height: 35}}/>
     </div>
   )
 }
   
-function HoleInOneTracker() {
-  return (
-    <div style={{display: 'flex', justifyContent: 'flex-start'}}>
-      <pre className='tracker'>Hole-in-ones:  </pre>
-      <p>&#9971;</p>
-    </div>
-  )
-}
-
 function Canvas({ meta }) {
   return <div className='canvas'>
     <FavoriteSong meta={meta.favSongMeta}/>
     <FavoriteFunction meta={meta.favFuncMeta}/>
-    <HoleInOneTracker/>
-    <RoyalFlushTracker/>
+    <FavoritePokerHand/>
   </div> 
 }
 

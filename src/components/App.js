@@ -2,16 +2,11 @@
 import '../styles/global.css'
 import React, { useState, useEffect } from 'react'
 import { 
-  funMeta,
-  pages,
-  portfolioMeta
+  funMeta
 } from '../data/data.js'
 import { Fun } from './Fun.js'
-import { Bytes } from './Bytes.js'
 import { Footer } from './Footer.js'
 import { Loading } from './Loading.js'
-import { Portfolio } from './Portfolio.js'
-import { VDivider } from './Vdiv.js'
 import { motion } from 'motion/react'
 
 function Body() {
@@ -40,7 +35,7 @@ function Body() {
         <div id='fun'>
           <Fun meta={funMeta}/>
         </div>
-        <VDivider/>
+        {/* <VDivider/>
         <div id='portfolio'>
           <Portfolio meta={portfolioMeta}/>
         </div>
@@ -48,7 +43,7 @@ function Body() {
         <div id='bytes'>
           <Bytes/>
         </div>
-        <VDivider/>
+        <VDivider/> */}
         <div style={{display:'flex', justifyContent:'center'}}>
           <Footer/>
         </div>

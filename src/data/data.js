@@ -82,17 +82,6 @@ const portfolioMeta = {
     imgVOffset: '0px',
     link: 'https://apps.apple.com/us/app/hiya-spam-blocker-caller-id/id986999874',
   },
-  sessions: [
-    {result: 143, stakes: '$1/$3', loc: 'MGM', date: '11/22/24', dur: '2.5 hrs'},
-    {result: 31, stakes: '$1/$3', loc: 'MGM', date: '11/27/24', dur: '4 hrs'},
-    {result: -476, stakes: '$1/$3', loc: 'MGM', date: '11/29/24', dur: '5.5 hrs'},
-    {result: 125, stakes: '$0.25/$0.5', loc: 'online', date: '12/06/24', dur: '1.5 hrs'},
-    {result: 65, stakes: '$0.25/$0.5', loc: 'online', date: '12/07/24', dur: '5 hrs'},
-    {result: 225, stakes: 'tourney', loc: 'online', date: '12/08/24', dur: '2 hrs'},
-    {result: 31, stakes: '$0.25/$0.5', loc: 'online', date: '12/09/24', dur: '2.5 hrs'},
-    {result: 44, stakes: '$0.25/$0.5', loc: 'online', date: '12/10/24', dur: '4 hrs'},
-    {result: 324, stakes: '$0.25/$0.5', loc: 'online', date: '12/11/24', dur: '4 hrs'},
-  ],
   siteMeta: {
     alt: 'Website logo',
     clip: 'inset(45.6px 43px 46px 35.5px round 8px)',
