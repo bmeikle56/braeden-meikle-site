@@ -20,11 +20,7 @@ function Title() {
 }
 
 function FavoriteSong({ meta }) {
-  return <div style={{textAlign:'center', display: 'flex', alignItems:'center'}}>
-    <p className='tracker'>Favorite song</p>
-    <div style={{display:'flex', justifyContent: 'center', padding: '0 6px 0 6px'}}>
-      <p style={{color: specialColor}}>&rArr;</p>
-    </div>
+  return <div style={{textAlign:'center', display: 'flex', alignItems:'center', margin: '0 0 0 0'}}>
     <img src={meta.imgLink} style={{paddingLeft:'8px', paddingRight:'8px', width: meta.size.width, height: meta.size.height}} alt={meta.alt}/>
     <p className='tracker' style={{paddingRight:'5px', color: txtCol}}>{meta.song}</p>
     <BouncingLines/>
@@ -160,10 +156,6 @@ function WhatImDoing() {
 function FavoriteFunction({ meta }) {
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
-      <p className='tracker'>Favorite function</p>
-      <div style={{display:'flex', justifyContent: 'center', padding: '0 6px 0 6px'}}>
-        <p style={{color: specialColor}}>&rArr;</p>
-      </div>
       <a href={meta.link} rel='noreferrer' target='_blank' className='func'>{meta.func}</a>
     </div>
   )
@@ -172,10 +164,6 @@ function FavoriteFunction({ meta }) {
 function FavoritePokerHand() {
   return (
     <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>
-      <p className='tracker'>Favorite hand</p>
-      <div style={{display:'flex', justifyContent: 'center', padding: '0 6px 0 6px'}}>
-        <p style={{color: specialColor}}>&rArr;</p>
-      </div>
       <img alt='Jack of Diamonds' src={`${process.env.PUBLIC_URL}/img/jack-of-diamonds.png`} style={{width: 35, height: 35}}/>
       <img alt='Deuce of Diamonds' src={`${process.env.PUBLIC_URL}/img/two-of-diamonds.png`} style={{width: 35, height: 35}}/>
     </div>
@@ -183,10 +171,50 @@ function FavoritePokerHand() {
 }
   
 function Canvas({ meta }) {
-  return <div className='canvas'>
-    <FavoriteSong meta={meta.favSongMeta}/>
-    <FavoriteFunction meta={meta.favFuncMeta}/>
-    <FavoritePokerHand/>
+  const style = {
+    backgroundColor: 'rgb(17, 17, 17)',
+    borderRadius: '40px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 'auto',
+    width: '320px',
+    padding: '30px 0 30px 0',
+    boxShadow: `0px 0px 30px rgb(38, 38, 38), 0px 0px 30px ${specialColor}`,
+    flexDirection: 'column'
+  }
+
+  function Padding({ width }) {
+    return <div style={{width: `${width}px`, height: '4px'}}/>
+  }
+
+  return <div style={style}>
+    <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+      <Padding width={80}/>
+      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
+        <p className='tracker'>Song</p>
+        <FavoriteSong meta={meta.favSongMeta}/>
+      </div>
+      <Padding width={80}/>
+    </div>
+    <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+      <Padding width={80}/>
+      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
+        <p className='tracker'>Function</p>
+        <FavoriteFunction meta={meta.favFuncMeta}/>
+      </div>
+      <Padding width={80}/>
+    </div>
+    <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+      <Padding width={80}/>
+      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
+        <p className='tracker'>Hand</p>
+        <div style={{margin: '0 15px 0 0'}}>
+          <FavoritePokerHand/>
+        </div>
+      </div> 
+      <Padding width={80}/>
+    </div>
   </div> 
 }
 
