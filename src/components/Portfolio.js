@@ -1,9 +1,10 @@
 
 import { darkGray, losingRed, txtCol, superDarkGray, winningGreen } from '../styles/colors'
 import { motion } from 'motion/react'
-import { capFirst } from './Sidebar'
-import * as d3 from 'd3'
-import useD3 from 'hook-use-d3'
+
+function capFirst(string) {
+  return String(string)[0].toUpperCase() + String(string).slice(1)
+}
 
 function Pfp({ meta }) {
   return <img 
@@ -144,128 +145,6 @@ function Teams() {
   )
 }
 
-function PokerJourney({ sessions }) { 
-  let runningTotal = 0
-  let didUseD3 = false
-
-  const d3ref = useD3((svg) => {
-    if (didUseD3) { return }
-    didUseD3 = true // trick to avoid weird double-rendering bug
-    const xScale = d3.scaleLinear()
-        .domain([0, 100])
-        .range([0, 400])
-
-    const yScale = d3.scaleLinear()
-        .domain([500, -500])
-        .range([0, 300])
-
-    svg.append('g')
-        .attr('transform', `translate(30,${200})`)
-        .style('color', darkGray)
-        .call(d3.axisBottom(xScale).tickSize(0).tickFormat(''))
-
-    svg.append('g')
-        .attr('transform', `translate(${30},50)`)
-        .style('color', darkGray)
-        .call(d3.axisLeft(yScale).tickSize(0).tickFormat(''))
-
-    // We copy the sessions var so this is not appended to the reference used elsewhere
-    let sessionsCopy = sessions
-    sessionsCopy.unshift({result: 0, stakes: '', loc: '', date: '', dur: ''})
-
-    /* Position to represent result of session */
-    function Plot({ sessions }) {
-
-      // Define horizontal config for graph
-      // Not a good approach, but it's the easiest and laziest
-      let startGraphX = -30, separation = 6
-
-      for (let i in [...Array(sessionsCopy.length)]) {
-        if (Number(i) === sessionsCopy.length - 1) { break }
-
-        const origin = {x: 230, y: 50}
-
-        const p1 = {x: xScale(startGraphX + separation * Number(i)) + origin.x, y: yScale(runningTotal) + origin.y}
-        runningTotal += Number(sessionsCopy[Number(i)+1].result)
-        const p2 = {x: xScale(startGraphX + separation * (Number(i) + 1)) + origin.x, y: yScale(runningTotal) + origin.y}
-
-        function DrawLine({ p1, p2, color }) {    
-          const line = d3.line()
-            .x(d => d.x)
-            .y(d => d.y)
-          
-          svg.append('path')
-            .datum([p1, p2])
-            .attr('d', line)
-            .attr('stroke', color)
-            .attr('fill', 'none')
-            .attr('stroke-width', 2)
-        }
-
-        DrawLine({ p1, p2, color: txtCol })
-      }
-    }
-    Plot({ sessions: sessionsCopy })
-  }, [])
-
-  return (
-    <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{
-      delay: 7.5
-    }}
-    className='poker-graph'
-    >
-      <svg ref={d3ref} style={{ color: txtCol, height: 460, width: 460 }}></svg>
-    </motion.div>
-  )
-}
-
-function PokerSessions({ sessions }) {
-  return (
-    <div style={{paddingTop: '10vh', backgroundClip: 'content-box', paddingRight: '100px', height: '20vh'}}>
-      {sessions.map((session, i) =>
-      <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{
-        delay: 4.5 + (0.25*i)
-      }}
-      >
-        <Session session={session}/>
-      </motion.div>
-      )}
-    </div>
-  )
-}
-
-function Session({ session }) {
-  function textFor(result) {
-    let color, prefix
-    if (result === 0) {
-      color = 'rgb(190,190,190)'
-      prefix = '  '
-    } else {
-      color = result > 0 ? winningGreen : losingRed
-      prefix = result > 0 ? '+ ' : '- '
-    }
-
-    return <p style={{width: '60px', color: color}}>{prefix}${result < 0 ? String(result).slice(1) : result}</p>
-  }
-
-  return (<div style={{textAlign:'center', height: '26px', paddingLeft: '20px', display: 'flex', gap: '8px'}}>
-    {textFor(session.result)}
-    <p style={{color: darkGray}}>&mdash;</p>
-    <p style={{width: '190px', color: txtCol}}>{session.stakes} @ {session.loc}</p>
-    <p style={{color: darkGray}}>&mdash;</p>
-    <p style={{width: '50px', color: txtCol}}>{session.date}</p>
-    <p style={{width: '15px', marginLeft: '20px', color: darkGray}}>&mdash;</p>
-    <p style={{paddingLeft: '5px', color: txtCol}}>{session.dur}</p>
-  </div>)
-}
-
-
 
 function Portfolio({ meta }) {
   return (
@@ -277,10 +156,6 @@ function Portfolio({ meta }) {
         <Teams/>
         <Goals/>
       </div>
-      {/* <div className='poker-journey' style={{display:'flex', justifyContent:'center'}}>
-        <PokerSessions sessions={meta.sessions}/>
-        <PokerJourney sessions={meta.sessions}/>
-      </div> */}
     </div>
   )
 }

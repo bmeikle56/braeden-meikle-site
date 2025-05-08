@@ -7,7 +7,6 @@ import {
   portfolioMeta
 } from '../data/data.js'
 import { Fun } from './Fun.js'
-import { AnimatedSidebar } from './Sidebar.js'
 import { Bytes } from './Bytes.js'
 import { Footer } from './Footer.js'
 import { Loading } from './Loading.js'
@@ -38,7 +37,6 @@ function Body() {
         delay: .25
       }}
       >
-        <AnimatedSidebar pages={pages}/>
         <div id='fun'>
           <Fun meta={funMeta}/>
         </div>
