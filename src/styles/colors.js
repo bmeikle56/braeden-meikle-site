@@ -7,17 +7,11 @@ const superDarkGray = 'rgb(10,10,10)'
 const txtCol = 'rgb(150,150,150)'
 
 /* Special color for the site */
-const specialColor = 'rgb(4,255,235)' // hex: #04FFEB
-
-/* Winning and losing colors */
-const winningGreen = 'rgb(0,192,0)'
-const losingRed = 'rgb(192,0,0)'
+const specialColor = 'rgb(255, 0, 204)'
 
 export { 
   darkGray, 
-  losingRed,
   txtCol, 
   specialColor, 
   superDarkGray,
-  winningGreen
 }

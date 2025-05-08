@@ -1,12 +1,30 @@
 
 import { motion } from 'motion/react'
-import { txtCol } from '../styles/colors.js'
+import { txtCol, specialColor } from '../styles/colors.js'
 
-function Title() { return <h1 className='title'>Braeden Meikle</h1> }
+function Title() { 
+  const style = {
+    width: '100vw',
+    fontSize: '45px',
+    paddingTop: '5vh',
+    paddingBottom: '5vh',
+    textAlign: 'center',
+    background: specialColor,
+    backgroundClip: 'text',
+    textShadow: 'rgb(128, 128, 128) 0px 0px 25px',
+    color: 'transparent',
+    fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
+  }
+
+  return <h1 style={style}>Braeden Meikle</h1> 
+}
 
 function FavoriteSong({ meta }) {
   return <div style={{textAlign:'center', display: 'flex', alignItems:'center'}}>
-    <p className='tracker'>Favorite song:</p>
+    <p className='tracker'>Favorite song</p>
+    <div style={{display:'flex', justifyContent: 'center', padding: '0 6px 0 6px'}}>
+      <p style={{color: specialColor}}>&rArr;</p>
+    </div>
     <img src={meta.imgLink} style={{paddingLeft:'8px', paddingRight:'8px', width: meta.size.width, height: meta.size.height}} alt={meta.alt}/>
     <p className='tracker' style={{paddingRight:'5px', color: txtCol}}>{meta.song}</p>
     <BouncingLines/>
@@ -132,11 +150,20 @@ function MetaAnimFact({ meta, delay, style }) {
     </div>
   )
 }
+
+function WhatImDoing() {
+  return <div style={{display:'flex', justifyContent: 'center'}}>
+    <p style={{color: specialColor}}>&rArr;</p>
+  </div>
+}
   
 function FavoriteFunction({ meta }) {
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
-      <pre className='tracker'>Favorite function: </pre>
+      <p className='tracker'>Favorite function</p>
+      <div style={{display:'flex', justifyContent: 'center', padding: '0 6px 0 6px'}}>
+        <p style={{color: specialColor}}>&rArr;</p>
+      </div>
       <a href={meta.link} rel='noreferrer' target='_blank' className='func'>{meta.func}</a>
     </div>
   )
@@ -145,7 +172,10 @@ function FavoriteFunction({ meta }) {
 function FavoritePokerHand() {
   return (
     <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>
-      <pre className='tracker'>Favorite poker hand:  </pre>
+      <p className='tracker'>Favorite hand</p>
+      <div style={{display:'flex', justifyContent: 'center', padding: '0 6px 0 6px'}}>
+        <p style={{color: specialColor}}>&rArr;</p>
+      </div>
       <img alt='Jack of Diamonds' src={`${process.env.PUBLIC_URL}/img/jack-of-diamonds.png`} style={{width: 35, height: 35}}/>
       <img alt='Deuce of Diamonds' src={`${process.env.PUBLIC_URL}/img/two-of-diamonds.png`} style={{width: 35, height: 35}}/>
     </div>
