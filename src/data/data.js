@@ -6,8 +6,8 @@ const pages = ['fun', 'portfolio', 'bytes']
 /*   Metadata for the fun section   */
 const funMeta = {
   activity: [
-    [1,1,1,1,1,1,0,1,1,0],
-    [1,0,0,0,0,1,0,0,0,0],
+    [0,0,0,0,0,0,1,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0]
   ],
