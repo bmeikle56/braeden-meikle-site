@@ -14,9 +14,9 @@ function Body() {
   /// We init our app to loading state
   const [isLoading, setLoading] = useState(true)
 
-  /// Loading animation for 2 seconds
+  /// Loading animation for 3.5 seconds
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3000)
+    setTimeout(() => setLoading(false), 3500)
   }, [])
 
   if (isLoading) {
