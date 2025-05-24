@@ -15,7 +15,7 @@ function Title() {
     fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
   }
 
-  return <h1 style={style}>Braeden Meikle</h1> 
+  return <h1 id="title" style={style}>Braeden Meikle</h1> 
 }
 
 function FavoriteSong({ meta }) {

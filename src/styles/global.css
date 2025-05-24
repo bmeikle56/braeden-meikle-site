@@ -70,6 +70,11 @@ a.func:link, a.func:visited  {
   #fun {
     height: 85vh;
   }
+
+  #title {
+    margin-top: -3vh;
+    margin-bottom: -3vh;
+  }
 }
 
 a.app-store:link, a.app-store:visited {
