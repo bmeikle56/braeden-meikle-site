@@ -1,6 +1,6 @@
 
 import { motion } from 'motion/react'
-import { txtCol, superDarkGray, onlineGreen, specialColor } from '../styles/colors.js'
+import { txtCol, darkGray, superDarkGray, onlineGreen, specialColor } from '../styles/colors.js'
 
 function Title() { 
   const style = {
@@ -33,14 +33,36 @@ function ActivityTracker({ activity }) {
         <Pfp meta={pfpMeta}/>
       </div>
       <div style={{height: '72px', width:'2px', background: 'rgb(30,30,30)', borderRadius: '8px'}}/>
+      <div style={{display: 'flex', flexDirection: 'column', gap: '12px', justifyContent: 'center', alignItems: 'center'}}>
         <div style={{display: 'grid', justifyContent: 'center', gap: '2px'}}>
           {activity.map((row, i) =>
-            <div key={i} style={{display: 'flex', gap: '2px'}}>
-            {row.map((day, j) => 
-              <Activity key={j} day={day} index={(i+1) * (j+1)}/>
-            )}
+              <div key={i} style={{display: 'flex', gap: '2px'}}>
+              {row.map((day, j) => 
+                <Activity key={j} day={day} index={(i+1) * (j+1)}/>
+              )}
+            </div>
+          )}
         </div>
-        )}
+        <div style={{display: 'flex'}}>
+          <pre style={{
+            color: onlineGreen,
+            textShadow: 'rgb(167, 167, 167) 0px 0px 8px',
+            opacity: 0.3,
+            fontSize: 12, margin: '0px 0px 0px 0px'
+          }}>{"{ "}</pre>
+          <pre style={{
+            color: onlineGreen,
+            textShadow: 'rgb(201, 201, 201) 0px 0px 8px',
+            opacity: 0.6,
+            fontSize: 12, margin: '0px 0px 0px 0px'
+          }}>{"Seen today"}</pre>
+          <pre style={{
+            color: onlineGreen,
+            textShadow: 'rgb(167, 167, 167) 0px 0px 8px',
+            opacity: 0.3,
+            fontSize: 12, margin: '0px 0px 0px 0px'
+          }}>{" }"}</pre>
+        </div>
       </div>
     </div>
   )
@@ -206,31 +228,19 @@ function Canvas({ meta }) {
   }
 
   return <div style={style}>
-    <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
-      <Padding width={80}/>
-      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
-        <p className='tracker'>Listening to</p>
-        <FavoriteSong meta={songMeta}/>
-      </div>
-      <Padding width={80}/>
+    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+      <p style={{color: darkGray}}>Listening to</p>
+      <FavoriteSong meta={songMeta}/>
     </div>
-    <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
-      <Padding width={80}/>
-      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
-        <p className='tracker'>Transforming</p>
-        <FavoriteFunction meta={funcMeta}/>
-      </div>
-      <Padding width={80}/>
+    <div style={{display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'center', width: '100%'}}>
+      <p style={{color: darkGray}}>Transforming</p>
+      <FavoriteFunction meta={funcMeta}/>
     </div>
-    <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
-      <Padding width={80}/>
-      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
-        <p className='tracker'>Bluffing with</p>
-        <div style={{margin: '0 15px 0 0'}}>
-          <FavoritePokerHand/>
-        </div>
-      </div> 
-      <Padding width={80}/>
+    <div style={{display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center', width: '100%'}}>
+      <p style={{color: darkGray}}>Bluffing with</p>
+      <div style={{margin: '0 15px 0 0'}}>
+        <FavoritePokerHand/>
+      </div>
     </div>
   </div> 
 }

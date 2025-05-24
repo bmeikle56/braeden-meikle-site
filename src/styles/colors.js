@@ -1,6 +1,6 @@
 
 /* Dark gray color palette for the site */
-const darkGray = 'rgb(40,40,40)'
+const darkGray = 'rgb(120,120,120)'
 const superDarkGray = 'rgb(20,20,20)'
 
 /* Universal text color for the site */
