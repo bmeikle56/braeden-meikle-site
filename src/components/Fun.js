@@ -196,6 +196,14 @@ function FavoritePokerHand() {
     </div>
   )
 }
+
+function FavoriteTeam() {
+  return (
+    <div style={{display: 'flex'}}>
+      <img alt='Wizards old logo' src={`${process.env.PUBLIC_URL}/img/wizards.png`} style={{width: 35, height: 35}}/>
+    </div>
+  )
+}
   
 function Canvas({ meta }) {
   const style = {
@@ -239,6 +247,12 @@ function Canvas({ meta }) {
     <div style={{display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'center', width: '100%'}}>
       <p style={{color: darkGray}}>Transforming</p>
       <FavoriteFunction meta={funcMeta}/>
+    </div>
+    <div style={{display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center', width: '100%'}}>
+      <p style={{color: darkGray}}>Sadly rooting for</p>
+      <div style={{margin: '0 15px 0 0'}}>
+        <FavoriteTeam/>
+      </div>
     </div>
     <div style={{display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center', width: '100%'}}>
       <p style={{color: darkGray}}>Bluffing with</p>
