@@ -35,15 +35,6 @@ function Body() {
         <div id='fun'>
           <Fun meta={funMeta}/>
         </div>
-        {/* <VDivider/>
-        <div id='portfolio'>
-          <Portfolio meta={portfolioMeta}/>
-        </div>
-        <VDivider/>
-        <div id='bytes'>
-          <Bytes/>
-        </div>
-        <VDivider/> */}
         <div style={{display:'flex', justifyContent:'center'}}>
           <Footer/>
         </div>

@@ -243,22 +243,22 @@ function BinarySnake() {
 }
   
 function Fun({ meta }) { 
-  const metaAnimStyle = {
-    display: 'inline-block', 
-    marginLeft:'200px', 
-    padding:'9px 8px 9px 14px', 
-    position: 'absolute', 
-    zIndex: '2', 
-    justifyContent:'center', 
-    fontSize:'12px',
-  }
+  // const metaAnimStyle = {
+  //   display: 'inline-block', 
+  //   marginLeft: '200px', 
+  //   padding:'9px 8px 9px 14px', 
+  //   position: 'absolute', 
+  //   zIndex: '2', 
+  //   justifyContent:'center', 
+  //   fontSize:'12px',
+  // }
 
   return (
     <div>
       <Title/>
-      <div style={metaAnimStyle}>
+      {/* <div style={metaAnimStyle}>
         <MetaAnim meta={meta.animMeta}/>
-      </div>
+      </div> */}
       <BinarySnake/>
       <ActivityTracker activity={meta.activity}/>
       <Canvas meta={meta}/>
