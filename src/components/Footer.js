@@ -15,15 +15,17 @@ const iconStyle = {
 
 function Footer() {
   return (
-    <div className='footer'>
-      {footerDivs.map((footerDiv, i) => {
-        return <div key={i} style={{display: 'flex', alignItems:'center'}}>
-          <i className={footerDiv.icon} style={iconStyle}></i>
-          {footerDiv.link ? 
-            <a rel='noreferrer' target='_blank' href={footerDiv.link} style={{textDecoration:'none'}}><p className='footer-txt' style={{paddingLeft:'4px'}}>{footerDiv.txt}</p></a>
-            : <p className='footer-txt'>{footerDiv.txt}</p>}
-        </div>
-      })}
+    <div style={{ display: 'flex', justifyContent: 'center' }}> 
+      <div className='footer'>
+        {footerDivs.map((footerDiv, i) => {
+          return <div key={i} style={{display: 'flex', alignItems:'center'}}>
+            <i className={footerDiv.icon} style={iconStyle}></i>
+            {footerDiv.link ? 
+              <a rel='noreferrer' target='_blank' href={footerDiv.link} style={{textDecoration:'none'}}><p className='footer-txt' style={{paddingLeft:'4px'}}>{footerDiv.txt}</p></a>
+              : <p className='footer-txt'>{footerDiv.txt}</p>}
+          </div>
+        })}
+      </div>
     </div>
   )
 }

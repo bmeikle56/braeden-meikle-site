@@ -16,7 +16,7 @@ function Body() {
 
   /// Loading animation for 2 seconds
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000)
+    setTimeout(() => setLoading(false), 3000)
   }, [])
 
   if (isLoading) {
@@ -32,12 +32,8 @@ function Body() {
         delay: .25
       }}
       >
-        <div id='fun'>
-          <Fun meta={funMeta}/>
-        </div>
-        <div style={{display:'flex', justifyContent:'center'}}>
-          <Footer/>
-        </div>
+        <Fun meta={funMeta}/>
+        <Footer/>
       </motion.div>
     </body>
   )

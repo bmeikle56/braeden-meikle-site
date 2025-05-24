@@ -4,10 +4,9 @@ import { txtCol, specialColor } from '../styles/colors.js'
 
 function Title() { 
   const style = {
-    width: '100vw',
     fontSize: '45px',
-    paddingTop: '5vh',
-    paddingBottom: '5vh',
+    paddingTop: '8vh',
+    paddingBottom: '8vh',
     textAlign: 'center',
     background: specialColor,
     backgroundClip: 'text',
@@ -29,7 +28,7 @@ function FavoriteSong({ meta }) {
 
 function ActivityTracker({ activity }) {
   return (
-    <div style={{display: 'grid', justifyContent: 'center', gap: '2px', paddingBottom:'8vh'}}>
+    <div style={{display: 'grid', justifyContent: 'center', gap: '2px', marginBottom: '-80px'}}>
       {activity.map((row, i) =>
         <div key={i} style={{display: 'flex', gap: '2px'}}>
         {row.map((day, j) => 
@@ -218,29 +217,29 @@ function Canvas({ meta }) {
   </div> 
 }
 
-function BinarySnake() {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: [0,0.9,0] }}
-      style={{
-        color: 'white',
-        zIndex: 2,
-        margin: `${Math.floor((Math.random() * 100) + 450)}px 0px 0px ${Math.floor((Math.random() * 450) + 500)}px`,
-        position: 'absolute'
-      }}
-      transition={{
-        repeatType: 'reverse',
-        repeat: Infinity,
-        delay: 18,
-        duration: 3,
-        repeatDelay: 40
-      }}
-    >
-      <pre className='meta-anim'>{[...Array(8)].map(_ => Math.round(Math.random()))}</pre>
-    </motion.div>
-  )
-}
+// function BinarySnake() {
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0 }}
+//       animate={{ opacity: [0,0.9,0] }}
+//       style={{
+//         color: 'white',
+//         zIndex: 2,
+//         margin: `${Math.floor((Math.random() * 100) + 450)}px 0px 0px ${Math.floor((Math.random() * 450) + 500)}px`,
+//         position: 'absolute'
+//       }}
+//       transition={{
+//         repeatType: 'reverse',
+//         repeat: Infinity,
+//         delay: 18,
+//         duration: 3,
+//         repeatDelay: 40
+//       }}
+//     >
+//       <pre className='meta-anim'>{[...Array(8)].map(_ => Math.round(Math.random()))}</pre>
+//     </motion.div>
+//   )
+// }
   
 function Fun({ meta }) { 
   // const metaAnimStyle = {
@@ -254,12 +253,11 @@ function Fun({ meta }) {
   // }
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '95vh'}}>
       <Title/>
       {/* <div style={metaAnimStyle}>
         <MetaAnim meta={meta.animMeta}/>
       </div> */}
-      <BinarySnake/>
       <ActivityTracker activity={meta.activity}/>
       <Canvas meta={meta}/>
     </div>

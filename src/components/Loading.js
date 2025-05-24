@@ -6,8 +6,8 @@ function ByteTransfer() {
   return (
     <motion.div 
     initial={{ opacity: 0 }}
-    animate={{ opacity: [0,1,0], x: [-100,100] }}
-    transition={{ duration: 2.5 }}
+    animate={{ opacity: [0,1,0], x: [-100,90] }}
+    transition={{ duration: 3 }}
     >
       <pre id='loading' className='meta-anim'></pre>
     </motion.div>
@@ -31,8 +31,8 @@ function IPhoneSilhouette() {
   return (
     <motion.div 
     initial={{ opacity: 0 }}
-    animate={{ opacity: [0,1,0] }}
-    transition={{ duration: 2.5 }}
+    animate={{ opacity: [0,0.7,0] }}
+    transition={{ duration: 3.5 }}
     >
       <svg style={{ width: '40px', height: '72px' }}>
         <rect style={style}/>
@@ -48,18 +48,17 @@ function Loading() {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      margin: 'auto',
       flexDirection: 'row',
-      gap: '80px'
+      gap: '80px',
+      height: '100vh'
     }}
     initial={{ opacity: 0 }}
     animate={{ opacity: [0,1] }}
-    transition={{ duration: 0.5 }}>
-      {/* <div> */}
+    transition={{ duration: 0.8 }}>
         <IPhoneSilhouette/>
         <ByteTransfer/>
         <IPhoneSilhouette/>
-        
-      {/* </div> */}
     </motion.div>
   )
 }
