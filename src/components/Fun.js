@@ -1,6 +1,6 @@
 
 import { motion } from 'motion/react'
-import { txtCol, specialColor } from '../styles/colors.js'
+import { txtCol, superDarkGray, onlineGreen, specialColor } from '../styles/colors.js'
 
 function Title() { 
   const style = {
@@ -28,21 +28,27 @@ function FavoriteSong({ meta }) {
 
 function ActivityTracker({ activity }) {
   return (
-    <div style={{display: 'grid', justifyContent: 'center', gap: '2px', marginBottom: '-80px'}}>
-      {activity.map((row, i) =>
-        <div key={i} style={{display: 'flex', gap: '2px'}}>
-        {row.map((day, j) => 
-          <Activity key={j} day={day} index={(i+1) * (j+1)}/>
+    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px'}}>
+      <div style={{display: 'flex', justifyContent: 'center'}}>
+        <Pfp meta={pfpMeta}/>
+      </div>
+      <div style={{height: '72px', width:'2px', background: 'rgb(30,30,30)', borderRadius: '8px'}}/>
+        <div style={{display: 'grid', justifyContent: 'center', gap: '2px'}}>
+          {activity.map((row, i) =>
+            <div key={i} style={{display: 'flex', gap: '2px'}}>
+            {row.map((day, j) => 
+              <Activity key={j} day={day} index={(i+1) * (j+1)}/>
+            )}
+        </div>
         )}
       </div>
-      )}
     </div>
   )
 }
 
 function Activity({ day, index }) {
   const activityStyle = {
-    backgroundColor: day === 1 ? 'rgb(0,192,0)' : 'rgb(50,50,50)', 
+    backgroundColor: day === 1 ? onlineGreen : superDarkGray, 
     width: '10px', 
     height: '10px', 
     borderRadius: '3px'
@@ -187,27 +193,39 @@ function Canvas({ meta }) {
     return <div style={{width: `${width}px`, height: '4px'}}/>
   }
 
+  const songMeta = {
+    song: 'Escape',
+    imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
+    alt: 'Escape (Remix) album cover',
+    size: {width: 25, height: 25},
+  }
+
+  const funcMeta = {
+    func: 'compactMap',
+    link: 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
+  }
+
   return <div style={style}>
     <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
       <Padding width={80}/>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
-        <p className='tracker'>Song</p>
-        <FavoriteSong meta={meta.favSongMeta}/>
+        <p className='tracker'>Listening to</p>
+        <FavoriteSong meta={songMeta}/>
       </div>
       <Padding width={80}/>
     </div>
     <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
       <Padding width={80}/>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
-        <p className='tracker'>Function</p>
-        <FavoriteFunction meta={meta.favFuncMeta}/>
+        <p className='tracker'>Transforming</p>
+        <FavoriteFunction meta={funcMeta}/>
       </div>
       <Padding width={80}/>
     </div>
     <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
       <Padding width={80}/>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
-        <p className='tracker'>Hand</p>
+        <p className='tracker'>Bluffing with</p>
         <div style={{margin: '0 15px 0 0'}}>
           <FavoritePokerHand/>
         </div>
@@ -217,29 +235,33 @@ function Canvas({ meta }) {
   </div> 
 }
 
-// function BinarySnake() {
-//   return (
-//     <motion.div
-//       initial={{ opacity: 0 }}
-//       animate={{ opacity: [0,0.9,0] }}
-//       style={{
-//         color: 'white',
-//         zIndex: 2,
-//         margin: `${Math.floor((Math.random() * 100) + 450)}px 0px 0px ${Math.floor((Math.random() * 450) + 500)}px`,
-//         position: 'absolute'
-//       }}
-//       transition={{
-//         repeatType: 'reverse',
-//         repeat: Infinity,
-//         delay: 18,
-//         duration: 3,
-//         repeatDelay: 40
-//       }}
-//     >
-//       <pre className='meta-anim'>{[...Array(8)].map(_ => Math.round(Math.random()))}</pre>
-//     </motion.div>
-//   )
+function Pfp({ meta }) {
+  return (
+      <img 
+        src={meta.imgLink}
+        style={{width: meta.width, height: meta.height, borderRadius:'10%'}} 
+        alt={meta.alt}
+      />
+  )
+}
+
+// const pfpMeta = {
+//   imgLink: 'https://i.postimg.cc/GhTKWxyY/IMG-6071.jpg',
+
+//   // square image
+//   width: 60,
+//   height: 60,
+//   alt: 'Profile Picture'
 // }
+
+const pfpMeta = {
+  imgLink: 'https://i.postimg.cc/5y9YBjxF/IMG-6776.jpg',
+
+  // height:4::width:3 ratio
+  width: 69,
+  height: 92,
+  alt: 'Profile Picture'
+}
   
 function Fun({ meta }) { 
   // const metaAnimStyle = {
@@ -255,10 +277,15 @@ function Fun({ meta }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '95vh'}}>
       <Title/>
+      <div>
+        {/* <Pfp meta={pfpMeta}/> */}
+        <ActivityTracker activity={meta.activity}/>
+      </div>
+      
       {/* <div style={metaAnimStyle}>
         <MetaAnim meta={meta.animMeta}/>
       </div> */}
-      <ActivityTracker activity={meta.activity}/>
+      
       <Canvas meta={meta}/>
     </div>
   )
