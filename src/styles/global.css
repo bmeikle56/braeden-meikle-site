@@ -70,10 +70,6 @@ a.func:link, a.func:visited  {
   #fun {
     height: 85vh;
   }
-
-  .meta-anim {
-    opacity: 0;
-  }
 }
 
 a.app-store:link, a.app-store:visited {
