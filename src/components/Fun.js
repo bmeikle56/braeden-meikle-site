@@ -21,7 +21,7 @@ function Title() {
 function FavoriteSong({ meta }) {
   return <div style={{textAlign:'center', display: 'flex', alignItems:'center', margin: '0 0 0 0'}}>
     <img src={meta.imgLink} style={{paddingLeft:'8px', paddingRight:'8px', width: meta.size.width, height: meta.size.height}} alt={meta.alt}/>
-    <p className='tracker' style={{paddingRight:'5px', color: txtCol}}>{meta.song}</p>
+    <p style={{paddingRight:'5px', color: txtCol, marginLeft: '-10px'}}>{meta.song}</p>
     <BouncingLines/>
   </div>
 }
@@ -216,10 +216,14 @@ function Canvas({ meta }) {
   }
 
   const songMeta = {
-    song: 'Escape',
-    imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
-    alt: 'Escape (Remix) album cover',
-    size: {width: 25, height: 25},
+    // song: 'Escape',
+    // imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
+    // alt: 'Escape (Remix) album cover',
+    // size: {width: 25, height: 25},
+    song: 'Freedom',
+    imgLink: 'https://i.postimg.cc/m2LdpSd0/freedom.png',
+    alt: 'Freedom by Oliver Heldens album cover',
+    size: {width: 50, height: 25},
   }
 
   const funcMeta = {
@@ -229,7 +233,7 @@ function Canvas({ meta }) {
 
   return <div style={style}>
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-      <p style={{color: darkGray}}>Listening to</p>
+      <p style={{color: darkGray, marginRight: '-10px'}}>Listening to</p>
       <FavoriteSong meta={songMeta}/>
     </div>
     <div style={{display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'center', width: '100%'}}>
