@@ -204,8 +204,12 @@ function FavoriteTeam() {
     </div>
   )
 }
+
+function Padding({ width }) {
+  return <div style={{width: `${width}px`, height: '4px'}}/>
+}
   
-function Canvas({ meta }) {
+function Canvas() {
   const style = {
     backgroundColor: 'rgb(17, 17, 17)',
     borderRadius: '40px',
@@ -219,9 +223,6 @@ function Canvas({ meta }) {
     flexDirection: 'column'
   }
 
-  function Padding({ width }) {
-    return <div style={{width: `${width}px`, height: '4px'}}/>
-  }
 
   const songMeta = {
     // song: 'Escape',
@@ -239,7 +240,7 @@ function Canvas({ meta }) {
     link: 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
   }
 
-  return <div style={style}>
+  return <div id='canvas' style={style}>
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
       <p style={{color: darkGray, marginRight: '-10px'}}>Listening to</p>
       <FavoriteSong meta={songMeta}/>
@@ -314,7 +315,7 @@ function Fun({ meta }) {
         <MetaAnim meta={meta.animMeta}/>
       </div> */}
       
-      <Canvas meta={meta}/>
+      <Canvas/>
     </div>
   )
 }

@@ -63,8 +63,7 @@ a.func:link, a.func:visited  {
 
 
 @media screen and (max-width: 800px) {
-  .canvas {
-    width: 280px;
+  #canvas {
     margin-top: -2vh;
   }
 
