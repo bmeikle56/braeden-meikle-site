@@ -1,15 +1,14 @@
-
-/* Dark gray color palette for the site */
+// dark gray color palette for the site
 const darkGray = 'rgb(120,120,120)'
 const superDarkGray = 'rgb(20,20,20)'
 
-/* Universal text color for the site */
+// universal text color for the site
 const txtCol = 'rgb(150,150,150)'
 
 const onlineGreen = 'rgb(0,192,0)'
 
-/* Special color for the site */
-const specialColor = 'rgb(255, 0, 204)'
+// special color for the site
+const specialColor = 'rgb(0, 255, 255)'
 
 export { 
   darkGray, 

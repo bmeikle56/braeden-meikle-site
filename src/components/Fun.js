@@ -34,6 +34,18 @@ function ActivityTracker() {
     [0]
   ]
 
+  function currentDayActivity() {
+    return activity.flat()[currentDay() - 1]
+  }
+
+  function currentDay() {
+    return new Date().getDate()
+  }
+  
+  function onlineText() {
+    return currentDayActivity() == 1 ? "Seen today" : "Offline"
+  }
+
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px'}}>
       <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -62,7 +74,7 @@ function ActivityTracker() {
             textShadow: 'rgb(201, 201, 201) 0px 0px 8px',
             opacity: 0.6,
             fontSize: 12, margin: '0px 0px 0px 0px'
-          }}>{"Seen today"}</pre>
+          }}>{onlineText()}</pre>
           <pre style={{
             color: onlineGreen,
             textShadow: 'rgb(167, 167, 167) 0px 0px 8px',
