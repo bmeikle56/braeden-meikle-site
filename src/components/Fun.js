@@ -26,7 +26,14 @@ function FavoriteSong({ meta }) {
   </div>
 }
 
-function ActivityTracker({ activity }) {
+function ActivityTracker() {
+  const activity = [
+    [0,0,1,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0]
+  ]
+
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px'}}>
       <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -274,47 +281,20 @@ function Pfp({ meta }) {
   )
 }
 
-// const pfpMeta = {
-//   imgLink: 'https://i.postimg.cc/GhTKWxyY/IMG-6071.jpg',
-
-//   // square image
-//   width: 60,
-//   height: 60,
-//   alt: 'Profile Picture'
-// }
-
 const pfpMeta = {
   imgLink: 'https://i.postimg.cc/5y9YBjxF/IMG-6776.jpg',
-
-  // height:4::width:3 ratio
   width: 69,
   height: 92,
   alt: 'Profile Picture'
 }
   
-function Fun({ meta }) { 
-  // const metaAnimStyle = {
-  //   display: 'inline-block', 
-  //   marginLeft: '200px', 
-  //   padding:'9px 8px 9px 14px', 
-  //   position: 'absolute', 
-  //   zIndex: '2', 
-  //   justifyContent:'center', 
-  //   fontSize:'12px',
-  // }
-
+function Fun() { 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '95vh'}}>
       <Title/>
       <div>
-        {/* <Pfp meta={pfpMeta}/> */}
-        <ActivityTracker activity={meta.activity}/>
+        <ActivityTracker/>
       </div>
-      
-      {/* <div style={metaAnimStyle}>
-        <MetaAnim meta={meta.animMeta}/>
-      </div> */}
-      
       <Canvas/>
     </div>
   )

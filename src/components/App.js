@@ -1,9 +1,6 @@
 
 import '../styles/global.css'
-import React, { useState, useEffect } from 'react'
-import { 
-  funMeta
-} from '../data/data.js'
+import { useState, useEffect } from 'react'
 import { Fun } from './Fun.js'
 import { Footer } from './Footer.js'
 import { Loading } from './Loading.js'
@@ -11,10 +8,10 @@ import { motion } from 'motion/react'
 
 function Body() {
 
-  /// We init our app to loading state
+  // we init our app to loading state
   const [isLoading, setLoading] = useState(true)
 
-  /// Loading animation for 3.5 seconds
+  // loading animation for 3.5 seconds
   useEffect(() => {
     setTimeout(() => setLoading(false), 3500)
   }, [])
@@ -32,7 +29,7 @@ function Body() {
         delay: .25
       }}
       >
-        <Fun meta={funMeta}/>
+        <Fun/>
         <Footer/>
       </motion.div>
     </body>
