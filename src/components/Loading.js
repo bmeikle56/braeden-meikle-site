@@ -1,4 +1,3 @@
-
 import { motion } from 'motion/react'
 import { specialColor } from '../styles/colors.js'
 

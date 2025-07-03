@@ -1,4 +1,3 @@
-
 import { txtCol } from "../styles/colors"
 
 const footerDivs = [

@@ -1,4 +1,3 @@
-
 import { motion } from 'motion/react'
 import { txtCol, darkGray, superDarkGray, onlineGreen, specialColor } from '../styles/colors.js'
 

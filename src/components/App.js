@@ -1,4 +1,3 @@
-
 import '../styles/global.css'
 import { useState, useEffect } from 'react'
 import { Fun } from './Fun.js'
