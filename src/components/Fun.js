@@ -63,7 +63,7 @@ function HealthBar() {
 
 function ActivityTracker() {
   const activity = [
-    [0,0,1,0,0,1,0,0,0,0],
+    [0,0,1,0,0,1,1,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0]
@@ -375,18 +375,34 @@ function Hand({ cards }) {
   return (
     <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>
       {cards.map((card) => {
-        return <img alt={card} src={`${process.env.PUBLIC_URL}/img/cards/${card[0]}/${card[1]}.png`} style={{width: 50, height: 50}}/>
+        return <div style={{width: 50, height: 50}}>
+          <div style={{background: specialColor, boxShadow: `0px 0px 8px ${specialColor}`, borderRadius: 3, width: 40, height: 52, zIndex: 0, marginTop: 20}}/>
+          <img alt={card} src={`${process.env.PUBLIC_URL}/img/cards/${card[0]}/${card[1]}.png`} style={{width: 50, height: 50, zIndex: 1, marginTop: -51, marginBottom: 25, marginLeft: -5}}/>
+        </div>
       })}
     </div>
   )
 }
 
 /*
-
-async func parse(message: String) {
-  guard await handshake() else { return }
-  let 
+{ > Run }
+async func launchSite() {
+  let anim: Platform = isMobile ? .mobile : .web
+  try {
+    let data = await fetchData() else { return }
+    ...
+  } catch let error {
+    logger.error("Error launching site: \(error.message)")
+  }
 }
+*/
+
+/*
+Apps
+----
+GEICO
+Hiya
+PokerBros (I wish)
 */
 
 function Goals() {
@@ -440,7 +456,7 @@ function Fun() {
       <div>
         <ActivityTracker/>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '24px' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 'fit-content' }}>
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', marginBottom: '12px' }}>
             <HoldemHandOfTheDay/>
