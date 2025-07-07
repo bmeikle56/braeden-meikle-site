@@ -25,6 +25,42 @@ function FavoriteSong({ meta }) {
   </div>
 }
 
+function HealthBar() {
+  function getRandomPercent() {
+    return Math.floor(Math.random() * 100) + 1;
+  }
+
+  // Clamp percent between 0 and 100
+  const clampedPercent = Math.max(0, Math.min(100, getRandomPercent()))
+
+  return (
+    <div
+      style={{
+        width: '64px',
+        height: '8px',
+        backgroundColor: 'black',
+        border: '2px solid black',
+        borderRadius: '10px',
+        boxShadow: `0 0 8px ${specialColor}`,
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        style={{
+          width: `${clampedPercent}%`,
+          height: '100%',
+          backgroundColor: specialColor,
+          transition: 'width 0.3s ease-in-out',
+          borderRadius: '10px 0 0 10px',
+        }}
+      />
+    </div>
+  )
+}
+
+// "Rank this (holdem/omaha) hand (1/6/q/j/....)(c/h/s/d) with an integer in the range 1-100 inclusive
+// and give me a hex value to color the health bar"
+
 function ActivityTracker() {
   const activity = [
     [0,0,1,0,0,1,0,0,0,0],
@@ -401,6 +437,12 @@ function Fun() {
           </div>
           <OmahaHandOfTheDay/>
         </div>
+      </div>
+      <div style={{ position: 'absolute', margin: '277px 0 0 550px' }}>
+        <HealthBar/>
+      </div>
+      <div style={{ position: 'absolute', margin: '339px 0 0 550px' }}>
+        <HealthBar/>
       </div>
       <Canvas/>
     </div>
