@@ -4,8 +4,8 @@ import { txtCol, darkGray, superDarkGray, onlineGreen, specialColor } from '../s
 function Title() { 
   const style = {
     fontSize: '45px',
-    paddingTop: '8vh',
-    paddingBottom: '8vh',
+    paddingTop: '20px',
+    paddingBottom: '8px',
     textAlign: 'center',
     background: specialColor,
     backgroundClip: 'text',
@@ -297,12 +297,95 @@ function Pfp({ meta }) {
   )
 }
 
+// holdem hand of the day
+// strength
+
+// plo5 hand of the day
+// strength
+
+function HoldemHandOfTheDay() {
+  // cards must be unique...
+  let cards = new Set()
+  while (cards.size < 2) {
+    cards.add(getRandomCard())
+  }
+  cards = Array.from(cards)
+  return (
+    <Hand cards={cards}/>
+  )
+}
+
+function OmahaHandOfTheDay() {
+  // cards must be unique...
+  let cards = new Set()
+  while (cards.size < 5) {
+    cards.add(getRandomCard())
+  }
+  cards = Array.from(cards)
+  return (
+    <Hand cards={cards}/>
+  )
+}
+
+function getRandomCard() {
+  const ranks = ['2', '3', '4', '5', '6', '7', '8', '9', 't', 'j', 'q', 'k', 'a']
+  const suits = ['h', 'd', 'c', 's']
+  const rank = ranks[Math.floor(Math.random() * ranks.length)]
+  const suit = suits[Math.floor(Math.random() * suits.length)]
+  return rank + suit
+}
+
+function Hand({ cards }) {
+  return (
+    <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>
+      {cards.map((card) => {
+        return <img alt={card} src={`${process.env.PUBLIC_URL}/img/cards/${card[0]}/${card[1]}.png`} style={{width: 50, height: 50}}/>
+      })}
+    </div>
+  )
+}
+
+
+/*
+Goals
+- Full stack dev
+- Efficient + smooth UX
+- Tame golf swing
+*/
+
+/*
+
+async func parse(message: String) {
+  guard await handshake() else { return }
+  let 
+}
+*/
+
+//&rArr;
+//      <p style={{ color: specialColor }}>&rArr;</p>
+
 const pfpMeta = {
   imgLink: 'https://i.postimg.cc/5y9YBjxF/IMG-6776.jpg',
   width: 69,
   height: 92,
   alt: 'Profile Picture'
 }
+
+function GradientLine() {
+  return (
+    <div
+      style={{
+        height: '1px',
+        width: '300px',
+        background: `linear-gradient(to right, black, #222, black)`,
+        margin: '-5px 0 20px 0'
+      }}
+    />
+  )
+}
+
+        {/* <p style={{ color: darkGray }}>Omaha Hand of the Day</p> */}
+        {/* <GradientLine/> */}
   
 function Fun() { 
   return (
@@ -310,6 +393,14 @@ function Fun() {
       <Title/>
       <div>
         <ActivityTracker/>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '24px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 'fit-content' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', marginBottom: '12px' }}>
+            <HoldemHandOfTheDay/>
+          </div>
+          <OmahaHandOfTheDay/>
+        </div>
       </div>
       <Canvas/>
     </div>
