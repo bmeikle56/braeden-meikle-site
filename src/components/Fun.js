@@ -381,14 +381,6 @@ function Hand({ cards }) {
   )
 }
 
-
-/*
-Goals
-- Full stack dev
-- Efficient + smooth UX
-- Tame golf swing
-*/
-
 /*
 
 async func parse(message: String) {
@@ -397,8 +389,29 @@ async func parse(message: String) {
 }
 */
 
-//&rArr;
-//      <p style={{ color: specialColor }}>&rArr;</p>
+function Goals() {
+
+  function Goal({ goal }) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', width: 'fit-content',}}>
+        <p style={{ color: specialColor, paddingRight: '6px', margin: '0px 0px 0px 0px' }}>&rArr;</p>
+        <p style={{ color: darkGray, margin: '0px 0px 0px 0px' }}>{goal}</p>
+      </div>
+    )
+  }
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+      <p style={{ color: darkGray }}>Goals</p>
+      <GradientLine/>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <Goal goal={'Full stack dev'}/>
+        <Goal goal={'Efficient + smooth UX'}/>
+        <Goal goal={'Tame golf swing'}/>
+      </div>
+    </div>
+  )
+} 
 
 const pfpMeta = {
   imgLink: 'https://i.postimg.cc/5y9YBjxF/IMG-6776.jpg',
@@ -419,9 +432,6 @@ function GradientLine() {
     />
   )
 }
-
-        {/* <p style={{ color: darkGray }}>Omaha Hand of the Day</p> */}
-        {/* <GradientLine/> */}
   
 function Fun() { 
   return (
@@ -443,6 +453,9 @@ function Fun() {
       </div>
       <div style={{ position: 'absolute', margin: '339px 0 0 550px' }}>
         <HealthBar/>
+      </div>
+      <div style={{ position: 'absolute', margin: '150px 0 0 1050px' }}>
+        <Goals/>
       </div>
       <Canvas/>
     </div>
