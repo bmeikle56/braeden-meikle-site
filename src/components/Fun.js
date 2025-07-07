@@ -27,7 +27,7 @@ function FavoriteSong({ meta }) {
 
 function ActivityTracker() {
   const activity = [
-    [0,0,1,0,0,0,0,0,0,0],
+    [0,0,1,0,0,1,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0]
@@ -41,8 +41,32 @@ function ActivityTracker() {
     return new Date().getDate()
   }
   
-  function onlineText() {
-    return currentDayActivity() == 1 ? "Seen today" : "Offline"
+  function onlineOfflineText() {
+    const color = currentDayActivity() == 1 ? onlineGreen : darkGray
+    const text = currentDayActivity() == 1 ? "Seen today" : "Offline"
+
+    return (
+      <div style={{display: 'flex'}}>
+        <pre style={{
+          color: color,
+          textShadow: 'rgb(167, 167, 167) 0px 0px 8px',
+          opacity: 0.3,
+          fontSize: 12, margin: '0px 0px 0px 0px'
+        }}>{"{ "}</pre>
+        <pre style={{
+          color: color,
+          textShadow: 'rgb(201, 201, 201) 0px 0px 8px',
+          opacity: 0.6,
+          fontSize: 12, margin: '0px 0px 0px 0px'
+        }}>{text}</pre>
+        <pre style={{
+          color: color,
+          textShadow: 'rgb(167, 167, 167) 0px 0px 8px',
+          opacity: 0.3,
+          fontSize: 12, margin: '0px 0px 0px 0px'
+        }}>{" }"}</pre>
+      </div>
+    )
   }
 
   return (
@@ -61,26 +85,7 @@ function ActivityTracker() {
             </div>
           )}
         </div>
-        <div style={{display: 'flex'}}>
-          <pre style={{
-            color: onlineGreen,
-            textShadow: 'rgb(167, 167, 167) 0px 0px 8px',
-            opacity: 0.3,
-            fontSize: 12, margin: '0px 0px 0px 0px'
-          }}>{"{ "}</pre>
-          <pre style={{
-            color: onlineGreen,
-            textShadow: 'rgb(201, 201, 201) 0px 0px 8px',
-            opacity: 0.6,
-            fontSize: 12, margin: '0px 0px 0px 0px'
-          }}>{onlineText()}</pre>
-          <pre style={{
-            color: onlineGreen,
-            textShadow: 'rgb(167, 167, 167) 0px 0px 8px',
-            opacity: 0.3,
-            fontSize: 12, margin: '0px 0px 0px 0px'
-          }}>{" }"}</pre>
-        </div>
+        {onlineOfflineText()}
       </div>
     </div>
   )
