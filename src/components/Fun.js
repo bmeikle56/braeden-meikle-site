@@ -390,7 +390,7 @@ function RunButton() {
       onClick={() => window.location.reload()}
       style={{
         position: 'absolute',
-        margin: '200px 0 0 110px',
+        margin: '200px 0 0 70px',
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
@@ -422,21 +422,13 @@ function RunButton() {
   );
 }
 
-/*
-{ > Run }
-async func launchSite() {
-  let anim: Platform = isMobile ? .mobile : .web
-  try {
-    let data = try await fetchData()
-    if let user = data.body?.user {
-      logger.log("\(user) visiting site")
-    }
-    presentUI(with: data)
-  } catch let error {
-    logger.error("Error launching site: \(error.message)")
-  }
+function ColoredCode({ txt, color = specialColor }) {
+  return (
+    <pre style={{color: color, margin: '2px'}}>
+      {txt}
+    </pre>
+  )
 }
-*/
 
 /*
 Apps
@@ -514,6 +506,20 @@ function Fun() {
         <Goals/>
       </div>
       <RunButton/>
+      <div style={{position: 'absolute', margin: '250px 0 0 70px' }}>
+        <ColoredCode txt={'async func launchSite() {'}/>
+        <ColoredCode txt={'  let anim: Platform = isMobile ? .mobile : .web'}/>
+        <ColoredCode txt={'  try {'}/>
+        <ColoredCode txt={'    let data = try await fetchData()'}/>
+        <ColoredCode txt={'    if let user = data.body?.user {'}/>
+        <ColoredCode txt={'      logger.log("\(user) visiting site")'}/>
+        <ColoredCode txt={'    }'}/>
+        <ColoredCode txt={'    presentUI(with: data)'}/>
+        <ColoredCode txt={'  } catch let error {'}/>
+        <ColoredCode txt={'    logger.error("Error launching site: \(error.message)")'}/>
+        <ColoredCode txt={'  }'}/>
+        <ColoredCode txt={'}'}/>
+      </div>
       <Canvas/>
     </div>
   )
