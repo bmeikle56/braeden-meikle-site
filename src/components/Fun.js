@@ -384,13 +384,54 @@ function Hand({ cards }) {
   )
 }
 
+function RunButton() {
+  return (
+    <button
+      onClick={() => window.location.reload()}
+      style={{
+        position: 'absolute',
+        margin: '200px 0 0 110px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        width: 'fit-content',
+        padding: '8px 16px',
+        border: `1px solid ${specialColor}`,
+        borderRadius: '8px',
+        background: 'transparent',
+        color: '#7dd3fc',
+        cursor: 'pointer',
+        boxShadow: `0px 0px 8px ${specialColor}`,
+      }}
+      
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="none"
+        stroke={specialColor}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        viewBox="0 0 24 24"
+      >
+        <polygon points="5,3 19,12 5,21" />
+      </svg>
+    </button>
+  );
+}
+
 /*
 { > Run }
 async func launchSite() {
   let anim: Platform = isMobile ? .mobile : .web
   try {
-    let data = await fetchData() else { return }
-    ...
+    let data = try await fetchData()
+    if let user = data.body?.user {
+      logger.log("\(user) visiting site")
+    }
+    presentUI(with: data)
   } catch let error {
     logger.error("Error launching site: \(error.message)")
   }
@@ -406,7 +447,6 @@ PokerBros (I wish)
 */
 
 function Goals() {
-
   function Goal({ goal }) {
     return (
       <div style={{ display: 'flex', alignItems: 'center', width: 'fit-content',}}>
@@ -473,6 +513,7 @@ function Fun() {
       <div style={{ position: 'absolute', margin: '150px 0 0 1050px' }}>
         <Goals/>
       </div>
+      <RunButton/>
       <Canvas/>
     </div>
   )
