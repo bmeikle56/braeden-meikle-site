@@ -461,6 +461,19 @@ function Goals() {
   )
 } 
 
+function Apps() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+      <p style={{ color: darkGray }}>Apps</p>
+      <GradientLine/>
+      <div style={{ display: 'flex', gap: '8px' }}>
+          <img src={'https://i.postimg.cc/tTFHs75q/geico.jpg'} style={{paddingLeft:'8px', paddingRight:'8px', width: 40, height: 40}} alt={'GEICO iOS app'}/>
+          <img src={'https://i.postimg.cc/hvgRTgy9/hiya.jpg'} style={{paddingLeft:'8px', paddingRight:'8px', width: 40, height: 40}} alt={'Hiya iOS app'}/>
+      </div>
+    </div>
+  )
+} 
+
 const pfpMeta = {
   imgLink: 'https://i.postimg.cc/5y9YBjxF/IMG-6776.jpg',
   width: 69,
@@ -519,6 +532,9 @@ function Fun() {
         <ColoredCode txt={'    logger.error("Error launching site: \(error.message)")'}/>
         <ColoredCode txt={'  }'}/>
         <ColoredCode txt={'}'}/>
+      </div>
+      <div style={{position: 'absolute', margin: '400px 0 0 1050px'}}>
+        <Apps/>
       </div>
       <Canvas/>
     </div>
