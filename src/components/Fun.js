@@ -242,7 +242,12 @@ function WhatImDoing() {
   </div>
 }
   
-function FavoriteFunction({ meta }) {
+function FavoriteFunction() {
+  const meta = {
+    func: 'compactMap',
+    link: 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
+  }
+
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
       <a href={meta.link} rel='noreferrer' target='_blank' className='func'>{meta.func}</a>
@@ -270,7 +275,7 @@ function FavoriteTeams() {
 
 function FavoriteFoods() {
   return (
-    <div style={{display: 'flex', gap: 30}}>
+    <div style={{display: 'flex', gap: 30, paddingTop: 5, paddingBottom: 5}}>
       <img alt='White chocolate' src={`${process.env.PUBLIC_URL}/img/white-chocolate.png`} style={{width: 35, height: 35}}/>
       <img alt='Coffee cup' src={`${process.env.PUBLIC_URL}/img/coffee-cup.png`} style={{width: 35, height: 35}}/>
     </div>
@@ -305,11 +310,6 @@ function FavoriteSongs() {
 }
   
 function Cell({ content }) {
-  const funcMeta = {
-    func: 'compactMap',
-    link: 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
-  }
-
   return <div id='cell' style={{
     backgroundColor: 'black',
     borderRadius: '40px',
@@ -450,7 +450,7 @@ function Goals() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', paddingTop: 8, paddingBottom: 8}}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <Goal goal={'Full stack dev'}/>
         <Goal goal={'Fast + smooth UX'}/>
       </div>
@@ -529,6 +529,7 @@ function Fun() {
         <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
           <Cell content={<FavoriteSongs/>}/>
           <Cell content={<FavoriteFoods/>}/>
+          <Cell content={<FavoriteFunction/>}/>
         </div>
         <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
           <Cell content={<Apps/>}/>
