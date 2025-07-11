@@ -297,7 +297,7 @@ function FavoriteSongs() {
 
   return (<div style={{display: 'flex', flexDirection:'column', width: '100%'}}>
     {songMetas.map((songMeta) => {
-      return <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+      return <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: 40}}>
         <FavoriteSong meta={songMeta}/>
       </div>
     })}
@@ -449,11 +449,10 @@ function Goals() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', paddingTop: 8, paddingBottom: 8}}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <Goal goal={'Full stack dev'}/>
         <Goal goal={'Fast + smooth UX'}/>
-        <Goal goal={'Tame golf swing'}/>
       </div>
     </div>
   )
