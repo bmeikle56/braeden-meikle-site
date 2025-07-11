@@ -18,10 +18,13 @@ function Title() {
 }
 
 function FavoriteSong({ meta }) {
-  return <div style={{textAlign:'center', display: 'flex', alignItems:'center', margin: '0 0 0 0'}}>
-    <img src={meta.imgLink} style={{paddingLeft:'8px', paddingRight:'8px', width: meta.size.width, height: meta.size.height}} alt={meta.alt}/>
-    <p style={{paddingRight:'5px', color: txtCol, marginLeft: '-10px'}}>{meta.song}</p>
-    <BouncingLines/>
+  return <div style={{display: 'flex', width: '100%', justifyContent:'flex-start', alignItems:'center'}}>
+    <img src={meta.imgLink} style={{width: meta.size.width, height: meta.size.height, padding: meta.imgPadding}} alt={meta.alt}/>
+    <p style={{color: txtCol}}>{meta.song}</p>
+    <div style={{display: 'flex', width: '100%', justifyContent:'flex-end', paddingRight: 30}}>
+      <BouncingLines/>
+    </div>
+    
   </div>
 }
 
@@ -64,7 +67,7 @@ function HealthBar() {
 function ActivityTracker() {
   const activity = [
     [0,0,1,0,0,1,1,1,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0]
   ]
@@ -256,72 +259,83 @@ function FavoritePokerHand() {
   )
 }
 
-function FavoriteTeam() {
+function FavoriteTeams() {
   return (
-    <div style={{display: 'flex'}}>
+    <div style={{display: 'flex', gap: 16}}>
       <img alt='Wizards old logo' src={`${process.env.PUBLIC_URL}/img/wizards.png`} style={{width: 35, height: 35}}/>
+      <img alt='Georgia Tech Yellowjackets' src={`${process.env.PUBLIC_URL}/img/yellowjackets.png`} style={{width: 55, height: 35, marginRight: -10}}/>
     </div>
   )
 }
 
-function Padding({ width }) {
-  return <div style={{width: `${width}px`, height: '4px'}}/>
+function FavoriteFoods() {
+  return (
+    <div style={{display: 'flex', gap: 30}}>
+      <img alt='White chocolate' src={`${process.env.PUBLIC_URL}/img/white-chocolate.png`} style={{width: 35, height: 35}}/>
+      <img alt='Coffee cup' src={`${process.env.PUBLIC_URL}/img/coffee-cup.png`} style={{width: 35, height: 35}}/>
+    </div>
+  )
+}
+
+function FavoriteSongs() {
+  const songMetas = [
+    {
+      song: 'Escape',
+      imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
+      alt: 'Escape (Remix) album cover',
+      size: {width: 25, height: 25},
+      imgPadding: '0 18px 0 25px'
+    },
+    {
+      song: 'Freedom',
+      imgLink: 'https://i.postimg.cc/m2LdpSd0/freedom.png',
+      alt: 'Freedom by Oliver Heldens album cover',
+      size: {width: 50, height: 25},
+      imgPadding: '0 0 0 15px'
+    }
+  ]
+
+  return (<div style={{display: 'flex', flexDirection:'column', width: '100%'}}>
+    {songMetas.map((songMeta) => {
+      return <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: 40}}>
+        <FavoriteSong meta={songMeta}/>
+      </div>
+    })}
+  </div>)
 }
   
-function Canvas() {
-  const style = {
-    backgroundColor: 'rgb(17, 17, 17)',
-    borderRadius: '40px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 'auto',
-    width: '320px',
-    padding: '30px 0 30px 0',
-    boxShadow: `0px 0px 30px rgb(38, 38, 38), 0px 0px 30px ${specialColor}`,
-    flexDirection: 'column'
-  }
-
-
-  const songMeta = {
-    // song: 'Escape',
-    // imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
-    // alt: 'Escape (Remix) album cover',
-    // size: {width: 25, height: 25},
-    song: 'Freedom',
-    imgLink: 'https://i.postimg.cc/m2LdpSd0/freedom.png',
-    alt: 'Freedom by Oliver Heldens album cover',
-    size: {width: 50, height: 25},
-  }
-
+function Cell({ content }) {
   const funcMeta = {
     func: 'compactMap',
     link: 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
   }
 
-  return <div id='canvas' style={style}>
-    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-      <p style={{color: darkGray, marginRight: '-10px'}}>Listening to</p>
-      <FavoriteSong meta={songMeta}/>
-    </div>
-    <div style={{display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'center', width: '100%'}}>
+  return <div id='cell' style={{
+    backgroundColor: 'black',
+    borderRadius: '40px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 'auto',
+    width: '180px',
+    padding: '18px 0 18px 0',
+    boxShadow: `0px 0px 12px ${specialColor}`,
+    flexDirection: 'column'
+  }}>
+    {content}
+  </div> 
+}
+
+{/* <div style={{display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'center', width: '100%'}}>
       <p style={{color: darkGray}}>Transforming</p>
       <FavoriteFunction meta={funcMeta}/>
-    </div>
-    <div style={{display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center', width: '100%'}}>
-      <p style={{color: darkGray}}>Sadly rooting for</p>
-      <div style={{margin: '0 15px 0 0'}}>
-        <FavoriteTeam/>
-      </div>
-    </div>
-    <div style={{display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center', width: '100%'}}>
+    </div>}
+    {/* <div style={{display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center', width: '100%'}}>
       <p style={{color: darkGray}}>Bluffing with</p>
       <div style={{margin: '0 15px 0 0'}}>
         <FavoritePokerHand/>
       </div>
-    </div>
-  </div> 
-}
+    </div> */}
 
 function Pfp({ meta }) {
   return (
@@ -332,12 +346,6 @@ function Pfp({ meta }) {
       />
   )
 }
-
-// holdem hand of the day
-// strength
-
-// plo5 hand of the day
-// strength
 
 function HoldemHandOfTheDay() {
   // cards must be unique...
@@ -430,14 +438,6 @@ function ColoredCode({ txt, color = specialColor }) {
   )
 }
 
-/*
-Apps
-----
-GEICO
-Hiya
-PokerBros (I wish)
-*/
-
 function Goals() {
   function Goal({ goal }) {
     return (
@@ -449,13 +449,10 @@ function Goals() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-      <p style={{ color: darkGray }}>Goals</p>
-      <GradientLine/>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', paddingTop: 8, paddingBottom: 8}}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <Goal goal={'Full stack dev'}/>
-        <Goal goal={'Efficient + smooth UX'}/>
-        <Goal goal={'Tame golf swing'}/>
+        <Goal goal={'Fast + smooth UX'}/>
       </div>
     </div>
   )
@@ -464,8 +461,6 @@ function Goals() {
 function Apps() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-      <p style={{ color: darkGray }}>Apps</p>
-      <GradientLine/>
       <div style={{ display: 'flex', gap: '8px' }}>
           <img src={'https://i.postimg.cc/tTFHs75q/geico.jpg'} style={{paddingLeft:'8px', paddingRight:'8px', width: 40, height: 40}} alt={'GEICO iOS app'}/>
           <img src={'https://i.postimg.cc/hvgRTgy9/hiya.jpg'} style={{paddingLeft:'8px', paddingRight:'8px', width: 40, height: 40}} alt={'Hiya iOS app'}/>
@@ -515,12 +510,9 @@ function Fun() {
       <div style={{ position: 'absolute', margin: '339px 0 0 550px' }}>
         <HealthBar/>
       </div>
-      <div style={{ position: 'absolute', margin: '150px 0 0 1050px' }}>
-        <Goals/>
-      </div>
       <RunButton/>
       <div style={{position: 'absolute', margin: '250px 0 0 70px' }}>
-        <ColoredCode txt={'async func launchSite() {'}/>
+        <ColoredCode txt={'func launchSite() async {'}/>
         <ColoredCode txt={'  let anim: Platform = isMobile ? .mobile : .web'}/>
         <ColoredCode txt={'  try {'}/>
         <ColoredCode txt={'    let data = try await fetchData()'}/>
@@ -533,10 +525,17 @@ function Fun() {
         <ColoredCode txt={'  }'}/>
         <ColoredCode txt={'}'}/>
       </div>
-      <div style={{position: 'absolute', margin: '400px 0 0 1050px'}}>
-        <Apps/>
+      <div style={{position: 'absolute', display:'flex', alignItems: 'flex-start', gap: 20, margin: '100px 0 0 1000px'}}>
+        <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
+          <Cell content={<FavoriteSongs/>}/>
+          <Cell content={<FavoriteFoods/>}/>
+        </div>
+        <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
+          <Cell content={<Apps/>}/>
+          <Cell content={<Goals/>}/>
+          <Cell content={<FavoriteTeams/>}/>
+        </div>
       </div>
-      <Canvas/>
     </div>
   )
 }
