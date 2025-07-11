@@ -18,10 +18,10 @@ function Title() {
 }
 
 function FavoriteSong({ meta }) {
-  return <div style={{display: 'flex', justifyContent:'flex-start', alignItems:'center', width: '100%', padding:'0 40px 0 20px'}}>
+  return <div style={{display: 'flex', width: '100%', justifyContent:'flex-start', alignItems:'center'}}>
     <img src={meta.imgLink} style={{width: meta.size.width, height: meta.size.height, padding: meta.imgPadding}} alt={meta.alt}/>
     <p style={{color: txtCol}}>{meta.song}</p>
-    <div style={{display: 'flex', width: '100%', justifyContent:'flex-end'}}>
+    <div style={{display: 'flex', width: '100%', justifyContent:'flex-end', paddingRight: 30}}>
       <BouncingLines/>
     </div>
     
@@ -259,10 +259,11 @@ function FavoritePokerHand() {
   )
 }
 
-function FavoriteTeam() {
+function FavoriteTeams() {
   return (
-    <div style={{display: 'flex'}}>
+    <div style={{display: 'flex', gap: 16}}>
       <img alt='Wizards old logo' src={`${process.env.PUBLIC_URL}/img/wizards.png`} style={{width: 35, height: 35}}/>
+      <img alt='Georgia Tech Yellowjackets' src={`${process.env.PUBLIC_URL}/img/yellowjackets.png`} style={{width: 55, height: 35, marginRight: -10}}/>
     </div>
   )
 }
@@ -274,14 +275,14 @@ function FavoriteSongs() {
       imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
       alt: 'Escape (Remix) album cover',
       size: {width: 25, height: 25},
-      imgPadding: '0 18px 0 10px'
+      imgPadding: '0 18px 0 25px'
     },
     {
       song: 'Freedom',
       imgLink: 'https://i.postimg.cc/m2LdpSd0/freedom.png',
       alt: 'Freedom by Oliver Heldens album cover',
       size: {width: 50, height: 25},
-      imgPadding: '0 0 0 0'
+      imgPadding: '0 0 0 15px'
     }
   ]
 
@@ -301,37 +302,31 @@ function Cell({ content }) {
   }
 
   return <div id='cell' style={{
-    backgroundColor: 'rgb(17, 17, 17)',
+    backgroundColor: 'black',
     borderRadius: '40px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     margin: 'auto',
-    width: '200px',
-    padding: '20px 0 20px 0',
+    width: '180px',
+    padding: '18px 0 18px 0',
     boxShadow: `0px 0px 30px rgb(38, 38, 38), 0px 0px 30px ${specialColor}`,
     flexDirection: 'column'
   }}>
     {content}
-    
-    {/* <div style={{display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'center', width: '100%'}}>
+  </div> 
+}
+
+{/* <div style={{display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'center', width: '100%'}}>
       <p style={{color: darkGray}}>Transforming</p>
       <FavoriteFunction meta={funcMeta}/>
-    </div>
-    <div style={{display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center', width: '100%'}}>
-      <p style={{color: darkGray}}>Sadly rooting for</p>
-      <div style={{margin: '0 15px 0 0'}}>
-        <FavoriteTeam/>
-      </div>
-    </div> */}
+    </div>}
     {/* <div style={{display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center', width: '100%'}}>
       <p style={{color: darkGray}}>Bluffing with</p>
       <div style={{margin: '0 15px 0 0'}}>
         <FavoritePokerHand/>
       </div>
     </div> */}
-  </div> 
-}
 
 function Pfp({ meta }) {
   return (
@@ -533,6 +528,7 @@ function Fun() {
         <Apps/>
       </div>
       <Cell content={<FavoriteSongs/>}/>
+      <Cell content={<FavoriteTeams/>}/>
     </div>
   )
 }
