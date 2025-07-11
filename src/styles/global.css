@@ -29,7 +29,7 @@ a.article:link, a.article:visited {
 
 .footer {
   display: flex;
-  width: 55vw;
+  width: 32vw;
   justify-content: space-between;
   padding: 0 150px 0 150px;
 }
