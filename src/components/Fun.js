@@ -319,7 +319,7 @@ function Cell({ content }) {
     margin: 'auto',
     width: '180px',
     padding: '18px 0 18px 0',
-    boxShadow: `0px 0px 16px ${specialColor}`,
+    boxShadow: `0px 0px 12px ${specialColor}`,
     flexDirection: 'column'
   }}>
     {content}
@@ -525,11 +525,17 @@ function Fun() {
         <ColoredCode txt={'  }'}/>
         <ColoredCode txt={'}'}/>
       </div>
-      <Cell content={<FavoriteSongs/>}/>
-      <Cell content={<FavoriteFoods/>}/>
-      <Cell content={<Apps/>}/>
-      <Cell content={<Goals/>}/>
-      <Cell content={<FavoriteTeams/>}/>
+      <div style={{position: 'absolute', display:'flex', alignItems: 'flex-start', gap: 20, margin: '100px 0 0 1000px'}}>
+        <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
+          <Cell content={<FavoriteSongs/>}/>
+          <Cell content={<FavoriteFoods/>}/>
+        </div>
+        <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
+          <Cell content={<Apps/>}/>
+          <Cell content={<Goals/>}/>
+          <Cell content={<FavoriteTeams/>}/>
+        </div>
+      </div>
     </div>
   )
 }
