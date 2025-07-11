@@ -268,6 +268,15 @@ function FavoriteTeams() {
   )
 }
 
+function FavoriteFoods() {
+  return (
+    <div style={{display: 'flex', gap: 30}}>
+      <img alt='White chocolate' src={`${process.env.PUBLIC_URL}/img/white-chocolate.png`} style={{width: 35, height: 35}}/>
+      <img alt='Coffee cup' src={`${process.env.PUBLIC_URL}/img/coffee-cup.png`} style={{width: 35, height: 35}}/>
+    </div>
+  )
+}
+
 function FavoriteSongs() {
   const songMetas = [
     {
@@ -310,7 +319,7 @@ function Cell({ content }) {
     margin: 'auto',
     width: '180px',
     padding: '18px 0 18px 0',
-    boxShadow: `0px 0px 30px rgb(38, 38, 38), 0px 0px 30px ${specialColor}`,
+    boxShadow: `0px 0px 16px ${specialColor}`,
     flexDirection: 'column'
   }}>
     {content}
@@ -441,11 +450,9 @@ function Goals() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-      <p style={{ color: darkGray }}>Goals</p>
-      <GradientLine/>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <Goal goal={'Full stack dev'}/>
-        <Goal goal={'Efficient + smooth UX'}/>
+        <Goal goal={'Fast + smooth UX'}/>
         <Goal goal={'Tame golf swing'}/>
       </div>
     </div>
@@ -455,8 +462,6 @@ function Goals() {
 function Apps() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-      <p style={{ color: darkGray }}>Apps</p>
-      <GradientLine/>
       <div style={{ display: 'flex', gap: '8px' }}>
           <img src={'https://i.postimg.cc/tTFHs75q/geico.jpg'} style={{paddingLeft:'8px', paddingRight:'8px', width: 40, height: 40}} alt={'GEICO iOS app'}/>
           <img src={'https://i.postimg.cc/hvgRTgy9/hiya.jpg'} style={{paddingLeft:'8px', paddingRight:'8px', width: 40, height: 40}} alt={'Hiya iOS app'}/>
@@ -506,9 +511,6 @@ function Fun() {
       <div style={{ position: 'absolute', margin: '339px 0 0 550px' }}>
         <HealthBar/>
       </div>
-      <div style={{ position: 'absolute', margin: '150px 0 0 1050px' }}>
-        <Goals/>
-      </div>
       <RunButton/>
       <div style={{position: 'absolute', margin: '250px 0 0 70px' }}>
         <ColoredCode txt={'func launchSite() async {'}/>
@@ -524,10 +526,10 @@ function Fun() {
         <ColoredCode txt={'  }'}/>
         <ColoredCode txt={'}'}/>
       </div>
-      <div style={{position: 'absolute', margin: '400px 0 0 1050px'}}>
-        <Apps/>
-      </div>
       <Cell content={<FavoriteSongs/>}/>
+      <Cell content={<FavoriteFoods/>}/>
+      <Cell content={<Apps/>}/>
+      <Cell content={<Goals/>}/>
       <Cell content={<FavoriteTeams/>}/>
     </div>
   )
