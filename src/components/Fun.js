@@ -173,7 +173,7 @@ function BouncingLines() {
 function BouncingLine({ height, dur }) {
   const barStyle = {
     width: '1px',
-    backgroundColor: txtCol
+    backgroundColor: 'rgb(195, 0, 255)'
   }
 
   return (
