@@ -18,10 +18,13 @@ function Title() {
 }
 
 function FavoriteSong({ meta }) {
-  return <div style={{textAlign:'center', display: 'flex', alignItems:'center', margin: '0 0 0 0'}}>
-    <img src={meta.imgLink} style={{paddingLeft:'8px', paddingRight:'8px', width: meta.size.width, height: meta.size.height}} alt={meta.alt}/>
-    <p style={{paddingRight:'5px', color: txtCol, marginLeft: '-10px'}}>{meta.song}</p>
-    <BouncingLines/>
+  return <div style={{display: 'flex', justifyContent:'flex-start', alignItems:'center', width: '100%', padding:'0 40px 0 20px'}}>
+    <img src={meta.imgLink} style={{width: meta.size.width, height: meta.size.height, padding: meta.imgPadding}} alt={meta.alt}/>
+    <p style={{color: txtCol}}>{meta.song}</p>
+    <div style={{display: 'flex', width: '100%', justifyContent:'flex-end'}}>
+      <BouncingLines/>
+    </div>
+    
   </div>
 }
 
@@ -264,47 +267,54 @@ function FavoriteTeam() {
   )
 }
 
-function Padding({ width }) {
-  return <div style={{width: `${width}px`, height: '4px'}}/>
+function FavoriteSongs() {
+  const songMetas = [
+    {
+      song: 'Escape',
+      imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
+      alt: 'Escape (Remix) album cover',
+      size: {width: 25, height: 25},
+      imgPadding: '0 18px 0 10px'
+    },
+    {
+      song: 'Freedom',
+      imgLink: 'https://i.postimg.cc/m2LdpSd0/freedom.png',
+      alt: 'Freedom by Oliver Heldens album cover',
+      size: {width: 50, height: 25},
+      imgPadding: '0 0 0 0'
+    }
+  ]
+
+  return (<div style={{display: 'flex', flexDirection:'column', width: '100%'}}>
+    {songMetas.map((songMeta) => {
+      return <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+        <FavoriteSong meta={songMeta}/>
+      </div>
+    })}
+  </div>)
 }
   
-function Canvas() {
-  const style = {
+function Cell({ content }) {
+  const funcMeta = {
+    func: 'compactMap',
+    link: 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
+  }
+
+  return <div id='cell' style={{
     backgroundColor: 'rgb(17, 17, 17)',
     borderRadius: '40px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     margin: 'auto',
-    width: '320px',
-    padding: '30px 0 30px 0',
+    width: '200px',
+    padding: '20px 0 20px 0',
     boxShadow: `0px 0px 30px rgb(38, 38, 38), 0px 0px 30px ${specialColor}`,
     flexDirection: 'column'
-  }
-
-
-  const songMeta = {
-    // song: 'Escape',
-    // imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
-    // alt: 'Escape (Remix) album cover',
-    // size: {width: 25, height: 25},
-    song: 'Freedom',
-    imgLink: 'https://i.postimg.cc/m2LdpSd0/freedom.png',
-    alt: 'Freedom by Oliver Heldens album cover',
-    size: {width: 50, height: 25},
-  }
-
-  const funcMeta = {
-    func: 'compactMap',
-    link: 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
-  }
-
-  return <div id='canvas' style={style}>
-    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-      <p style={{color: darkGray, marginRight: '-10px'}}>Listening to</p>
-      <FavoriteSong meta={songMeta}/>
-    </div>
-    <div style={{display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'center', width: '100%'}}>
+  }}>
+    {content}
+    
+    {/* <div style={{display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'center', width: '100%'}}>
       <p style={{color: darkGray}}>Transforming</p>
       <FavoriteFunction meta={funcMeta}/>
     </div>
@@ -313,13 +323,13 @@ function Canvas() {
       <div style={{margin: '0 15px 0 0'}}>
         <FavoriteTeam/>
       </div>
-    </div>
-    <div style={{display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center', width: '100%'}}>
+    </div> */}
+    {/* <div style={{display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center', width: '100%'}}>
       <p style={{color: darkGray}}>Bluffing with</p>
       <div style={{margin: '0 15px 0 0'}}>
         <FavoritePokerHand/>
       </div>
-    </div>
+    </div> */}
   </div> 
 }
 
@@ -332,12 +342,6 @@ function Pfp({ meta }) {
       />
   )
 }
-
-// holdem hand of the day
-// strength
-
-// plo5 hand of the day
-// strength
 
 function HoldemHandOfTheDay() {
   // cards must be unique...
@@ -430,14 +434,6 @@ function ColoredCode({ txt, color = specialColor }) {
   )
 }
 
-/*
-Apps
-----
-GEICO
-Hiya
-PokerBros (I wish)
-*/
-
 function Goals() {
   function Goal({ goal }) {
     return (
@@ -520,7 +516,7 @@ function Fun() {
       </div>
       <RunButton/>
       <div style={{position: 'absolute', margin: '250px 0 0 70px' }}>
-        <ColoredCode txt={'async func launchSite() {'}/>
+        <ColoredCode txt={'func launchSite() async {'}/>
         <ColoredCode txt={'  let anim: Platform = isMobile ? .mobile : .web'}/>
         <ColoredCode txt={'  try {'}/>
         <ColoredCode txt={'    let data = try await fetchData()'}/>
@@ -536,7 +532,7 @@ function Fun() {
       <div style={{position: 'absolute', margin: '400px 0 0 1050px'}}>
         <Apps/>
       </div>
-      <Canvas/>
+      <Cell content={<FavoriteSongs/>}/>
     </div>
   )
 }
