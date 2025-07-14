@@ -8,7 +8,10 @@ function ByteTransfer() {
     animate={{ opacity: [0,1,0], x: [-100,90] }}
     transition={{ duration: 3, delay: 0.5 }}
     >
-      <pre id='loading' className='meta-anim'></pre>
+      <pre id='loading' style={{
+        color: 'rgb(160,160,160)',
+        textShadow: '0px 0px 15px rgb(46, 190, 238), 0px 0px 12px rgb(46, 190, 238), 0px 0px 15px rgb(46, 190, 238)'
+      }}></pre>
     </motion.div>
   )
 }
