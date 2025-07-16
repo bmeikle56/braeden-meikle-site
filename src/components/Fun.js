@@ -64,7 +64,7 @@ function HealthBar() {
 function ActivityTracker() {
   const activity = [
     [0,0,1,0,0,1,1,1,0,0],
-    [1,0,1,0,0,0,0,0,0,0],
+    [1,0,1,0,1,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0]
   ]
@@ -338,52 +338,6 @@ function Hand({ cards }) {
   )
 }
 
-function RunButton() {
-  return (
-    <button
-      onClick={() => window.location.reload()}
-      style={{
-        position: 'absolute',
-        margin: '200px 0 0 70px',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        width: 'fit-content',
-        padding: '8px 16px',
-        border: `1px solid ${specialColor}`,
-        borderRadius: '8px',
-        background: 'transparent',
-        color: '#7dd3fc',
-        cursor: 'pointer',
-        boxShadow: `0px 0px 8px ${specialColor}`,
-      }}
-      
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="none"
-        stroke={specialColor}
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        viewBox="0 0 24 24"
-      >
-        <polygon points="5,3 19,12 5,21" />
-      </svg>
-    </button>
-  );
-}
-
-function ColoredCode({ txt, color = specialColor }) {
-  return (
-    <pre style={{color: color, margin: '2px'}}>
-      {txt}
-    </pre>
-  )
-}
-
 function Goals() {
   function Goal({ goal }) {
     return (
@@ -456,7 +410,7 @@ function Fun() {
       <div style={{ position: 'absolute', margin: '339px 0 0 550px' }}>
         <HealthBar/>
       </div>
-      <RunButton/>
+      {/* <RunButton/>
       <div style={{position: 'absolute', margin: '250px 0 0 70px' }}>
         <ColoredCode txt={'func launchSite() async {'}/>
         <ColoredCode txt={'  let anim: Platform = isMobile ? .mobile : .web'}/>
@@ -470,8 +424,8 @@ function Fun() {
         <ColoredCode txt={'    logger.error("Error launching site: \(error.message)")'}/>
         <ColoredCode txt={'  }'}/>
         <ColoredCode txt={'}'}/>
-      </div>
-      <div style={{position: 'absolute', display:'flex', alignItems: 'flex-start', gap: 20, margin: '100px 0 0 1000px'}}>
+      </div> */}
+      <div style={{display:'flex', justifyContent: 'center', gap: 20, paddingTop: 80}}>
         <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
           <Cell content={<FavoriteSongs/>}/>
           <Cell content={<FavoriteFoods/>}/>
