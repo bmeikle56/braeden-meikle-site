@@ -61,13 +61,10 @@ function HealthBar() {
   )
 }
 
-// "Rank this (holdem/omaha) hand (1/6/q/j/....)(c/h/s/d) with an integer in the range 1-100 inclusive
-// and give me a hex value to color the health bar"
-
 function ActivityTracker() {
   const activity = [
     [0,0,1,0,0,1,1,1,0,0],
-    [1,0,0,0,0,0,0,0,0,0],
+    [1,0,1,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0]
   ]
@@ -189,57 +186,6 @@ function BouncingLine({ height, dur }) {
       }}/>}
     </div>
   )
-}
-
-function MetaAnim({ meta }) {
-  const boundaries = [
-    {
-      position: 'absolute',
-      zIndex: '3',
-      margin: `${Math.floor((Math.random() * 500) - 50)}px 0 0 ${Math.floor((Math.random() * 110) - 50)}px`
-    },
-    {
-      position: 'absolute',
-      zIndex: '2',
-      marginLeft:'auto',
-      margin: `${Math.floor((Math.random() * 500) - 50)}px 0 0 ${Math.floor((Math.random() * 10) + 55)}vw`
-    }
-  ]
-  const delays = [8,16]
-
-  return boundaries.map((boundary, i) => <MetaAnimFact 
-    meta={meta[Math.round(Math.random() * 3)]} 
-    delay={delays[i]} 
-    style={boundary}/>
-  )
-}
-
-function MetaAnimFact({ meta, delay, style }) {
-  return (
-    <div style={style}>
-      <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: [0,0.9,0] }}
-      transition={{ 
-        repeatType: 'reverse',
-        repeat: Infinity,
-        delay: delay,
-        duration: 6,
-        repeatDelay: 20
-      }}
-      >
-        <pre className='meta-anim'>
-          {JSON.stringify(meta, null, 2)}
-        </pre>
-      </motion.div>
-    </div>
-  )
-}
-
-function WhatImDoing() {
-  return <div style={{display:'flex', justifyContent: 'center'}}>
-    <p style={{color: specialColor}}>&rArr;</p>
-  </div>
 }
   
 function FavoriteFunction() {
