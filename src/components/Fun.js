@@ -456,7 +456,7 @@ function Fun() {
       <div style={{ position: 'absolute', margin: '339px 0 0 550px' }}>
         <HealthBar/>
       </div>
-      <RunButton/>
+      {/* <RunButton/>
       <div style={{position: 'absolute', margin: '250px 0 0 70px' }}>
         <ColoredCode txt={'func launchSite() async {'}/>
         <ColoredCode txt={'  let anim: Platform = isMobile ? .mobile : .web'}/>
@@ -470,8 +470,8 @@ function Fun() {
         <ColoredCode txt={'    logger.error("Error launching site: \(error.message)")'}/>
         <ColoredCode txt={'  }'}/>
         <ColoredCode txt={'}'}/>
-      </div>
-      <div style={{position: 'absolute', display:'flex', alignItems: 'flex-start', gap: 20, margin: '100px 0 0 1000px'}}>
+      </div> */}
+      <div style={{display:'flex', justifyContent: 'center', gap: 20, paddingTop: 80}}>
         <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
           <Cell content={<FavoriteSongs/>}/>
           <Cell content={<FavoriteFoods/>}/>
