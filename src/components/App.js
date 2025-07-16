@@ -15,17 +15,14 @@ function Body() {
   const [isLoading, setLoading] = useState(false)
 
   if (isLaunched) {
-    console.log('launch')
     return <Launch setLaunched={setLaunched} setLoading={setLoading}/>
   }
 
   if (isLoading) {
-    console.log('loading')
     return <Loading setLoading={setLoading}/>
   }
 
   if (!isLaunched && !isLoading) {
-    console.log('ready')
   }
 
   function Launch({ setLaunched, setLoading }) {
