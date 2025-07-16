@@ -338,52 +338,6 @@ function Hand({ cards }) {
   )
 }
 
-function RunButton() {
-  return (
-    <button
-      onClick={() => window.location.reload()}
-      style={{
-        position: 'absolute',
-        margin: '200px 0 0 70px',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        width: 'fit-content',
-        padding: '8px 16px',
-        border: `1px solid ${specialColor}`,
-        borderRadius: '8px',
-        background: 'transparent',
-        color: '#7dd3fc',
-        cursor: 'pointer',
-        boxShadow: `0px 0px 8px ${specialColor}`,
-      }}
-      
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="none"
-        stroke={specialColor}
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        viewBox="0 0 24 24"
-      >
-        <polygon points="5,3 19,12 5,21" />
-      </svg>
-    </button>
-  );
-}
-
-function ColoredCode({ txt, color = specialColor }) {
-  return (
-    <pre style={{color: color, margin: '2px'}}>
-      {txt}
-    </pre>
-  )
-}
-
 function Goals() {
   function Goal({ goal }) {
     return (

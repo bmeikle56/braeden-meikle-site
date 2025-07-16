@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import { specialColor } from '../styles/colors.js'
+import { useEffect } from 'react'
 
 function ByteTransfer() {
   return (
@@ -48,7 +49,13 @@ function IPhoneSilhouette() {
 }
 
 
-function Loading() {
+function Loading({ setLoading }) {
+
+  // loading animation for 3.5 seconds
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 3500)
+  }, [])
+
   return (
     <motion.div 
     style={{
