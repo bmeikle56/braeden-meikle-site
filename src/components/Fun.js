@@ -64,7 +64,7 @@ function HealthBar() {
 function ActivityTracker() {
   const activity = [
     [0,0,1,0,0,0,0,0,0,0],
-    [0,0,0,0,1,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0]
   ]
@@ -410,21 +410,6 @@ function Fun() {
       <div style={{ position: 'absolute', margin: '339px 0 0 550px' }}>
         <HealthBar/>
       </div>
-      {/* <RunButton/>
-      <div style={{position: 'absolute', margin: '250px 0 0 70px' }}>
-        <ColoredCode txt={'func launchSite() async {'}/>
-        <ColoredCode txt={'  let anim: Platform = isMobile ? .mobile : .web'}/>
-        <ColoredCode txt={'  try {'}/>
-        <ColoredCode txt={'    let data = try await fetchData()'}/>
-        <ColoredCode txt={'    if let user = data.body?.user {'}/>
-        <ColoredCode txt={'      logger.log("\(user) visiting site")'}/>
-        <ColoredCode txt={'    }'}/>
-        <ColoredCode txt={'    presentUI(with: data)'}/>
-        <ColoredCode txt={'  } catch let error {'}/>
-        <ColoredCode txt={'    logger.error("Error launching site: \(error.message)")'}/>
-        <ColoredCode txt={'  }'}/>
-        <ColoredCode txt={'}'}/>
-      </div> */}
       <div style={{display:'flex', justifyContent: 'center', gap: 20, paddingTop: 80}}>
         <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
           <Cell content={<FavoriteSongs/>}/>
