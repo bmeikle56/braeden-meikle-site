@@ -1,10 +1,10 @@
 import { motion } from 'motion/react'
-import { txtCol, darkGray, superDarkGray, onlineGreen, specialColor } from '../styles/colors.js'
+import { darkGray, superDarkGray, onlineGreen, specialColor } from '../styles/colors.js'
 import Cells from './Cells.js'
 
 function Title() { 
   const style = {
-    fontSize: '45px',
+    fontSize: '28px',
     paddingTop: '20px',
     paddingBottom: '8px',
     textAlign: 'center',
@@ -12,10 +12,9 @@ function Title() {
     backgroundClip: 'text',
     textShadow: 'rgb(128, 128, 128) 0px 0px 25px',
     color: 'transparent',
-    fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
   }
 
-  return <h1 id="title" style={style}>Braeden Meikle</h1> 
+  return <pre id="title" style={style}>braeden meikle</pre> 
 }
 
 function HealthBar() {
@@ -211,7 +210,7 @@ const pfpMeta = {
   
 function Fun() { 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '95vh'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '95vh', opacity: 0.6}}>
       <Title/>
       <div>
         <ActivityTracker/>
@@ -224,10 +223,10 @@ function Fun() {
           <OmahaHandOfTheDay/>
         </div>
       </div>
-      <div style={{ position: 'absolute', margin: '277px 0 0 550px' }}>
+      <div style={{ position: 'absolute', margin: '255px 0 0 550px' }}>
         <HealthBar/>
       </div>
-      <div style={{ position: 'absolute', margin: '339px 0 0 550px' }}>
+      <div style={{ position: 'absolute', margin: '317px 0 0 550px' }}>
         <HealthBar/>
       </div>
       <Cells/>

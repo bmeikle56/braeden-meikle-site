@@ -65,7 +65,7 @@ function Goals() {
     return (
       <div style={{ display: 'flex', alignItems: 'center', width: 'fit-content',}}>
         <p style={{ color: specialColor, paddingRight: '6px', margin: '0px 0px 0px 0px' }}>&rArr;</p>
-        <p style={{ color: darkGray, margin: '0px 0px 0px 0px' }}>{goal}</p>
+        <p style={{ color: txtCol, margin: '0px 0px 0px 0px' }}>{goal}</p>
       </div>
     )
   }
@@ -171,7 +171,14 @@ function FavoritePokerHand() {
 
 function Cells() {
   return (
-    <div style={{display:'flex', justifyContent: 'center', gap: 20, paddingTop: 80}}>
+    <motion.div 
+    style={{display:'flex', justifyContent: 'center', gap: 20, paddingTop: 80, opacity: 0.5}}
+    // initial={{ opacity: 0 }}
+    // animate={{ opacity: 1 }}
+    // transition={{
+    //   delay: .25
+    // }}
+    >
       <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
         <Cell content={<FavoriteSongs/>}/>
         <Cell content={<FavoriteFoods/>}/>
@@ -182,7 +189,7 @@ function Cells() {
         <Cell content={<Goals/>}/>
         <Cell content={<FavoriteTeams/>}/>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
