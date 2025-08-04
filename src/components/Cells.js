@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { txtCol, darkGray, specialColor } from '../styles/colors.js'
+import { txtCol, specialColor } from '../styles/colors.js'
 
 function Cell({ content }) {
   return <div id='cell' style={{
@@ -42,7 +42,7 @@ function BouncingLines() {
             ease: 'easeInOut',
             repeat: Infinity,
             repeatType: 'loop'
-          },
+          }
         }}/>}
       </div>
       )
@@ -160,19 +160,19 @@ function FavoriteFunction() {
   )
 }
   
-function FavoritePokerHand() {
-  return (
-    <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>
-      <img alt='Jack of Diamonds' src={`${process.env.PUBLIC_URL}/img/jack-of-diamonds.png`} style={{width: 35, height: 35}}/>
-      <img alt='Deuce of Diamonds' src={`${process.env.PUBLIC_URL}/img/two-of-diamonds.png`} style={{width: 35, height: 35}}/>
-    </div>
-  )
-}
+// function FavoritePokerHand() {
+//   return (
+//     <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>
+//       <img alt='Jack of Diamonds' src={`${process.env.PUBLIC_URL}/img/jack-of-diamonds.png`} style={{width: 35, height: 35}}/>
+//       <img alt='Deuce of Diamonds' src={`${process.env.PUBLIC_URL}/img/two-of-diamonds.png`} style={{width: 35, height: 35}}/>
+//     </div>
+//   )
+// }
 
 function Cells() {
   return (
     <motion.div 
-    style={{display:'flex', justifyContent: 'center', gap: 20, paddingTop: 80, opacity: 0.6}}
+    style={{display:'flex', justifyContent: 'center', gap: 20, paddingTop: 80, opacity: 0.7}}
     // initial={{ opacity: 0 }}
     // animate={{ opacity: 1 }}
     // transition={{

@@ -176,15 +176,22 @@ function HoldemHandOfTheDay() {
 }
 
 function OmahaHandOfTheDay() {
-  // cards must be unique...
-  let cards = new Set()
+  // cards must be unique
+  const cards = new Set()
   while (cards.size < 5) {
     cards.add(getRandomCard())
   }
-  cards = Array.from(cards)
-  return (
-    <Hand cards={cards}/>
-  )
+
+  const rankOrder = ['a', 'k', 'q', 'j', 't', '9', '8', '7', '6', '5', '4', '3', '2']
+
+  // cards sorked by rank, left highest
+  const sortedCards = Array.from(cards).sort((a, b) => {
+    const rankA = a[0]
+    const rankB = b[0]
+    return rankOrder.indexOf(rankA) - rankOrder.indexOf(rankB)
+  })
+
+  return <Hand cards={sortedCards} />
 }
 
 function getRandomCard() {
@@ -210,7 +217,7 @@ function Hand({ cards }) {
   
 function Fun() { 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '95vh', opacity: 0.55}}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '95vh', opacity: 0.6}}>
       <Title/>
       <div>
         <ActivityTracker/>
