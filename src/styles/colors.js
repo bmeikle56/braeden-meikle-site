@@ -3,7 +3,7 @@ const darkGray = 'rgb(120,120,120)'
 const superDarkGray = 'rgb(20,20,20)'
 
 // universal text color for the site
-const txtCol = 'rgb(150,150,150)'
+const txtCol = 'rgb(200,200,200)'
 
 const onlineGreen = 'rgb(0,192,0)'
 
