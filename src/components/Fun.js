@@ -5,7 +5,7 @@ import Cells from './Cells.js'
 function Title() { 
   const style = {
     fontSize: '28px',
-    paddingTop: '20px',
+    paddingTop: '60px',
     paddingBottom: '8px',
     textAlign: 'center',
     background: specialColor,
@@ -28,8 +28,8 @@ function HealthBar() {
   return (
     <div
       style={{
-        width: '64px',
-        height: '8px',
+        width: '48px',
+        height: '6px',
         backgroundColor: 'black',
         border: '2px solid black',
         borderRadius: '10px',
@@ -97,7 +97,7 @@ function ActivityTracker() {
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px'}}>
       <div style={{display: 'flex', justifyContent: 'center'}}>
-        <Pfp meta={pfpMeta}/>
+        <Pfp/>
       </div>
       <div style={{height: '72px', width:'2px', background: 'rgb(30,30,30)', borderRadius: '8px'}}/>
       <div style={{display: 'flex', flexDirection: 'column', gap: '12px', justifyContent: 'center', alignItems: 'center'}}>
@@ -146,7 +146,14 @@ function Activity({ day, index }) {
       </div>
     </div> */}
 
-function Pfp({ meta }) {
+function Pfp() {
+  const meta = {
+    imgLink: 'https://i.postimg.cc/5y9YBjxF/IMG-6776.jpg',
+    width: 57,
+    height: 76,
+    alt: 'Profile Picture'
+  }
+
   return (
       <img 
         src={meta.imgLink}
@@ -190,43 +197,36 @@ function getRandomCard() {
 
 function Hand({ cards }) {
   return (
-    <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}>
+    <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: 5, width: 220}}>
       {cards.map((card) => {
         return <div style={{width: 50, height: 50}}>
-          <div style={{background: specialColor, boxShadow: `0px 0px 8px ${specialColor}`, borderRadius: 3, width: 40, height: 52, zIndex: 0, marginTop: 20}}/>
-          <img alt={card} src={`${process.env.PUBLIC_URL}/img/cards/${card[0]}/${card[1]}.png`} style={{width: 50, height: 50, zIndex: 1, marginTop: -51, marginBottom: 25, marginLeft: -5}}/>
+          <div style={{background: specialColor, boxShadow: `0px 0px 8px ${specialColor}`, borderRadius: 3, width: 36, height: 48, zIndex: 0, marginTop: 22}}/>
+          <img alt={card} src={`${process.env.PUBLIC_URL}/img/cards/${card[0]}/${card[1]}.png`} style={{width: 46, height: 46, zIndex: 1, marginTop: -47, marginBottom: 25, marginLeft: -5}}/>
         </div>
       })}
     </div>
   )
 }
-
-const pfpMeta = {
-  imgLink: 'https://i.postimg.cc/5y9YBjxF/IMG-6776.jpg',
-  width: 69,
-  height: 92,
-  alt: 'Profile Picture'
-}
   
 function Fun() { 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '95vh', opacity: 0.6}}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '95vh', opacity: 0.55}}>
       <Title/>
       <div>
         <ActivityTracker/>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 'fit-content' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', marginBottom: '12px' }}>
+          {/* <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', marginBottom: '12px' }}>
             <HoldemHandOfTheDay/>
-          </div>
+          </div> */}
           <OmahaHandOfTheDay/>
         </div>
       </div>
-      <div style={{ position: 'absolute', margin: '255px 0 0 550px' }}>
+      {/* <div style={{ position: 'absolute', margin: '255px 0 0 550px' }}>
         <HealthBar/>
-      </div>
-      <div style={{ position: 'absolute', margin: '317px 0 0 550px' }}>
+      </div> */}
+      <div style={{ position: 'absolute', margin: '278px 0 0 580px' }}>
         <HealthBar/>
       </div>
       <Cells/>

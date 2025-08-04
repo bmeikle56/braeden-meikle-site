@@ -172,7 +172,7 @@ function FavoritePokerHand() {
 function Cells() {
   return (
     <motion.div 
-    style={{display:'flex', justifyContent: 'center', gap: 20, paddingTop: 80, opacity: 0.5}}
+    style={{display:'flex', justifyContent: 'center', gap: 20, paddingTop: 80, opacity: 0.6}}
     // initial={{ opacity: 0 }}
     // animate={{ opacity: 1 }}
     // transition={{
