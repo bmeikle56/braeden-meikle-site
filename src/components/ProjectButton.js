@@ -6,13 +6,20 @@ function ProjectButton({ txt, route }) {
 
   return (
     <button style={{
-      width: 200,
+      width: 180,
       height: 80,
-      border: `2px solid ${specialColor}`
+      border: 'none',
+      background: 'black',
+      boxShadow: `0 0 12px ${specialColor}`,
+      borderRadius: 16
     }}
     onClick={() => navigate(route)}
     >
-      {txt}
+      <pre style={{
+        color: specialColor,
+        fontSize: 16
+      }}>{txt}</pre>
+      
     </button>
   )
 }
