@@ -1,12 +1,12 @@
 import '../styles/global.css'
 import { useState } from 'react'
-import { Fun } from './Fun.js'
-import { Footer } from './Footer.js'
-import { Loading } from './Loading.js'
+import { Fun } from '../components/Fun.js'
+import { Footer } from '../components/Footer.js'
+import { Loading } from '../components/Loading.js'
 import { motion } from 'motion/react'
 import { specialColor } from '../styles/colors.js'
 
-function Body() {
+function Home() {
 
   // we init the app to be on launch state
   // once the run button is tapped, we transition to the
@@ -96,21 +96,17 @@ function Body() {
   }
 
   return (
-    <body>
-      <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{
-        delay: .25
-      }}
-      >
-        <Fun/>
-        <Footer/>
-      </motion.div>
-    </body>
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{
+      delay: .25
+    }}
+    >
+      <Fun/>
+      <Footer/>
+    </motion.div>
   )
 }
 
-export default function App() {
-  return <Body/>
-}
+export default Home
