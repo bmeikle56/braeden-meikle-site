@@ -1,8 +1,12 @@
+import BackButton from '../components/BackButton'
 
 function PokerDegen() {
   return (
-    <div>
-      
+    <div style={{
+      height: '100vh',
+      width: '100vw',
+    }}>
+      <BackButton/>
     </div>
   )
 }

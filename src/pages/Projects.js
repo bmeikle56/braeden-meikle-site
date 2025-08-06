@@ -12,8 +12,8 @@ function Projects() {
       gap: 20
     }}
     >
-      <ProjectButton txt={'PokerDegen'} route={'/projects/poker-degen'}/>
-      <ProjectButton txt={'Berzerk'} route={'/projects/berzerk-agile-dev'}/>
+      <ProjectButton txt={'PokerDegen'} route={'/project/poker-degen'}/>
+      <ProjectButton txt={'Berzerk'} route={'/project/berzerk-agile-dev'}/>
     </div>
   )
 }
