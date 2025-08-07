@@ -1,4 +1,4 @@
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import { specialColor } from '../styles/colors.js'
 import { useEffect } from 'react'
 

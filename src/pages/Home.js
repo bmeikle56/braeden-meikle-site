@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Fun } from '../components/Fun.js'
 import { Footer } from '../components/Footer.js'
 import { Loading } from '../components/Loading.js'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import { specialColor } from '../styles/colors.js'
 
 function Home() {
