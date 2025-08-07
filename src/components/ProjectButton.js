@@ -19,7 +19,6 @@ function ProjectButton({ txt, route }) {
         color: specialColor,
         fontSize: 16
       }}>{txt}</pre>
-      
     </button>
   )
 }
