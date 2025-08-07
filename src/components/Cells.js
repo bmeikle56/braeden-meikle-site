@@ -1,4 +1,4 @@
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import { txtCol, specialColor } from '../styles/colors.js'
 
 function Cell({ content }) {

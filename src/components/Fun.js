@@ -1,4 +1,4 @@
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import { darkGray, superDarkGray, onlineGreen, specialColor } from '../styles/colors.js'
 import Cells from './Cells.js'
 
