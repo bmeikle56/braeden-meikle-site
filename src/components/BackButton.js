@@ -11,6 +11,8 @@ function BackButton() {
       fontSize: 12,
       background: 'black',
       border: 'none',
+      padding: 25,
+      textShadow: `0 0 6px white, 0 0 6px white`
     }}
     onClick={() => navigate('/projects')}
     >
