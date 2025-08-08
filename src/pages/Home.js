@@ -7,10 +7,6 @@ import { motion } from 'framer-motion'
 import { specialColor } from '../styles/colors.js'
 
 function Home() {
-
-  // we init the app to be on launch state
-  // once the run button is tapped, we transition to the
-  // loading state, then to the loaded state
   const [isLaunched, setLaunched] = useState(true)
   const [isLoading, setLoading] = useState(false)
 
@@ -20,9 +16,6 @@ function Home() {
 
   if (isLoading) {
     return <Loading setLoading={setLoading}/>
-  }
-
-  if (!isLaunched && !isLoading) {
   }
 
   function Launch({ setLaunched, setLoading }) {
@@ -61,7 +54,7 @@ function Home() {
             <polygon points="5,3 19,12 5,21" />
           </svg>
         </button>
-      );
+      )
     }
 
     function ColoredCode({ txt, color = specialColor }) {
@@ -73,23 +66,10 @@ function Home() {
     }
 
     return (
-      <div style={{display: 'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', height:'100vh'}}>
-        <div style={{display: 'flex', justifyContent:'flex-start', width: '445px', paddingBottom: 10}}>
+      <div style={{display: 'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', height:'100vh', gap: 20}}>
+        <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', gap: 10}}>
           <RunButton setLaunched={setLaunched}/>
-        </div>
-        <div>
-          <ColoredCode txt={'func launchSite() async {'}/>
-          <ColoredCode txt={'  let anim: Platform = isMobile ? .mobile : .web'}/>
-          <ColoredCode txt={'  try {'}/>
-          <ColoredCode txt={'    let data = try await fetchUserData()'}/>
-          <ColoredCode txt={'    if let user = data.body?.user {'}/>
-          <ColoredCode txt={'      logger.log("\(user) visiting site")'}/>
-          <ColoredCode txt={'    }'}/>
-          <ColoredCode txt={'    presentUI(with: data)'}/>
-          <ColoredCode txt={'  } catch let error {'}/>
-          <ColoredCode txt={'    logger.error("Error launching site: \(error.message)")'}/>
-          <ColoredCode txt={'  }'}/>
-          <ColoredCode txt={'}'}/>
+          <ColoredCode txt={'func site() async'}/>
         </div>
       </div>
     )

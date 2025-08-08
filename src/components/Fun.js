@@ -14,45 +14,45 @@ function Title() {
     color: 'transparent',
   }
 
-  return <pre id="title" style={style}>braeden meikle</pre> 
+  return <pre id='title' style={style}>braeden meikle</pre> 
 }
 
-function HealthBar() {
-  function getRandomPercent() {
-    return Math.floor(Math.random() * 100) + 1;
-  }
+// function HealthBar() {
+//   function getRandomPercent() {
+//     return Math.floor(Math.random() * 100) + 1;
+//   }
 
-  // Clamp percent between 0 and 100
-  const clampedPercent = Math.max(0, Math.min(100, getRandomPercent()))
+//   // Clamp percent between 0 and 100
+//   const clampedPercent = Math.max(0, Math.min(100, getRandomPercent()))
 
-  return (
-    <div
-      style={{
-        width: '48px',
-        height: '6px',
-        backgroundColor: 'black',
-        border: '2px solid black',
-        borderRadius: '10px',
-        boxShadow: `0 0 8px ${specialColor}`,
-        overflow: 'hidden',
-      }}
-    >
-      <div
-        style={{
-          width: `${clampedPercent}%`,
-          height: '100%',
-          backgroundColor: specialColor,
-          transition: 'width 0.3s ease-in-out',
-          borderRadius: '10px 0 0 10px',
-        }}
-      />
-    </div>
-  )
-}
+//   return (
+//     <div
+//       style={{
+//         width: '48px',
+//         height: '6px',
+//         backgroundColor: 'black',
+//         border: '2px solid black',
+//         borderRadius: '10px',
+//         boxShadow: `0 0 8px ${specialColor}`,
+//         overflow: 'hidden',
+//       }}
+//     >
+//       <div
+//         style={{
+//           width: `${clampedPercent}%`,
+//           height: '100%',
+//           backgroundColor: specialColor,
+//           transition: 'width 0.3s ease-in-out',
+//           borderRadius: '10px 0 0 10px',
+//         }}
+//       />
+//     </div>
+//   )
+// }
 
 function ActivityTracker() {
   const activity = [
-    [0,0,1,0,0,1,0,0,0,0],
+    [0,0,1,0,0,1,1,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0]
@@ -135,17 +135,6 @@ function Activity({ day, index }) {
   ></motion.div>
 }
 
-{/* <div style={{display: 'flex', alignItems: 'center', gap: '5px', justifyContent: 'center', width: '100%'}}>
-      <p style={{color: darkGray}}>Transforming</p>
-      <FavoriteFunction meta={funcMeta}/>
-    </div>}
-    {/* <div style={{display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'center', width: '100%'}}>
-      <p style={{color: darkGray}}>Bluffing with</p>
-      <div style={{margin: '0 15px 0 0'}}>
-        <FavoritePokerHand/>
-      </div>
-    </div> */}
-
 function Pfp() {
   const meta = {
     imgLink: 'https://i.postimg.cc/5y9YBjxF/IMG-6776.jpg',
@@ -160,18 +149,6 @@ function Pfp() {
         style={{width: meta.width, height: meta.height, borderRadius:'10%'}} 
         alt={meta.alt}
       />
-  )
-}
-
-function HoldemHandOfTheDay() {
-  // cards must be unique...
-  let cards = new Set()
-  while (cards.size < 2) {
-    cards.add(getRandomCard())
-  }
-  cards = Array.from(cards)
-  return (
-    <Hand cards={cards}/>
   )
 }
 
@@ -224,17 +201,8 @@ function Fun() {
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 'fit-content' }}>
-          {/* <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', marginBottom: '12px' }}>
-            <HoldemHandOfTheDay/>
-          </div> */}
           <OmahaHandOfTheDay/>
         </div>
-      </div>
-      {/* <div style={{ position: 'absolute', margin: '255px 0 0 550px' }}>
-        <HealthBar/>
-      </div> */}
-      <div style={{ position: 'absolute', margin: '278px 0 0 580px' }}>
-        <HealthBar/>
       </div>
       <Cells/>
     </div>
