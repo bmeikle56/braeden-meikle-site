@@ -69,7 +69,7 @@ function Home() {
       <div style={{display: 'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', height:'100vh', gap: 20}}>
         <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', gap: 10}}>
           <RunButton setLaunched={setLaunched}/>
-          <ColoredCode txt={'func site() async'}/>
+          <ColoredCode txt={'func launchSite() async'}/>
         </div>
       </div>
     )

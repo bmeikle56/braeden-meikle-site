@@ -5,6 +5,7 @@ const footerDivs = [
   {txt: 'Email', link: 'mailto:braedenmeikle@gmail.com', icon: 'fa fa-envelope'},
   {txt: 'LinkedIn', link: 'https://www.linkedin.com/in/bmeikle3/', icon: 'fa fa-linkedin-square'},
   {txt: 'GitHub', link: 'https://github.com/bmeikle56', icon: 'fa fa-github'},
+  {txt: 'Projects', link: 'https://braedenmeikle.dev/projects', icon: 'fa fa-folder'},
 ]
 
 const iconStyle = {
