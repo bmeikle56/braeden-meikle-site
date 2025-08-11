@@ -1,9 +1,9 @@
 import '../src/styles/global.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from '../src/pages/Home'
-import Projects from '../src/pages/Projects'
-import Berzerk from '../src/pages/Berzerk'
-import PokerDegen from '../src/pages/PokerDegen'
+import Home from './pages/Home'
+import Projects from './pages/Projects'
+import Berzerk from './pages/Berzerk'
+import PokerDegen from './pages/PokerDegen'
 
 function App() {
   return (
