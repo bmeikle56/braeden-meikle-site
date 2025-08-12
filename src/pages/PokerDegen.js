@@ -6,7 +6,7 @@ function PokerDegen() {
       height: '100vh',
       width: '100vw',
     }}>
-      <BackButton/>
+      <BackButton txt={'Projects'} route={'/projects'}/>
     </div>
   )
 }
