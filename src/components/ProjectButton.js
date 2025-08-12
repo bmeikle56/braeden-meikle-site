@@ -1,4 +1,3 @@
-import { specialColor } from '../styles/colors'
 import { useNavigate } from 'react-router-dom'
 
 function ProjectButton({ txt, route }) {
@@ -6,17 +5,20 @@ function ProjectButton({ txt, route }) {
 
   return (
     <button style={{
-      width: 180,
-      height: 80,
+      width: 140,
+      height: 50,
       border: 'none',
       background: 'black',
-      boxShadow: `0 0 12px ${specialColor}`,
+      boxShadow: '0 0 12px rgb(12,123,0)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       borderRadius: 16
     }}
     onClick={() => navigate(route)}
     >
       <pre style={{
-        color: specialColor,
+        color: 'rgb(12,123,0)',
         fontSize: 16
       }}>{txt}</pre>
     </button>
