@@ -159,7 +159,7 @@ function Hand({ cards }) {
   
 function Fun() { 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '95vh'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '90vh'}}>
       <Title/>
       <div>
         <ActivityTracker/>

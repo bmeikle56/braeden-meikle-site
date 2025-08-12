@@ -12,7 +12,7 @@ function Footer() {
   const navigate = useNavigate()
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', padding: '0 20vw 0 20vw' }}> 
+    <div style={{ display: 'flex', justifyContent: 'center', padding: '0 20vw 0 20vw', height: '10vh' }}> 
       <div className='footer'>
         {footerDivs.map((footerDiv, i) => {
           return <div key={i} style={{display: 'flex', alignItems:'center'}}>
