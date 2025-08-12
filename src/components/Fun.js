@@ -5,7 +5,6 @@ import Cells from './Cells.js'
 function Title() { 
   const style = {
     fontSize: '28px',
-    paddingTop: '60px',
     paddingBottom: '8px',
     textAlign: 'center',
     color: 'rgb(12,123,0)',
@@ -159,7 +158,7 @@ function Hand({ cards }) {
   
 function Fun() { 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '90vh'}}>
+    <div id='fun' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
       <Title/>
       <div>
         <ActivityTracker/>

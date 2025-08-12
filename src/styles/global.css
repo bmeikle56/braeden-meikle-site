@@ -14,8 +14,6 @@ html, body {
   width: 100%;
 }
 
-
-
 .footer {
   display: flex;
   width: 32vw;
@@ -25,7 +23,10 @@ html, body {
 
 .footer-txt {
   font-size: 12px;
-  /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+}
+
+#fun {
+  height: 90vh;
 }
 
 @media screen and (max-width: 800px) {
@@ -35,6 +36,14 @@ html, body {
     justify-content: space-between;
     padding: 0 0 0 0;
   }
+
+  #fun {
+    height: 75vh;
+  }
+
+  #footer-div {
+    margin-top: 2vh;
+  }
 }
 
 a.func:link, a.func:visited  {
@@ -42,18 +51,4 @@ a.func:link, a.func:visited  {
   color: rgb(12,123,0);
   text-decoration: none;
   vertical-align: middle;
-}
-
-@media screen and (max-width: 800px) {
-  #canvas {
-    margin-top: -2vh;
-  }
-
-  #fun {
-    height: 85vh;
-  }
-
-  #footer-div {
-    margin-top: -40px;
-  }
 }
