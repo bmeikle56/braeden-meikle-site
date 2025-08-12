@@ -2,7 +2,6 @@ import { txtCol, specialColor } from '../styles/colors'
 import { useNavigate } from 'react-router-dom'
 
 const footerDivs = [
-  {txt: 'Created November 26, 2024', nav: false},
   {txt: 'Email', link: 'mailto:braedenmeikle@gmail.com', icon: 'fa fa-envelope', nav: false},
   {txt: 'LinkedIn', link: 'https://www.linkedin.com/in/bmeikle3/', icon: 'fa fa-linkedin-square', nav: false},
   {txt: 'GitHub', link: 'https://github.com/bmeikle56', icon: 'fa fa-github', nav: false},
@@ -13,7 +12,7 @@ function Footer() {
   const navigate = useNavigate()
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}> 
+    <div style={{ display: 'flex', justifyContent: 'center', padding: '0 20vw 0 20vw' }}> 
       <div className='footer'>
         {footerDivs.map((footerDiv, i) => {
           return <div key={i} style={{display: 'flex', alignItems:'center'}}>
