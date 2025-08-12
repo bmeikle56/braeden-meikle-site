@@ -4,7 +4,6 @@ import { Fun } from '../components/Fun.js'
 import { Footer } from '../components/Footer.js'
 import { Loading } from '../components/Loading.js'
 import { motion } from 'framer-motion'
-import { specialColor } from '../styles/colors.js'
 
 function Home() {
   //const [isLaunched, setLaunched] = useState(true)

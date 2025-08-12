@@ -42,7 +42,7 @@ code {
 
 a.func:link, a.func:visited  {
   font-family: andale mono, monospace;
-  color: rgb(255, 0, 123);
+  color: rgb(12,123,0);
   text-decoration: none;
   vertical-align: middle;
 }

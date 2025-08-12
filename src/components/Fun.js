@@ -8,10 +8,8 @@ function Title() {
     paddingTop: '60px',
     paddingBottom: '8px',
     textAlign: 'center',
-    background: specialColor,
-    backgroundClip: 'text',
-    textShadow: 'rgb(128, 128, 128) 0px 0px 25px',
-    color: 'transparent',
+    color: 'rgb(12,123,0)',
+    textShadow: '0px 0px 15px rgb(12,123,0), 0px 0px 12px rgb(12,123,0), 0px 0px 15px rgb(12,123,0)'
   }
 
   return <pre id='title' style={style}>braeden meikle</pre> 
@@ -151,8 +149,8 @@ function Hand({ cards }) {
     <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: 5, width: 220}}>
       {cards.map((card) => {
         return <div style={{width: 50, height: 50}}>
-          <div style={{background: specialColor, boxShadow: `0px 0px 8px ${specialColor}`, borderRadius: 3, width: 36, height: 48, zIndex: 0, marginTop: 22}}/>
-          <img alt={card} src={`${process.env.PUBLIC_URL}/img/cards/${card[0]}/${card[1]}.png`} style={{width: 46, height: 46, zIndex: 1, marginTop: -47, marginBottom: 25, marginLeft: -5}}/>
+          <div style={{background: 'rgb(12,123,0)', boxShadow: `0px 0px 8px rgb(12,123,0)`, borderRadius: 3, width: 36, height: 48, zIndex: 0, marginTop: 22}}/>
+          <img alt={card} src={`${process.env.PUBLIC_URL}/img/cards/${card[0]}/${card[1]}.png`} style={{width: 46, height: 46, zIndex: 1, marginTop: -47, marginBottom: 25, marginLeft: -5, opacity: 0.7}}/>
         </div>
       })}
     </div>
@@ -161,7 +159,7 @@ function Hand({ cards }) {
   
 function Fun() { 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '95vh', opacity: 0.6}}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '95vh'}}>
       <Title/>
       <div>
         <ActivityTracker/>
