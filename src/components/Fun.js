@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { darkGray, superDarkGray, onlineGreen, specialColor } from '../styles/colors.js'
+import { darkGray, superDarkGray, onlineGreen } from '../styles/colors.js'
 import Cells from './Cells.js'
 
 function Title() { 
