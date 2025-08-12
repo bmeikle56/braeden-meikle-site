@@ -52,4 +52,8 @@ a.func:link, a.func:visited  {
   #fun {
     height: 85vh;
   }
+
+  #footer-div {
+    margin-top: -40px;
+  }
 }

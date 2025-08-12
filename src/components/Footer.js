@@ -13,7 +13,7 @@ function Footer() {
   const navigate = useNavigate()
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', padding: '0 20vw 0 20vw', height: '10vh' }}> 
+    <div id='footer-div' style={{ display: 'flex', justifyContent: 'center', padding: '0 20vw 0 20vw', height: '10vh' }}> 
       <div className='footer'>
         {footerDivs.map((footerDiv, i) => {
           return <motion.div key={i} style={{display: 'flex', alignItems:'center'}}
@@ -34,7 +34,6 @@ function Footer() {
               : !footerDiv.nav && <pre className='footer-txt' style={{color: 'gray'}}>{footerDiv.txt}</pre>}
           </motion.div>
         })}
-        
       </div>
     </div>
   )
