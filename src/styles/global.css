@@ -34,7 +34,11 @@ html, body {
     display: flex;
     width: 90vw;
     justify-content: space-between;
-    padding: 0 0 0 0;
+    padding: 0;
+  }
+
+  .footer-txt {
+    font-size: 10px;
   }
 
   #fun {
