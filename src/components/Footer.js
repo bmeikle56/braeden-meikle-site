@@ -1,4 +1,4 @@
-import { txtCol, specialColor } from '../styles/colors'
+import { txtCol } from '../styles/colors'
 import { useNavigate } from 'react-router-dom'
 
 const footerDivs = [
@@ -17,14 +17,14 @@ function Footer() {
         {footerDivs.map((footerDiv, i) => {
           return <div key={i} style={{display: 'flex', alignItems:'center'}}>
             {!footerDiv.nav && <i className={footerDiv.icon} style={{fontSize: '12px', color: txtCol}}/>}
-            {footerDiv.nav && <i className={footerDiv.icon} style={{fontSize: '12px', color: specialColor}}/>}
+            {footerDiv.nav && <i className={footerDiv.icon} style={{fontSize: '12px', color: 'rgb(12,123,0)', textShadow: '0px 0px 15px rgb(12,123,0), 0px 0px 12px rgb(12,123,0), 0px 0px 15px rgb(12,123,0)'}}/>}
             {footerDiv.nav && 
               <button style={{textDecoration:'none', background: 'transparent', border: 'none'}} onClick={() => navigate('/projects')}>
-                <p className='footer-txt' style={{color: specialColor}}>{footerDiv.txt}</p>
+                <pre className='footer-txt' style={{color: 'rgb(12,123,0)', textShadow: '0px 0px 15px rgb(12,123,0), 0px 0px 12px rgb(12,123,0), 0px 0px 15px rgb(12,123,0)'}}>{footerDiv.txt}</pre>
               </button>}
             {footerDiv.link ? 
-              <a rel='noreferrer' target='_blank' href={footerDiv.link} style={{textDecoration:'none'}}><p className='footer-txt' style={{paddingLeft:'4px', color: 'gray'}}>{footerDiv.txt}</p></a>
-              : !footerDiv.nav && <p className='footer-txt' style={{color: 'gray'}}>{footerDiv.txt}</p>}
+              <a rel='noreferrer' target='_blank' href={footerDiv.link} style={{textDecoration:'none'}}><pre className='footer-txt' style={{paddingLeft:'4px', color: 'gray'}}>{footerDiv.txt}</pre></a>
+              : !footerDiv.nav && <pre className='footer-txt' style={{color: 'gray'}}>{footerDiv.txt}</pre>}
           </div>
         })}
         

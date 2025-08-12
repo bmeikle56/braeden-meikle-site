@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { txtCol, specialColor } from '../styles/colors.js'
+// import { txtCol, specialColor } from '../styles/colors.js'
 
 function Cell({ content }) {
   return <div id='cell' style={{
@@ -9,9 +9,9 @@ function Cell({ content }) {
     justifyContent: 'center',
     alignItems: 'center',
     margin: 'auto',
-    width: '180px',
+    width: '210px',
     padding: '18px 0 18px 0',
-    boxShadow: `0px 0px 12px ${specialColor}`,
+    boxShadow: '0px 0px 15px rgb(12,123,0), 0px 0px 12px rgb(12,123,0), 0px 0px 15px rgb(12,123,0)',
     flexDirection: 'column'
   }}>
     {content}
@@ -30,7 +30,8 @@ function BouncingLines() {
   function BouncingLine({ height, dur }) {
     const barStyle = {
       width: '1px',
-      backgroundColor: 'rgb(195, 0, 255)'
+      backgroundColor: 'rgb(12,123,0)',
+      boxShadow: '0px 0px 5px rgb(12,123,0), 0px 0px 5px rgb(12,123,0), 0px 0px 5px rgb(12,123,0)'
     }
 
     return (
@@ -64,8 +65,8 @@ function Goals() {
   function Goal({ goal }) {
     return (
       <div style={{ display: 'flex', alignItems: 'center', width: 'fit-content',}}>
-        <p style={{ color: specialColor, paddingRight: '6px', margin: '0px 0px 0px 0px' }}>&rArr;</p>
-        <p style={{ color: txtCol, margin: '0px 0px 0px 0px' }}>{goal}</p>
+        <p style={{ color: 'rgb(12,123,0)', paddingRight: '6px', margin: '0px 0px 0px 0px', textShadow: '0px 0px 5px rgb(12,123,0), 0px 0px 5px rgb(12,123,0), 0px 0px 5px rgb(12,123,0)' }}>&rArr;</p>
+        <p style={{ color: 'rgb(12,123,0)', margin: '0px 0px 0px 0px', textShadow: '0px 0px 15px rgb(12,123,0), 0px 0px 12px rgb(12,123,0), 0px 0px 15px rgb(12,123,0)' }}>{goal}</p>
       </div>
     )
   }
@@ -80,35 +81,35 @@ function Goals() {
   )
 } 
 
-function Apps() {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-      <div style={{ display: 'flex', gap: '8px' }}>
-          <img src={'https://i.postimg.cc/tTFHs75q/geico.jpg'} style={{paddingLeft:'8px', paddingRight:'8px', width: 40, height: 40}} alt={'GEICO iOS app'}/>
-          <img src={'https://i.postimg.cc/hvgRTgy9/hiya.jpg'} style={{paddingLeft:'8px', paddingRight:'8px', width: 40, height: 40}} alt={'Hiya iOS app'}/>
-      </div>
-    </div>
-  )
-} 
+// function Apps() {
+//   return (
+//     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+//       <div style={{ display: 'flex', gap: '8px' }}>
+//           <img src={'https://i.postimg.cc/tTFHs75q/geico.jpg'} style={{paddingLeft:'8px', paddingRight:'8px', width: 40, height: 40}} alt={'GEICO iOS app'}/>
+//           <img src={'https://i.postimg.cc/hvgRTgy9/hiya.jpg'} style={{paddingLeft:'8px', paddingRight:'8px', width: 40, height: 40}} alt={'Hiya iOS app'}/>
+//       </div>
+//     </div>
+//   )
+// } 
 
-function FavoriteFoods() {
-  return (
-    <div style={{display: 'flex', gap: 30, paddingTop: 5, paddingBottom: 5}}>
-      <img alt='White chocolate' src={`${process.env.PUBLIC_URL}/img/white-chocolate.png`} style={{width: 35, height: 35}}/>
-      <img alt='Coffee cup' src={`${process.env.PUBLIC_URL}/img/coffee-cup.png`} style={{width: 35, height: 35}}/>
-    </div>
-  )
-}
+// function FavoriteFoods() {
+//   return (
+//     <div style={{display: 'flex', gap: 30, paddingTop: 5, paddingBottom: 5}}>
+//       <img alt='White chocolate' src={`${process.env.PUBLIC_URL}/img/white-chocolate.png`} style={{width: 35, height: 35}}/>
+//       <img alt='Coffee cup' src={`${process.env.PUBLIC_URL}/img/coffee-cup.png`} style={{width: 35, height: 35}}/>
+//     </div>
+//   )
+// }
 
 function FavoriteSongs() {
   const songMetas = [
-    {
-      song: 'Escape',
-      imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
-      alt: 'Escape (Remix) album cover',
-      size: {width: 25, height: 25},
-      imgPadding: '0 18px 0 25px'
-    },
+    // {
+    //   song: 'Escape',
+    //   imgLink: 'https://i.scdn.co/image/ab67616d0000b273d8f57323c8f338a647193ad8',
+    //   alt: 'Escape (Remix) album cover',
+    //   size: {width: 25, height: 25},
+    //   imgPadding: '0 18px 0 25px'
+    // },
     {
       song: 'Freedom',
       imgLink: 'https://i.postimg.cc/m2LdpSd0/freedom.png',
@@ -121,7 +122,7 @@ function FavoriteSongs() {
   function FavoriteSong({ meta }) {
     return <div style={{display: 'flex', width: '100%', justifyContent:'flex-start', alignItems:'center'}}>
       <img src={meta.imgLink} style={{width: meta.size.width, height: meta.size.height, padding: meta.imgPadding}} alt={meta.alt}/>
-      <p style={{color: txtCol}}>{meta.song}</p>
+      <p style={{color: 'rgb(12,123,0)', paddingRight: 10, textShadow: '0px 0px 15px rgb(12,123,0), 0px 0px 12px rgb(12,123,0), 0px 0px 15px rgb(12,123,0)'}}>{meta.song}</p>
       <div style={{display: 'flex', width: '100%', justifyContent:'flex-end', paddingRight: 30}}>
         <BouncingLines/>
       </div>
@@ -140,25 +141,25 @@ function FavoriteSongs() {
 
 function FavoriteTeams() {
   return (
-    <div style={{display: 'flex', gap: 16}}>
+    <div style={{display: 'flex', gap: 20, justifyContent: 'center'}}>
       <img alt='Wizards old logo' src={`${process.env.PUBLIC_URL}/img/wizards.png`} style={{width: 35, height: 35}}/>
       <img alt='Georgia Tech Yellowjackets' src={`${process.env.PUBLIC_URL}/img/yellowjackets.png`} style={{width: 55, height: 35, marginRight: -10}}/>
     </div>
   )
 }
 
-function FavoriteFunction() {
-  const meta = {
-    func: 'compactMap',
-    link: 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
-  }
+// function FavoriteFunction() {
+//   const meta = {
+//     func: 'compactMap',
+//     link: 'https://developer.apple.com/documentation/swift/sequence/compactmap(_:)'
+//   }
 
-  return (
-    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
-      <a href={meta.link} rel='noreferrer' target='_blank' className='func'>{meta.func}</a>
-    </div>
-  )
-}
+//   return (
+//     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
+//       <a href={meta.link} rel='noreferrer' target='_blank' className='func'>{meta.func}</a>
+//     </div>
+//   )
+// }
   
 // function FavoritePokerHand() {
 //   return (
@@ -170,9 +171,20 @@ function FavoriteFunction() {
 // }
 
 function Cells() {
+
+  function CellContent() {
+    return (
+      <div style={{gap: 16, display: 'flex', flexDirection: 'column'}}>
+        <FavoriteSongs/>
+        <Goals/>
+        <FavoriteTeams/>
+        {/* <FavoriteFunction/> */}
+      </div>
+    )
+  }
   return (
     <motion.div 
-    style={{display:'flex', justifyContent: 'center', gap: 20, paddingTop: 80, opacity: 0.7}}
+    style={{display:'flex', justifyContent: 'center', gap: 20, paddingTop: 80}}
     // initial={{ opacity: 0 }}
     // animate={{ opacity: 1 }}
     // transition={{
@@ -180,14 +192,7 @@ function Cells() {
     // }}
     >
       <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
-        <Cell content={<FavoriteSongs/>}/>
-        <Cell content={<FavoriteFoods/>}/>
-        <Cell content={<FavoriteFunction/>}/>
-      </div>
-      <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
-        <Cell content={<Apps/>}/>
-        <Cell content={<Goals/>}/>
-        <Cell content={<FavoriteTeams/>}/>
+        <Cell content={<CellContent/>}/>
       </div>
     </motion.div>
   )
