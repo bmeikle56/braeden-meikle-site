@@ -6,7 +6,7 @@ function ByteTransfer() {
   return (
     <motion.div 
     initial={{ opacity: 0 }}
-    animate={{ opacity: [0,1,0], x: [-100,90] }}
+    animate={{ opacity: [0,1,0] /*, x: [-100,90]*/ }}
     transition={{ duration: 3, delay: 0.5 }}
     >
       <pre id='loading' style={{
@@ -68,21 +68,21 @@ function Loading({ setLoading }) {
       height: '100vh'
     }}
     initial={{ opacity: 0 }}
-    animate={{ opacity: [0,1] }}
+    animate={{ opacity: 1 }}
     transition={{ duration: 1.5 }}>
-      <motion.div
+      {/* <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: [1,0] }}
       transition={{ delay: 1, duration: 2 }}>
         <IPhoneSilhouette/>
-      </motion.div>
+      </motion.div> */}
       <ByteTransfer/>
-      <motion.div
+      {/* <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.3, duration: 2.5 }}>
         <IPhoneSilhouette/>
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   )
 }
