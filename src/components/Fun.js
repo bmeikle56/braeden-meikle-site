@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { darkGray, superDarkGray, onlineGreen, specialColor } from '../styles/colors.js'
+import { darkGray, superDarkGray, onlineGreen } from '../styles/colors.js'
 import Cells from './Cells.js'
 
 function Title() { 
@@ -159,7 +159,7 @@ function Hand({ cards }) {
   
 function Fun() { 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '95vh'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '90vh'}}>
       <Title/>
       <div>
         <ActivityTracker/>
