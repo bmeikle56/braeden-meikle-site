@@ -1,4 +1,4 @@
-import ProjectButton from '../components/ProjectButton'
+import ProjectLink from '../components/ProjectLink'
 import BackButton from '../components/BackButton'
 import { Loading } from '../components/Loading'
 import { useState } from 'react'
@@ -21,17 +21,16 @@ function Projects() {
         <div>
           <BackButton txt={'Home'} route={'/'}/>
             <div style={{
-            height: '100vh',
+            height: '80vh',
             width: '100vw',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             flexDirection: 'column',
-            gap: 20
           }}
           >
-            <ProjectButton txt={'PokerDegen'} route={'/project/poker-degen'}/>
-            <ProjectButton txt={'Berzerk'} route={'/project/berzerk-agile-dev'}/>
+            <ProjectLink txt={'pokerdegen.app'}   link={'https://pokerdegen.app'}/>
+            <ProjectLink txt={'berzerkagile.dev'} link={'https://berzerkagile.dev'}/>
           </div>
         </div>
       </motion.div>
