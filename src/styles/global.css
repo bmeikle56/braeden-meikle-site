@@ -14,11 +14,10 @@ html, body {
   width: 100%;
 }
 
-.footer {
+#footer {
   display: flex;
-  width: 32vw;
   justify-content: space-between;
-  padding: 0 150px 0 150px;
+  padding: 0 30vw 0 30vw;
 }
 
 .footer-txt {
@@ -30,13 +29,6 @@ html, body {
 }
 
 @media screen and (max-width: 800px) {
-  .footer {
-    display: flex;
-    width: 90vw;
-    justify-content: space-between;
-    padding: 0;
-  }
-
   .footer-txt {
     font-size: 10px;
   }
@@ -45,8 +37,9 @@ html, body {
     height: 75vh;
   }
 
-  #footer-div {
+  #footer {
     margin-top: 2vh;
+    padding: 0 15vw 0 15vw;
   }
 }
 
