@@ -11,7 +11,7 @@ function Title() {
     textShadow: '0px 0px 15px rgb(12,123,0), 0px 0px 12px rgb(12,123,0), 0px 0px 15px rgb(12,123,0)'
   }
 
-  return <pre id='title' style={style}>braeden meikle</pre> 
+  return <pre style={style}>braeden meikle</pre> 
 }
 
 function ActivityTracker() {
@@ -158,17 +158,19 @@ function Hand({ cards }) {
   
 function Fun() { 
   return (
-    <div id='fun' style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-      <Title/>
-      <div>
-        <ActivityTracker/>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 'fit-content' }}>
-          <OmahaHandOfTheDay/>
+    <div id='fun' style={{zIndex: 1, position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', background: 'black', height: 'fit-content', paddingBottom: 20}}>
+        <Title/>
+        <div>
+          <ActivityTracker/>
         </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 'fit-content' }}>
+            <OmahaHandOfTheDay/>
+          </div>
+        </div>
+        <Cells/>
       </div>
-      <Cells/>
     </div>
   )
 }

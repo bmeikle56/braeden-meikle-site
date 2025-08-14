@@ -7,15 +7,20 @@ import { motion } from 'framer-motion'
 
 function Wallpaper() {
   const [screenSize, setScreenSize] = useState({ width: 0, height: 0 })
-  const squareSize = 10
+  const squareSize = 40
 
   useEffect(() => {
     const updateSize = () => {
-      setScreenSize({ width: window.innerWidth, height: window.innerHeight })
+      const w = window.innerWidth
+      const h = window.innerHeight
+      setScreenSize(prev => 
+        prev.width !== w || prev.height !== h 
+          ? { width: w, height: h }
+          : prev
+      )
     }
-
-    updateSize();
-    window.addEventListener('resize', updateSize);
+    updateSize()
+    window.addEventListener('resize', updateSize)
     return () => window.removeEventListener('resize', updateSize)
   }, [])
 
@@ -66,10 +71,8 @@ function Home() {
       }}
       >
         <Wallpaper/>
-        <div style={{zIndex: 1, position: 'relative'}}>
-          <Fun/>
-          <Footer/>
-        </div>
+        <Fun/>
+        <Footer/>
       </motion.div>
     )
   }
