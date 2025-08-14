@@ -17,7 +17,7 @@ function Footer() {
     <div style={{zIndex: 1, position: 'relative'}}>
       <div id='footer'> 
         {footerDivs.map((footerDiv, i) => {
-          return <motion.div key={i} style={{display: 'flex', alignItems:'center'}}
+          return <motion.div key={i} style={{display: 'flex', alignItems:'center', background: 'black', padding: '0 16px 0 16px', borderRadius: 12}}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{

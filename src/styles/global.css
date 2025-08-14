@@ -39,7 +39,7 @@ html, body {
 
   #footer {
     margin-top: 2vh;
-    padding: 0 15vw 0 15vw;
+    justify-content: center;
   }
 }
 
