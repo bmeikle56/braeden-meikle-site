@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 
 function Wallpaper() {
   const [screenSize, setScreenSize] = useState({ width: 0, height: 0 })
-  const squareSize = 40
+  const squareSize = 10
 
   useEffect(() => {
     const updateSize = () => {
@@ -40,17 +40,26 @@ function Wallpaper() {
           zIndex: 1
         }}
       >
-        {Array.from({ length: total }).map((_, i) => (
-          <div
-            key={i}
-            style={{
-              width: '8px',
-              height: '8px',
-              backgroundColor: 'green',
-              borderRadius: '2px',
-              zIndex: 1
-            }}/>
-        ))}
+        {Array.from({ length: total }).map((_, i) => {
+          const isGreen = Math.floor(Math.random() * 8) === 0; // 1 in 4 chance
+          const greenShades = ['rgb(0,25,0)', 'rgb(0,50,0)', 'rgb(0,75,0)'];
+          const color = isGreen
+            ? greenShades[Math.floor(Math.random() * greenShades.length)]
+            : 'black';
+
+          return (
+            <div
+              key={i}
+              style={{
+                width: '8px',
+                height: '8px',
+                backgroundColor: color,
+                borderRadius: '2px',
+                zIndex: 1
+              }}
+            />
+          );
+        })}
       </div>
     </div>
   )
