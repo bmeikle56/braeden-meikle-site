@@ -3,6 +3,7 @@ import BackButton from '../components/BackButton'
 import { Loading } from '../components/Loading'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Wallpaper from '../components/Wallpaper.js'
 
 function Projects() {
   const [loading, setLoading] = useState(true)
@@ -18,7 +19,8 @@ function Projects() {
         delay: .25
       }}
       >
-        <div>
+        <Wallpaper/>
+        <div style={{zIndex: 1, position: 'relative'}}>
           <BackButton txt={'Home'} route={'/'}/>
             <div style={{
             height: '80vh',
