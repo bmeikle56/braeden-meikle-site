@@ -46,4 +46,4 @@ setInterval(() => {
   }
 }, 80)
 
-export { Loading }
+export default Loading

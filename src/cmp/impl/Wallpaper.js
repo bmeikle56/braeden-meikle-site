@@ -1,4 +1,4 @@
-import '../styles/global.css'
+import '../../styles/global.css'
 import { useState, useEffect } from 'react'
 
 function Wallpaper() {

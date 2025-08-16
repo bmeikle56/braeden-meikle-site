@@ -1,7 +1,7 @@
-import BackButton from '../components/BackButton'
-import { Loading } from '../components/Loading'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+
+import { BackButton, Loading } from '../cmp/Components'
 
 function Berzerk() {
   const [loading, setLoading] = useState(true)

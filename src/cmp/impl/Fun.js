@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { darkGray, superDarkGray, onlineGreen } from '../styles/colors.js'
-import Cells from './Cells.js'
+import { darkGray, superDarkGray, onlineGreen } from '../../styles/colors'
+import Cells from './Cells'
 
 function Title() { 
   const style = {
@@ -175,4 +175,4 @@ function Fun() {
   )
 }
 
-export { Fun }
+export default Fun

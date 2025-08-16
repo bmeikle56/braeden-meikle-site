@@ -1,4 +1,3 @@
-
 function ProjectLink({ txt, link }) {
   return (
     <a href={link} rel='noreferrer' target='_blank' className='func'

@@ -1,10 +1,8 @@
 import '../styles/global.css'
-import { useState, useEffect } from 'react'
-import { Fun } from '../components/Fun.js'
-import { Footer } from '../components/Footer.js'
-import { Loading } from '../components/Loading.js'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Wallpaper from '../components/Wallpaper.js'
+
+import { Footer, Fun, Loading, Wallpaper } from '../cmp/Components'
 
 function Home() {
   const [isLoading, setLoading] = useState(true)
