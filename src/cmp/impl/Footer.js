@@ -1,4 +1,4 @@
-import { txtCol } from '../styles/colors'
+import { txtCol } from '../../styles/colors'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import '@fortawesome/fontawesome-free/css/all.min.css'
@@ -40,4 +40,4 @@ function Footer() {
   )
 }
 
-export { Footer }
+export default Footer
