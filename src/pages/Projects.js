@@ -31,6 +31,7 @@ function Projects() {
           >
             <ProjectLink txt={'pokerdegen.app'}   link={'https://pokerdegen.app'}/>
             <ProjectLink txt={'berzerkagile.dev'} link={'https://berzerkagile.dev'}/>
+            <ProjectLink txt={'premiumswift.dev'} link={'https://premiumswift.dev'}/>
           </div>
         </div>
       </motion.div>
